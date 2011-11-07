@@ -1,0 +1,19 @@
+<div class="left_row">
+    <div class="list">
+        <div class="list_bar"><span><img src="${root}/darkBlue/app/img/icon_login.gif" alt="" title=""/></span> ${uiLabelMap.UserLogin}</div>
+        <div class="list_content"><@cms.Include name='loginframe.html' solution='darkBlue'/></div>
+    </div>
+</div>
+
+<div class="left_row">
+    <div class="list">
+        <div class="list_bar"><span><img src="${root}/darkBlue/app/img/icon_pic.gif" alt="" title=""/></span> ${uiLabelMap.HotArti}</div>
+        <div class="list_content"><@cms.ArticleList  viewSize='6'/></div>
+   </div>
+</div>
+<div class="left_row">
+    <div class="list">
+        <div class="list_bar"><span><img src="${root}/darkBlue/app/img/icon_ranks.gif" alt="" title=""/></span> ${uiLabelMap.Recommend}</div>
+        <div class="list_content"><@cms.ArticleList viewSize='6'/></div>
+    </div>
+</div>

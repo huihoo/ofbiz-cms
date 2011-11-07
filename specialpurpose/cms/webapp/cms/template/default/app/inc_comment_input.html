@@ -1,0 +1,44 @@
+[#if arti.allowComment]
+<div class="comment_item">
+  <div class="comment_bar"> <img src="${root}/default/article/img/ico_2.gif"/>[<strong>${uiLabelMap.FriendsComment}</strong>]
+  ${uiLabelMap.CommentCount}:<span style="color:#FF0000">${arti.commentCount!0}</span> ${uiLabelMap.CommentItem}[<a href="${base}/cms/Comment.jspx?articleId=${arti.articleId}" target="_blank">${uiLabelMap.ViewAllComment}</a>] 
+  </div>
+  <div class="comment_content">
+  <script type="text/javascript">
+	$(function() {
+		$("#commentForm").validate($.extend($.validator.AlertError,{
+			submitHandler:function() {
+				$.postJson('${base}/cms/ajax/cms/CommentSubmit.do', {
+					'content' : $('#commentContent').val(),
+					'checkCode' : $('#commentCheckCode').val(),
+					'articleId' : ${arti.id}
+				}, function(data) {
+					if (data.success) {
+						alert(data.msg);
+						location.reload();
+					} else {
+						alert(data.msg);
+					}
+				});
+			}
+		}));
+		new JCore.CheckCode($('#commentCheckCode'),'${base}/CheckCode.svl');
+	});
+	</script>
+    <form id="commentForm">
+      <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+        <tr>
+          <td width="17%" height="30" align="right" bgcolor="#F9F9F9">${uiLabelMap.CommentContent}: </td>
+          <td width="83%" bgcolor="#FFFFFF">&nbsp;<textarea id="commentContent" name="commentContent" cols="70" rows="5" class="required" minlength="3" title="${uiLabelMap.PleaseWriteComment}"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td height="30" align="right" bgcolor="#F9F9F9">${uiLabelMap.CheckCode}: </td>
+          <td bgcolor="#FFFFFF">&nbsp;<input type="text" id="commentCheckCode" name="commentCheckCode" class="required" maxlength="10" title="${uiLabelMap.PleaseWriteCheckCode}"/>
+            &nbsp;<input type="submit" value="${uiLabelMap.SubmitComment}"/></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</div>
+[/#if]

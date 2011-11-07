@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head xmlns="">
+    <title>${chnl.catalogName} - ${web.name}</title>
+    <meta name="keywords" content="${chnl.keywords}" />
+    <meta name="description" content="${chnl.description}" />
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	<script src="${sysResRoot}/jquery.js" type="text/javascript"></script>	
+    <link href="${sysResRoot}/front.css" type="text/css" rel="stylesheet" />
+	
+    <link href="${root}/default/article/css/whole.css" type="text/css" rel="stylesheet" />
+    <link href="${root}/default/article/css/layout.css" type="text/css" rel="stylesheet" />
+  </head>
+  
+  <body xmlns="">
+    <!--页头Begin-->[@cms.Include name='head.html' solution='default'/] <!--页头End-->
+	<!--搜索栏Begin-->[@cms.Include name='search.html' solution='default'/]<!--搜索栏End-->
+	<!--主体下Begin-->
+    <div class="page_row">
+    <div class="page_main_msg left">
+    <div class="left_row">
+    <div class="list pic_news">
+    <div class="list_bar">[@cms.Position /]</div>
+    <div class="ctitle ctitle1">关于我们</div>
+    <div class="pbox">OFBizCMS base on OFBiz ERP。
+    <p></p>
+    <p></p>
+    <p></p>
+    </div>
+    <div class="page_no">[@cms.SysPage style='2'/]</div>
+    <!--文章评论Begin--><!--文章评论End--></div>
+    </div>
+    </div>
+    <div class="page_other_msg right">[@cms.Include name='right.html' solution='default'/]</div>
+    <div style="clear: both"></div>
+    </div>
+    <!--主体下End-->
+    <!--友情链接Begin-->[@cms.Include name='hotlink.html' solution='default'/] <!--友情链接End-->
+    <!--页脚Begin-->[@cms.Include name='foot.html' solution='default'/] <!--页脚End-->
+  </body>
+</html>

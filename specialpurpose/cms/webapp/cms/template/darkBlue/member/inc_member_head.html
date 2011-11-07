@@ -1,0 +1,49 @@
+<div class="top cbody">
+	<div class="toplogo">
+		<a href="${base}/cmsmember/index.jspx"><img src="${root}/default/cms_member/img/logo.jpg" /></a>
+	</div>
+	<div class="topbanner">&nbsp;</div>	
+</div>
+<!--导航栏Begin-->
+<div class="topmenu cbody1">
+	<ul>
+	  <li class="timeclass">
+      <script>
+		<!--var day="";
+		var month="";
+		var ampm="";
+		var ampmhour="";
+		var myweekday="";
+		var year="";
+		mydate=new Date();
+		myweekday=mydate.getDay();
+		mymonth=mydate.getMonth()+1;
+		myday= mydate.getDate();
+		year= mydate.getFullYear();
+		if(myweekday == 0)
+		weekday=" ${StringUtil.wrapString(uiLabelMap.Sunday)} ";
+		else if(myweekday == 1)
+		weekday=" ${StringUtil.wrapString(uiLabelMap.Monday)} ";
+		else if(myweekday == 2)
+		weekday=" ${StringUtil.wrapString(uiLabelMap.Tuesday)} ";
+		else if(myweekday == 3)
+		weekday=" ${StringUtil.wrapString(uiLabelMap.Wednesday)} ";
+		else if(myweekday == 4)
+		weekday=" ${StringUtil.wrapString(uiLabelMap.Thursday)} ";
+		else if(myweekday == 5)
+		weekday=" ${StringUtil.wrapString(uiLabelMap.Friday)} ";
+		else if(myweekday == 6)
+		weekday=" ${StringUtil.wrapString(uiLabelMap.Saturday)} ";
+		document.write(year+"${uiLabelMap.Year}"+mymonth+"${uiLabelMap.Month}"+myday+"${uiLabelMap.Day} "+weekday);
+		//-->
+	  </script>
+      </li>
+	  <li class="thisclass"><a href="${base}/">${uiLabelMap.FirstPage}</a></li>
+	  <li class="thisclass"><a href="${base}/cmsmember/index.jspx">会员中心</a></li>
+	  <li class="thisclass"><a href="${base}/cmsmember/ArticleMain.jspx">稿件管理</a></li>
+	  <li class="thisclass"><a href="${base}/cmsmember/MemberInfo.jspx">个人资料</a></li>
+	  <li class="thisclass"><a href="${base}/cmsmember/MemberPwd.jspx">修改密码</a></li>
+	  <li class="thisclass"><a href="${base}/cms/LoginAloneLogout.jspx">安全退出</a></li>
+	</ul>
+</div>
+<!--导航栏End-->

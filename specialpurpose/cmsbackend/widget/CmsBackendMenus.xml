@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menus xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-menu.xsd">
+	<menu name="MainAppBar" title="${uiLabelMap.CmsBackendApplication}"
+		extends="CommonAppBarMenu" extends-resource="component://common/widget/CommonMenus.xml">
+		<menu-item name="main" title="${uiLabelMap.CommonMain}">
+			<link target="main" />
+		</menu-item>
+        <menu-item name="survey" title="${uiLabelMap.ContentSurvey}">
+			<link target="EditSurveyQuestions"/>
+		</menu-item>
+
+		<menu-item name="FindCmsCalendarEvents" title="${uiLabelMap.FindCmsCalendarEvents}">
+			<link target="FindCmsCalendarEvents" />
+		</menu-item>
+		<menu-item name="EditCmsCalendarEvents" title="${uiLabelMap.EditCmsCalendarEvents}">
+			<link target="EditCmsCalendarEvents" />
+		</menu-item>
+		<menu-item name="FindCmsArticle" title="${uiLabelMap.FindCmsArticle}">
+			<link target="FindCmsArticle" />
+		</menu-item>
+		<!-- 下载管理 开始 -->
+		<menu-item name="FindCmsAccessory" title="${uiLabelMap.FindCmsAccessory}">
+			<link target="FindCmsAccessory" />
+		</menu-item>
+		<!-- 下载管理 结束 -->
+		<!-- 链接管理 by Surpass Li 开始-->
+		<menu-item name="FindCmsFellowshipLinkType" title="${uiLabelMap.FindCmsFellowshipLinkType}">
+			<link target="FindCmsFellowshipLinkType" />
+		</menu-item>
+		<menu-item name="FindCmsFellowshipLink" title="${uiLabelMap.FindCmsFellowshipLink}">
+			<link target="FindCmsFellowshipLink" />
+		</menu-item>
+		<!-- 链接管理 by Surpass Li 结束-->
+
+		<!-- 评论管理 by Surpass Li 开始-->
+		<menu-item name="FindCmsComment" title="${uiLabelMap.FindCmsComment}">
+			<link target="FindCmsComment" />
+		</menu-item>
+
+		<!-- 评论管理 by Surpass Li 结束-->
+
+		<!-- 栏目管理 by Suozhu Wang 开始-->
+		<menu-item name="FindCmsCatalog" title="${uiLabelMap.FindCmsCatalog}">
+			<link target="FindCmsCatalog" />
+		</menu-item>
+		<menu-item name="EditCmsCatalog" title="${uiLabelMap.EditCmsCatalog}">
+			<link target="EditCmsCatalog" />
+		</menu-item>
+		<!-- 栏目管理 by Suozhu Wang 结束-->
+
+        <!--投票管理 by jingchao.yan start-->
+        <menu-item name="VoteManage" title="${uiLabelMap.VoteManage}">
+            <link target="VoteManage"/>
+        </menu-item>
+        <menu-item name="CreateNewVote" title="${uiLabelMap.CreateNewVote}">
+            <link target="CreateNewVote"/>
+        </menu-item>
+        <!--投票管理 by jingchao.yan end-->
+        
+        <!-- 留言管理 by Surpass Li 2011-09-15  开始--> 
+		<menu-item name="FindCmsLeaveword" title="${uiLabelMap.FindCmsLeaveword}">
+			<link target="FindCmsLeaveword" />
+		</menu-item> 
+
+		<!-- 留言管理 by Surpass Li 2011-09-15 结束-->
+	</menu>
+</menus>

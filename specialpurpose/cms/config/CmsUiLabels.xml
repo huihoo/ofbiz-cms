@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <property key="CmsApplication">
+        <value xml:lang="en">Cms Application</value>
+        <value xml:lang="zh">Cms应用程序</value>
+    </property>
+    <property key="CmsCompanyName">
+        <value xml:lang="en">OFBiz: Cms</value>
+    </property>
+    <property key="CmsCompanySubtitle">
+        <value xml:lang="en">Part of the Open For Business Family of Open Source Software</value>
+        <value xml:lang="it">Un modulo della famiglia di software open source Open For Business</value>
+        <value xml:lang="zh">开源软件OFBiz的组成部分</value>
+    </property>
+    <property key="CmsViewPermissionError">
+        <value xml:lang="en">You are not allowed to view this page.</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+    </property>
+    <property key="FirstPage">
+        <value xml:lang="en">First Page</value>
+        <value xml:lang="zh">首 页</value>
+    </property>
+    
+    <property key="FriendsLink">
+        <value xml:lang="en">FriendsLink</value>
+        <value xml:lang="zh">友情链接</value>
+    </property>
+    <property key="MessageBoard">
+        <value xml:lang="en">Message Board</value>
+        <value xml:lang="zh">留言板</value>
+    </property>
+    <property key="AdvancedSearch">
+        <value xml:lang="en">Advanced Search</value>
+        <value xml:lang="zh">高级搜索</value>
+    </property>
+    <property key="ContactUs">
+        <value xml:lang="en">Contact Us</value>
+        <value xml:lang="zh">联系我们</value>
+    </property>
+    <property key="AboutUs">
+        <value xml:lang="en">About Us</value>
+        <value xml:lang="zh">关于我们</value>
+    </property>   
+    
+    <property key="SetFirstPage">
+        <value xml:lang="en">SetFirstPage</value>
+        <value xml:lang="zh">设为首页</value>
+    </property>
+    <property key="Favorites">
+        <value xml:lang="en">Favorites</value>
+        <value xml:lang="zh">收藏本站</value>
+    </property>
+    
+    <property key="PleaseEnterTheSearchContent">
+        <value xml:lang="en">Please enter the search content</value>
+        <value xml:lang="zh">请输入搜索内容</value>
+    </property>
+    <property key="Year">
+        <value xml:lang="en">Year</value>
+        <value xml:lang="zh">年</value>
+    </property>
+    <property key="Month">
+        <value xml:lang="en">Month</value>
+        <value xml:lang="zh">月</value>
+    </property>
+    <property key="Day">
+        <value xml:lang="en">Day</value>
+        <value xml:lang="zh">日</value>
+    </property> 
+    <property key="Sunday">
+        <value xml:lang="en">Sunday</value>
+        <value xml:lang="zh">星期日</value>
+    </property>
+    <property key="Monday">
+        <value xml:lang="en">Monday</value>
+        <value xml:lang="zh">星期一</value>
+    </property>
+    <property key="Tuesday">
+        <value xml:lang="en">Tuesday</value>
+        <value xml:lang="zh">星期二</value>
+    </property>
+    <property key="Wednesday">
+        <value xml:lang="en">Wednesday</value>
+        <value xml:lang="zh">星期三</value>
+    </property>
+    <property key="Thursday">
+        <value xml:lang="en">Thursday</value>
+        <value xml:lang="zh">星期四</value>
+    </property>
+    <property key="Friday">
+        <value xml:lang="en">Friday</value>
+        <value xml:lang="zh">星期五</value>
+    </property>
+    <property key="Saturday">
+        <value xml:lang="en">Saturday</value>
+        <value xml:lang="zh">星期六</value>
+    </property>
+    <property key="NewArti">
+        <value xml:lang="en">NewArticle</value>
+        <value xml:lang="zh">最新资讯</value>
+    </property>
+    <property key="HotArti">
+        <value xml:lang="en">HotArticle</value>
+        <value xml:lang="zh">热点关注</value>
+    </property>
+    <property key="Recommend">
+        <value xml:lang="en">Recommend</value>
+        <value xml:lang="zh">热门推荐</value>
+    </property>
+    <property key="WonderfulArti">
+        <value xml:lang="en">Wonderful</value>
+        <value xml:lang="zh">精彩图文</value>
+    </property>  
+    <property key="UserLogin">
+        <value xml:lang="en">UserLogin</value>
+        <value xml:lang="zh">用户登录</value>
+    </property>  
+    
+    <property key="Anonymous">
+        <value xml:lang="en">Anonymous</value>
+        <value xml:lang="zh">匿名</value>
+    </property>
+    <property key="NewMessage">
+        <value xml:lang="en">New Message</value>
+        <value xml:lang="zh">最新留言</value>
+    </property>
+    <property key="Vote">
+        <value xml:lang="en">Vote</value>
+        <value xml:lang="zh">网友投票</value>
+    </property>
+    <property key="Waiting">
+        <value xml:lang="en">Waiting</value>
+        <value xml:lang="zh">虚位以待</value>
+    </property>
+    <property key="License">
+        <value xml:lang="en">License</value>
+        <value xml:lang="zh">许可协议</value>
+    </property>   
+   
+    <property key="Cooperation">
+        <value xml:lang="en">Cooperation</value>
+        <value xml:lang="zh">合作服务</value>
+    </property> 
+    <property key="Download">
+        <value xml:lang="en">Download</value>
+        <value xml:lang="zh">程序下载</value>
+    </property> 
+    <property key="MainText">
+        <value xml:lang="en">Text</value>
+        <value xml:lang="zh">正文</value>
+    </property> 
+    
+    
+   
+    <property key="Author">
+        <value xml:lang="en">Author</value>
+        <value xml:lang="zh">作者</value>
+    </property> 
+    <property key="ReleaseDate">
+        <value xml:lang="en">ReleaseDate</value>
+        <value xml:lang="zh">发布日期</value>
+    </property> 
+    <property key="VisitTotal">
+        <value xml:lang="en">VisitTotal</value>
+        <value xml:lang="zh">查看次数</value>
+    </property> 
+    <property key="Times">
+        <value xml:lang="en">Times</value>
+        <value xml:lang="zh">次</value>
+    </property> 
+    <property key="Intro">
+        <value xml:lang="en">Intro</value>
+        <value xml:lang="zh">摘 要</value>
+    </property> 
+    <property key="PreArticle">
+        <value xml:lang="en">"PreArticle"</value>
+        <value xml:lang="zh">【上一篇】</value>
+    </property> 
+    <property key="NextArticle">
+        <value xml:lang="en">NextArticle</value>
+        <value xml:lang="zh">【下一篇】</value>
+    </property> 
+    
+    <property key="FriendsComment">
+        <value xml:lang="en">Friends Comment</value>
+        <value xml:lang="zh">网友评论</value>
+    </property> 
+    <property key="CommentCount">
+        <value xml:lang="en">CommentCount</value>
+        <value xml:lang="zh">评论总数</value>
+    </property> 
+    <property key="CommentItem">
+        <value xml:lang="en">CommentItem</value>
+        <value xml:lang="zh">条</value>
+    </property> 
+    <property key="ViewAllComment">
+        <value xml:lang="en">ViewAllComment</value>
+        <value xml:lang="zh">查看所有评论</value>
+    </property> 
+    <property key="CommentContent">
+        <value xml:lang="en">Comment Content</value>
+        <value xml:lang="zh">评论内容</value>
+    </property> 
+    
+    <property key="PleaseWriteComment">
+        <value xml:lang="en">PleaseWriteComment</value>
+        <value xml:lang="zh">请填写评论（3到255个字符）</value>
+    </property> 
+    <property key="CheckCode">
+        <value xml:lang="en">CheckCode</value>
+        <value xml:lang="zh">验 证 码</value>
+    </property> 
+    <property key="PleaseWriteCheckCode">
+        <value xml:lang="en">PleaseWriteCheckCode</value>
+        <value xml:lang="zh">请填写验证码</value>
+    </property> 
+    <property key="SubmitComment">
+        <value xml:lang="en">SubmitComment</value>
+        <value xml:lang="zh">发表评论</value>
+    </property> 
+    <property key="Phone">
+        <value xml:lang="en">Phone</value>
+        <value xml:lang="zh">电话</value>
+    </property> 
+    <property key="paginateFirstLabel">
+        <value xml:lang="en">First</value>
+        <value xml:lang="zh">|&lt; 首页 </value>
+    </property> 
+    <property key="paginatePreviousLabel">
+        <value xml:lang="en">Previous</value>
+        <value xml:lang="zh">&lt; 上页 </value>
+    </property> 
+    <property key="paginateNextLabel">
+        <value xml:lang="en">Next</value>
+        <value xml:lang="zh"> 下页 &gt;</value>
+    </property> 
+     <property key="paginateLastLabel">
+        <value xml:lang="en">Last</value>
+        <value xml:lang="zh"> 尾页 &gt;|</value>
+    </property> 
+    <property key="total">
+        <value xml:lang="en">total</value>
+        <value xml:lang="zh">共</value>
+    </property> 
+     <property key="paginate">
+        <value xml:lang="en">page</value>
+        <value xml:lang="zh">页</value>
+    </property> 
+</resource>

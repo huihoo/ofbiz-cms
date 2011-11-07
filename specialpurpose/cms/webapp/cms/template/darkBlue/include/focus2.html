@@ -1,0 +1,65 @@
+<script type="text/javascript">
+/*焦点图---*/  
+$(function(){
+var index01 = 0;
+var ads;
+var lens = $('.num li').length;
+$('.num li').mouseover(function(){
+								index01 = $('.num li').index(this)
+								showImg(index01)
+								}).eq(0).mouseover();
+$('.focusimg').hover(function(){ clearInterval(ads); }
+							 ,function(){
+								  		ads = setInterval(function(){
+										showImg(index01)
+										index01++;
+										if(index01==4){index01=0}
+																   },3000);
+								  }).trigger("mouseleave");
+
+$('.title').css("opacity","0.7")  //透明显示图片属性
+function showImg(i){
+	$('.imgs div').eq(i).fadeIn("fast").siblings().hide();
+	$('.num li').eq(i).addClass('on').siblings().removeClass('on')
+	$('.title').html($('.imgs div img').eq(i).attr('alt'));  //显示图片属性
+	}
+		   })	
+	
+
+</script> 
+<style type="text/css">
+
+
+li{ list-style:none;}
+.clear:after{ display:block; clear:both; visibility:hidden; content:"";}
+*.clear{ zoom:1; height:1%;}
+.hide{ display:none;}
+a img{ border:none;}
+
+/**/
+.focusimg{ width:480px; height:240px; margin-left:3px 0; position:relative; overflow:hidden; cursor:pointer;}
+.imgs{}
+.num{ position:absolute; right:5px; bottom:10px;}
+.num li{ float:left; margin-right:5px; background:#FFC; border:1px solid; padding:3px 5px;}
+.num li.on{ background:#F93; color:#03C;}
+.title{ position:absolute; left:10; bottom:10px;opacity:0.5; background:#666; width:280px; height:30px; color:#fff;}
+ .focusimg .imgs div img {width:480px;height:240px;}
+</style>
+
+<div class="focusimg"> 
+<div class="imgs"> 
+  <div><img src="/cms/images/upload/article/20111002/02.jpg" alt="alt01"/></div> 
+  <div><img src="/cms/images/upload/article/20111002/03.jpg" alt="alt02"/></div> 
+  <div><img src="/cms/images/upload/article/20111002/04.jpg" alt="alt03"/></div> 
+  <div><img src="/cms/images/upload/article/20111002/05.jpg" alt="alt04"/></div> 
+</div> 
+<div class="num"> 
+  <ul> 
+    <li>1</li> 
+    <li>2</li> 
+    <li>3</li> 
+    <li>4</li> 
+  </ul> 
+</div> 
+<div class="title"></div> 
+</div> 

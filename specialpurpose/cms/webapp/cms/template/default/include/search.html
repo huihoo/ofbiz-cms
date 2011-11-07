@@ -1,0 +1,53 @@
+<script type="text/javascript">
+function searchFormSubmit() {
+	if(document.getElementById('searchKey').value==''){
+		alert('${StringUtil.wrapString(uiLabelMap.PleaseEnterTheSearchContent)}');
+		return false;
+	}
+	document.getElementById('searchForm').submit();	
+}
+</script>
+
+<form id="searchForm" action="${base}/ofbizcms/ArtiSearch.do" target="_blank">
+  <div class="topsearch">
+    <div class="title"></div>
+    <div id="page_search_left">
+      <input type="hidden" name="count" value="10" />
+      <input class="inputText" id="searchKey" size="16" onkeypress="if(event.keyCode==13){searchFormSubmit();return false;}" name="searchKey" type="text" />
+    </div>
+    <div id="page_search_btn"><img src="${root}/default/article/img/topsearch_submit.gif" border="0" onclick="searchFormSubmit();" /></div>
+    <div class="hots"></div>
+    <div id="page_search_right">
+      <script>
+		<!--var day="";
+		var month="";
+		var ampm="";
+		var ampmhour="";
+		var myweekday="";
+		var year="";
+		mydate=new Date();
+		myweekday=mydate.getDay();
+		mymonth=mydate.getMonth()+1;
+		myday= mydate.getDate();
+		year= mydate.getFullYear();
+		if(myweekday == 0)
+		weekday=" ${StringUtil.wrapString(uiLabelMap.Sunday)} ";
+		else if(myweekday == 1)
+		weekday=" ${StringUtil.wrapString(uiLabelMap.Monday)} ";
+		else if(myweekday == 2)
+		weekday=" ${StringUtil.wrapString(uiLabelMap.Tuesday)} ";
+		else if(myweekday == 3)
+		weekday=" ${StringUtil.wrapString(uiLabelMap.Wednesday)} ";
+		else if(myweekday == 4)
+		weekday=" ${StringUtil.wrapString(uiLabelMap.Thursday)} ";
+		else if(myweekday == 5)
+		weekday=" ${StringUtil.wrapString(uiLabelMap.Friday)} ";
+		else if(myweekday == 6)
+		weekday=" ${StringUtil.wrapString(uiLabelMap.Saturday)} ";
+		document.write(year+"${uiLabelMap.Year}"+mymonth+"${uiLabelMap.Month}"+myday+"${uiLabelMap.Day} "+weekday);
+		//-->
+	  </script>
+    </div>
+    <div style="clear: both"></div>
+  </div>
+</form>

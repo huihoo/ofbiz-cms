@@ -1,0 +1,29 @@
+[#list pagination.list as msg]
+	 <div class="gbook_msg_list">
+	     <div class="msg_bar">
+		    <div class="gbook_usrname">
+			<img src="${root}/default/auxiliary/img/guestbook/question.gif" border="0" align="absmiddle"/>
+			&nbsp;${(msg.member.loginName)!config.msgAnonymity}
+			</div>
+			<div class="msg_time">${(msg.createTime)!}</div>
+			<div class="clear"></div>
+		 </div>
+		 
+		 <div class="msg_content">
+		   <strong>标题：${(msg.title)!} </strong><br />&nbsp;&nbsp;&nbsp;&nbsp;${(msg.contentMember)!}
+		 </div>
+		 
+	[#if (msg.contentAdmin)?? && msg.contentAdmin!=''] 
+		 <div class="reply_content">
+		 <img src="${root}/default/auxiliary/img/guestbook/answer.gif" border="0" align="absmiddle"/>
+		 &nbsp;<span class="gbook_answer">为您服务:</span><br />&nbsp;&nbsp; ${(msg.contentAdmin)!}
+		 </div>
+	[/#if]
+		<div class="clear"></div>
+	 </div>
+[/#list]
+[#if pagination.list?size > 0]
+	 <div class="msg_page">
+		[@cms.SysPage style='1'/]
+	 </div>
+[/#if]

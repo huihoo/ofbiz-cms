@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<property key="CmsBackendApplication">
+		<value xml:lang="en">CmsBackend Application</value>
+		<value xml:lang="zh">CmsBackend应用程序</value>
+	</property>
+	<property key="CmsBackendCompanyName">
+		<value xml:lang="en">OFBiz: CmsBackend</value>
+	</property>
+	<property key="CmsBackendCompanySubtitle">
+		<value xml:lang="en">Part of the Open For Business Family of Open
+			Source Software</value>
+		<value xml:lang="it">Un modulo della famiglia di software open source
+			Open For Business</value>
+		<value xml:lang="zh">开源软件OFBiz的组成部分</value>
+	</property>
+	<property key="CmsBackendViewPermissionError">
+		<value xml:lang="en">You are not allowed to view this page.</value>
+		<value xml:lang="zh">不允许你浏览这个页面。</value>
+	</property>
+	<!-- 下载管理  -->
+	<property key="CmsAccessoryType">
+		<value xml:lang="en">Asscessory Type</value>
+		<value xml:lang="zh">下载类型</value>
+	</property>
+	<property key="FindCmsAccessoryType">
+		<value xml:lang="en">Asscessory Type Manager</value>
+		<value xml:lang="zh">下载类型管理</value>
+	</property>
+	<property key="EditCmsAccessoryType">
+		<value xml:lang="en">Edit Asscessory Type</value>
+		<value xml:lang="zh">编辑下载类型</value>
+	</property>
+	
+	<property key="CmsAccessory">
+		<value xml:lang="en">Asscessory</value>
+		<value xml:lang="zh">下载</value>
+	</property>
+	<property key="FindCmsAccessory">
+		<value xml:lang="en">Asscessory Manager</value>
+		<value xml:lang="zh">下载管理</value>
+	</property>
+	<property key="EditCmsAccessory">
+		<value xml:lang="en">New Accessory</value>
+		<value xml:lang="zh">下载</value>
+	</property>
+	<!-- 下载管理结束 -->
+	<!-- 链接管理 by Surpass Li 开始-->
+	<property key="displayName">
+		<value xml:lang="en">Display Name</value>
+		<value xml:lang="zh">分类显示名</value>
+	</property>
+	<property key="displayLevel">
+		<value xml:lang="en">Display Level</value>
+		<value xml:lang="zh">分类级别</value>
+	</property>
+	<property key="linkName">
+		<value xml:lang="en">Link Name</value>
+		<value xml:lang="zh">链接名称</value>
+	</property>
+	<property key="fileName">
+		<value xml:lang="en">File Name</value>
+		<value xml:lang="zh">文件名称</value>
+	</property>
+	<property key="url">
+		<value xml:lang="en">URL</value>
+		<value xml:lang="zh">链接URL</value>
+	</property>
+	<property key="fromDate">
+		<value xml:lang="en">From Date</value>
+		<value xml:lang="zh">开始日期</value>
+	</property>
+	<property key="thruDate">
+		<value xml:lang="en">Thru Date</value>
+		<value xml:lang="zh">结束日期</value>
+	</property>
+	<property key="statusId">
+		<value xml:lang="en">statusId</value>
+		<value xml:lang="zh">状态</value>
+	</property>
+	<property key="linkType">
+		<value xml:lang="en">Link Type</value>
+		<value xml:lang="zh">链接类型</value>
+	</property>
+
+	<property key="FindCmsFellowshipLinkType">
+		<value xml:lang="en">Link Type Manager</value>
+		<value xml:lang="zh">链接类型管理</value>
+	</property>
+	<property key="EditCmsFellowshipLinkType">
+		<value xml:lang="en">New Link Type</value>
+		<value xml:lang="zh">新建链接类型</value>
+	</property>
+	<property key="FindCmsFellowshipLink">
+		<value xml:lang="en">Link Manager</value>
+		<value xml:lang="zh">链接管理</value>
+	</property>
+	<property key="EditCmsFellowshipLink">
+		<value xml:lang="en">New Link</value>
+		<value xml:lang="zh">新建链接</value>
+	</property>
+
+	<!-- 链接管理 by Surpass Li 结束-->
+	<!-- 栏目管理 -->
+	<property key="FindCmsCatalog">
+		<value xml:lang="en">Find Catalog</value>
+		<value xml:lang="zh">栏目查找</value>
+	</property>
+	<property key="EditCmsCatalog">
+		<value xml:lang="en">Edit Catalog</value>
+		<value xml:lang="zh">栏目编辑</value>
+	</property>
+	<property key="FindCmsCatalog">
+		<value xml:lang="en">Find Catalog</value>
+		<value xml:lang="zh">栏目查找</value>
+	</property>
+	<property key="PageTitleFindCmsCatalog">
+		<value xml:lang="en">Find Catalog Page</value>
+		<value xml:lang="zh">栏目查找页面</value>
+	</property>
+	<property key="PageTitleEditCmsCatalog">
+		<value xml:lang="en">Edit Catalog Page</value>
+		<value xml:lang="zh">栏目编辑页面</value>
+	</property>
+	<property key="cmsCatalogTypeId">
+		<value xml:lang="en">Catalog Type</value>
+		<value xml:lang="zh">栏目类型</value>
+	</property>
+	<property key="cmsStatusId">
+		<value xml:lang="en">Status</value>
+		<value xml:lang="zh">状态</value>
+	</property>
+	<property key="cmsWebsiteId">
+		<value xml:lang="en">Website</value>
+		<value xml:lang="zh">网站</value>
+	</property>
+	<property key="cmsParentId">
+		<value xml:lang="en">Parent Catalog</value>
+		<value xml:lang="zh">父栏目</value>
+	</property>
+	<property key="cmsPath">
+		<value xml:lang="en">Path</value>
+		<value xml:lang="zh">栏目路径</value>
+	</property>
+	<property key="cmsCatalogName">
+		<value xml:lang="en">Catalog Name</value>
+		<value xml:lang="zh">栏目名称</value>
+	</property>
+	<property key="cmsContent">
+		<value xml:lang="en">Content</value>
+		<value xml:lang="zh">栏目内容</value>
+	</property>
+	<property key="cmsTitleImg">
+		<value xml:lang="en">Title Img</value>
+		<value xml:lang="zh">栏目缩略图</value>
+	</property>
+	<property key="cmsContentImg">
+		<value xml:lang="en">Content Img</value>
+		<value xml:lang="zh">栏目内容图</value>
+	</property>
+	<property key="cmsTplIndex">
+		<value xml:lang="en">Tpl Index</value>
+		<value xml:lang="zh">栏目页模板路径</value>
+	</property>
+	<property key="cmsTplIndex">
+		<value xml:lang="en">Tpl Index</value>
+		<value xml:lang="zh">栏目页模板路径</value>
+	</property>
+	<property key="cmsTplContent">
+		<value xml:lang="en">Tpl Index</value>
+		<value xml:lang="zh">内容页模板路径</value>
+	</property>
+	<property key="cmsTitle">
+		<value xml:lang="en">Title</value>
+		<value xml:lang="zh">标题</value>
+	</property>
+	<property key="cmsKeywords">
+		<value xml:lang="en">Keywords</value>
+		<value xml:lang="zh">关键字</value>
+	</property>
+	<property key="cmsDescription">
+		<value xml:lang="en">Description</value>
+		<value xml:lang="zh">描述</value>
+	</property>
+	<property key="cmsIsDisplay">
+		<value xml:lang="en">Is Display</value>
+		<value xml:lang="zh">是否显示</value>
+	</property>
+	<!-- 链接管理 by Surpass Li 开始-->
+	<property key="FindCmsCommentType">
+		<value xml:lang="en">Comment Type Manager</value>
+		<value xml:lang="zh">评论分类管理</value>
+	</property>
+	<property key="EditCmsCommentType">
+		<value xml:lang="en">New Comment Type</value>
+		<value xml:lang="zh">新建评论分类</value>
+	</property>
+	<property key="FindCmsComment">
+		<value xml:lang="en">Comment Manager</value>
+		<value xml:lang="zh">评论管理</value>
+	</property>
+	<property key="EditCmsComment">
+		<value xml:lang="en">New Comment</value>
+		<value xml:lang="zh">新建评论</value>
+	</property>
+	<property key="FindCmsCommentLeave">
+		<value xml:lang="en">Leave Manager</value>
+		<value xml:lang="zh">留言管理</value>
+	</property>
+	<property key="EditCmsCommentLeave">
+		<value xml:lang="en">New Leave</value>
+		<value xml:lang="zh">新建留言</value>
+	</property>
+	<!-- 链接管理 by Surpass Li 结束-->
+
+	<property key="VoteManage">
+		<value xml:lang="en">Vote Manage</value>
+		<value xml:lang="zh">投票管理</value>
+	</property>
+
+	<property key="CreateNewVote">
+		<value xml:lang="en">Create Vote</value>
+		<value xml:lang="zh">新建投票</value>
+	</property>
+
+	<property key="voteTitle">
+		<value xml:lang="en">Vote Title</value>
+		<value xml:lang="zh">投票标题</value>
+	</property>
+
+	<property key="voteStartTime">
+		<value xml:lang="en">Vote Start Time</value>
+		<value xml:lang="zh">投票开始时间</value>
+	</property>
+
+	<property key="voteEndTime">
+		<value xml:lang="en">Vote Start Time</value>
+		<value xml:lang="zh">投票结束时间</value>
+	</property>
+
+	<property key="repeatHour">
+		<value xml:lang="en">Repeat Hour</value>
+		<value xml:lang="zh">重复投票时间</value>
+	</property>
+
+	<property key="multiSelc">
+		<value xml:lang="en">Multi Select Options</value>
+		<value xml:lang="zh">最多可选</value>
+	</property>
+
+	<property key="isRestrictMember">
+		<value xml:lang="en">Restrict Member</value>
+		<value xml:lang="zh">限制非会员投票</value>
+	</property>
+
+	<property key="isRestrictIp">
+		<value xml:lang="en">Restrict IP</value>
+		<value xml:lang="zh">限制IP地址</value>
+	</property>
+
+	<property key="isRestrictCookie">
+		<value xml:lang="en">Restrict Cookie</value>
+		<value xml:lang="zh">限制Cookie</value>
+	</property>
+
+	<property key="voteType">
+		<value xml:lang="en">Vote Type</value>
+		<value xml:lang="zh">投票类型</value>
+	</property>
+
+	<property key="SingleSelect">
+		<value xml:lang="en">Single Select</value>
+		<value xml:lang="zh">单选</value>
+	</property>
+
+	<property key="MulitiSelect">
+		<value xml:lang="en">Muliti Select</value>
+		<value xml:lang="zh">多选</value>
+	</property>
+
+	<property key="FindCmsLeaveword">
+		<value xml:lang="en">Leave Word</value>
+		<value xml:lang="zh">留言管理</value>
+	</property>
+
+</resource>

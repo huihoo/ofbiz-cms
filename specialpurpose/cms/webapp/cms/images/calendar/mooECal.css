@@ -1,0 +1,48 @@
+/*
+ * Mootools Events Calendar - 500px x 300px
+*/
+
+/* Calendar Header/Controls */
+.mooECal{margin:0; padding:0; width:375px; border:1px solid #999; border-left:none; text-align:center; border-collapse:separate; font-family:Arial, Helvetica, sans-serif; margin:0;}
+.mooECal li, .mooECal ul{list-style:none; display:inline; margin:0; padding:0;}
+thead tr{height:6px;}
+.trControls{height:6px;}
+.thControls, .ulControls{text-align:left;}
+.thControls{ border-bottom:1px solid #999; border-left:1px solid #999; height:6px;}
+.mooECal .liHeaderCal{font-size:0.8em; float:right; width:35%; text-align:center; margin-right:2%;} /* date range of current view */
+.aPrevCal,.aNextCal{text-decoration:none; font-size:1.1em;} /* left/right nav arrow */
+.mooECal .liNextCal{float:right;}
+.mooECal .liPrevCal{float:left;}
+.mooECal .liLoading{font-size:0.8em; color:#999; letter-spacing:0.3em; margin-left:2%;}/* "loading..." text */
+/* month, week, day view links*/
+.ulViewPicker li{float:right;}
+.aViewCal{text-decoration:none; font-size:10px; margin-right:1.2em; color:#999;} 
+.aViewCal:hover{text-decoration:underline;}
+/* mon, tues, wed ... row */
+.mooECal tr.dowRow{height:6px;}
+.mooECal tr.dowRow th{border-left:1px solid #999; font-size:11px; text-align:center; height:6px;}
+.mooECal tr.dowRow th li{float:left; width:14.28%;}
+
+
+/* Calendar Body */
+.monthWeek{overflow:hidden;}
+.weekWeek,.dayDay{height:60%;}
+.monthDay,.weekDay,.dayDay{border:1px solid #999; border-right:none; border-bottom:none; width:14%; text-align:left; vertical-align:top;}
+.mooECal td.dayDay{padding:0;}
+.mooECal td.hover{background-color:#FFD;} /* color when hovering a day */
+.mooECal td.selected{background-color:#EEF;} /* color for the selected day */
+.mooECal td span{color:#333; font-size:0.8em;} /* day of the month (1-31) */
+.monthDay div{height:10px; overflow:hidden; cursor:default;}
+.mooECal td div div{font-size:10px; color:#009; height:10px; overflow:hidden; cursor:default;}
+.mooECal td a{font-size:10px; color:#009; text-decoration:underline;}
+.mooECal td div.fullEvent{height:auto; overflow:auto; font-size:12px; border-bottom:1px solid #DDD;}
+/* tips styling */
+.tip {color: #fff; z-index: 13000; background-color:#666; -moz-border-radius: 3px; -webkit-border-radius: 3px;}
+.tip-title {font-weight: bold;font-size: 11px;margin: 0;padding: 8px 8px 4px;}
+.tip-text {font-size: 11px;padding: 4px 8px 8px;}
+.tip a{text-decoration:none; color:#FFF; font-size: 11px;}
+a:link {text-decoration:none}
+a:active {text-decoration:none}
+a:hover {text-decoration:none}
+a:visited {text-decoration:none}
+

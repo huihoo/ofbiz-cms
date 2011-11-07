@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>文章评论 - ${web.name}</title>
+
+<link href="${root}/default/article/css/whole.css" rel="stylesheet" type="text/css"/>
+<link href="${root}/default/article/css/layout.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body style="background-color:#FFFFFF">
+<div class="pl_top pl_row">
+	<div class="pl_logo"><img src="${root}/default/article/img/logo.gif" /></div>
+	<div class="pl_path"><a href="/cms">首 页 </a> &gt;&gt; 网友评论</div>
+	<div style="clear:both"></div>
+</div>
+
+<div class="pl_row pl_title">&nbsp;话题：<a href="${(doc.url)!}">${(doc.tit(200))!}</a></div>
+<div class="pl_row pl_run">[@cms.ArtiList chnlId='' attr='5' count='10' sysContent='2-1' titLen='20' dateFormat='3' datePosition='3' headMark='2' target='1' rollCols='2' rollSpeed='3' rollSleepTime='100'/]</div>
+
+<div class="pl_row pl_list">
+	<div class="pl_bar"><img src="${root}/default/article/img/ico_2.gif" align="absmiddle"/> 热门评论  
+	 &nbsp;&nbsp;&nbsp;<span class="f12-red">(网友评论仅供网友表达个人看法，并不表明OFBizCMS同意其观点或证实其描述)</span>
+	</div>
+	
+	[@cms.CommentList docId=articleId sysTpl='1' sysPage='1' isPage='1' pageClass='pagination'/]		
+	<div class="pl-input pl_row">
+		<script type="text/javascript">
+			$(function() {
+				$("#commentForm").validate($.extend($.validator.AlertError,{
+					submitHandler:function() {
+						$.postJson('/ofbizcms/ajax/cms/CommentSubmit.do', {
+							'content' : $('#commentContent').val(),
+							'checkCode' : $('#commentCheckCode').val(),
+							'articleId' : ${articleId}
+						}, function(data) {
+							if (data.success) {
+								alert(data.msg);
+								location.reload();
+							} else {
+								alert(data.msg);
+							}
+						});
+					}
+				}));
+				new JCore.CheckCode($('#commentCheckCode'),'/CheckCode.svl');
+			});
+		</script>
+		<form id="commentForm">
+		  <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+		  	<tr>
+			  <td height="30" colspan="2" align="left" bgcolor="#F9F9F9">&nbsp;
+			  <img src="${root}/default/app/img/ico_2.gif" align="absmiddle"/> <strong>我要评论</strong>&nbsp;  
+			  <span style="color:#FF0000">(共 ${(doc.commentCount)!} 条评论)</span></td>
+		    </tr>
+			<tr>
+			  <td width="17%" height="30" align="right" bgcolor="#F9F9F9">评论内容：</td>
+			  <td width="83%" bgcolor="#FFFFFF">&nbsp;<textarea id="commentContent" name="commentContent" cols="70" rows="5" class="required" minlength="3" title="请填写评论（3到255个字符）"></textarea></td>
+			</tr>
+			<tr>
+			  <td height="30" align="right" bgcolor="#F9F9F9">验 证 码：</td>
+			  <td bgcolor="#FFFFFF">&nbsp;<input type="text" id="commentCheckCode" name="commentCheckCode" class="required" maxlength="10" title="请填写验证码"/>
+				&nbsp;<input type="submit" value="发表评论"/></td>
+			</tr>
+		  </table>
+		</form>
+	</div>
+</div>
+
+<div class="pl_foot pl_row">
+    <a target="_blank" href="http://code.google.com/p/ofbiz-cms">${uiLabelMap.AboutUs}</a> - 
+    <a target="_blank" href="http://ofbiz.group.iteye.com">${uiLabelMap.ContactUs}</a> - 
+    <a target="_blank" href="http://code.google.com/p/ofbiz-cms/downloads/list">${uiLabelMap.Download}</a> -  ${uiLabelMap.Cooperation} - 
+    <a target="_blank" href="http://www.apache.org/licenses/LICENSE-2.0">${uiLabelMap.License}</a> - 
+    <a onClick="this.style.behavior='url(#default#homepage)';this.setHomePage(location.href)" href="javascript:void(0);">${uiLabelMap.SetFirstPage}</a><br />
+    Mobile: 15000850008<br />
+    Powered by OFBizCMS ${(web.copyright)!} ${(web.recordCode)!}
+</div>
+</body>
+</html>

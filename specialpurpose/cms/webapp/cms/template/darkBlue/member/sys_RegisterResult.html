@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>会员注册成功 - ${web.name} </title>
+<link href="${root}/default/cms_member/css/whole.css" rel="stylesheet" type="text/css"/>
+<link href="${root}/default/cms_member/css/layout.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+<div class="list error_msg">
+	<div class="list_bar">会员注册成功</div>
+	<div class="error_content">
+		欢迎您: ${username}	
+	</div>
+	<div class="foot">
+		<script>setTimeout("window.location.href ='${base}/cmsmember/index.jspx';", 2000);</script>
+		【<a href="${base}/cmsmember/index.jspx">如果您的浏览器没有自动跳转，请点击此链接</a>】
+	</div>
+</div>
+</body>
+</html>

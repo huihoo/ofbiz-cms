@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityPermission description="View operations in the CmsBackend Component." permissionId="CMSBACKEND_VIEW"/>
+    <SecurityPermission description="Create operations in the CmsBackend Component." permissionId="CMSBACKEND_CREATE"/>
+    <SecurityPermission description="Update operations in the CmsBackend Component." permissionId="CMSBACKEND_UPDATE"/>
+    <SecurityPermission description="Delete operations in the CmsBackend Component." permissionId="CMSBACKEND_DELETE"/>
+    <SecurityPermission description="ALL operations in the CmsBackend Component." permissionId="CMSBACKEND_ADMIN"/>
+    <SecurityGroupPermission groupId="FULLADMIN" permissionId="CMSBACKEND_ADMIN"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="CMSBACKEND_CREATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="CMSBACKEND_DELETE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="CMSBACKEND_UPDATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="CMSBACKEND_VIEW"/>
+    <SecurityGroupPermission groupId="VIEWADMIN" permissionId="CMSBACKEND_VIEW"/>
+    <SecurityGroupPermission groupId="BIZADMIN" permissionId="CMSBACKEND_ADMIN"/>
+    
+    <SecurityGroupPermission groupId="FULLADMIN" permissionId="SECURITY_ADMIN"/>
+    <SecurityGroup groupId="CMS" description="CMS System 前台基本安全组."/>
+    <SecurityGroup groupId="CMSBACKEND" description="CMS System 后台基本安全组."/>
+    <SecurityGroupPermission groupId="CMS" permissionId="CMSBACKEND_ADMIN"/>
+    <SecurityGroupPermission groupId="CMSBACKEND" permissionId="CMSBACKEND_ADMIN"/>
+    <SecurityGroupPermission groupId="CMSBACKEND" permissionId="SECURITY_ADMIN"/>
+</entity-engine-xml>

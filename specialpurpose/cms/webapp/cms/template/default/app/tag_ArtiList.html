@@ -1,0 +1,9 @@
+[#--
+该模板用于用户自定义文章列表显示风格。
+调整文章列表标签参数sysTpl='0'可调用本模板
+--]
+<ul>
+[#list pagination.list as ctt]
+<li><a href="${ctt.url}" title="${ctt.tit(200)}" target="_blank">${ctt.stit(titLen)}</a></li>
+[/#list]
+</ul>

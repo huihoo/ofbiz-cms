@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+
+<!-- 网站信息 -->
+    <CmsWebSite websiteId="default" name ="websiteName" isClose ="N" closeReason ="系统维护中" description ="描述" copyright="版权信息" recordCode="备案号" systemType ="CMS"/>
+    
+    <!-- 文章类型 -->
+    <CmsArticleType articleTypeId="default" displayName ="普通文章" displayLevel ="01"/>
+    <CmsArticleType articleTypeId="picture" displayName ="精彩图文" displayLevel ="02"/>
+    <CmsArticleType articleTypeId="focus" displayName ="焦点图" displayLevel ="03"/>
+    <!-- 解决方案 -->
+    
+    <CmsSolution websiteId="default" solutionName="darkBlue"/>
+    
+    <!--
+    <CmsSolution websiteId="default" solutionName="default"/>
+    <CmsSolution websiteId="default" solutionName="blue" />
+    <CmsSolution websiteId="default" solutionName="red" />
+    <CmsSolution websiteId="default" solutionName="blue"/>
+    -->
+    
+    <StatusType description="CmsArticleStatusItem" statusTypeId="CMS_ARTICLE_STATUS" hasTable="N" parentTypeId=""/>
+    <StatusItem description="等待审核" sequenceId="02" statusCode="DEFINED" statusId="CAST_DEFINED" statusTypeId="CMS_ARTICLE_STATUS"/>
+    <StatusItem description="审核通过" sequenceId="03" statusCode="APPROVED" statusId="CAST_APPROVED" statusTypeId="CMS_ARTICLE_STATUS"/>
+    <StatusItem description="作废单据" sequenceId="04" statusCode="CANCELLED" statusId="CAST_CANCELLED" statusTypeId="CMS_ARTICLE_STATUS"/>
+    <StatusValidChange condition="" statusId="CAST_DEFINED" statusIdTo="CAST_APPROVED" transitionName="Approve"/>
+    <StatusValidChange condition="" statusId="CAST_DEFINED" statusIdTo="CAST_CANCELLED" transitionName="Cancel"/>
+    <StatusValidChange condition="" statusId="CAST_APPROVED" statusIdTo="CAST_CANCELLED" transitionName="Cancel"/>
+   	<!-- 评论管理状态定义 -->
+   	<StatusType description="CmsCommentStatusItem" statusTypeId="CMS_COMMENT_STATUS" hasTable="N" parentTypeId=""/>
+    <StatusItem description="等待审核" sequenceId="05" statusCode="DEFINED" statusId="CCST_DEFINED" statusTypeId="CMS_COMMENT_STATUS"/>
+    <StatusItem description="审核通过" sequenceId="06" statusCode="APPROVED" statusId="CCST_APPROVED" statusTypeId="CMS_COMMENT_STATUS"/>
+    <StatusItem description="审核作废" sequenceId="07" statusCode="CANCELLED" statusId="CCST_CANCELLED" statusTypeId="CMS_COMMENT_STATUS"/>
+    
+    <StatusValidChange condition="" statusId="CCST_DEFINED" statusIdTo="CCST_APPROVED" transitionName="Approve"/>
+    <StatusValidChange condition="" statusId="CCST_DEFINED" statusIdTo="CCST_CANCELLED" transitionName="Cancel"/>
+    <StatusValidChange condition="" statusId="CCST_APPROVED" statusIdTo="CCST_CANCELLED" transitionName="Cancel"/>
+ 	<!-- 留言管理状态定义 -->
+   	<StatusType description="CmsLeavewordStatusItem" statusTypeId="CMS_LEAVEWORD_STATUS" hasTable="N" parentTypeId=""/>
+     <StatusItem description="等待审核" sequenceId="08" statusCode="DEFINED" statusId="CLST_DEFINED" statusTypeId="CMS_LEAVEWORD_STATUS"/>
+    <StatusItem description="审核通过" sequenceId="09" statusCode="APPROVED" statusId="CLST_APPROVED" statusTypeId="CMS_LEAVEWORD_STATUS"/>
+    <StatusItem description="审核作废" sequenceId="10" statusCode="CANCELLED" statusId="CLST_CANCELLED" statusTypeId="CMS_LEAVEWORD_STATUS"/>
+ 	
+    <StatusValidChange condition="" statusId="CLST_DEFINED" statusIdTo="CLST_APPROVED" transitionName="Approve"/>
+    <StatusValidChange condition="" statusId="CLST_DEFINED" statusIdTo="CLST_CANCELLED" transitionName="Cancel"/>
+    <StatusValidChange condition="" statusId="CLST_APPROVED" statusIdTo="CLST_CANCELLED" transitionName="Cancel"/>
+
+	<CmsFellowshipLinkType linkTypeId="1" displayName="友情连接" displayLevel="1"/>
+	<CmsFellowshipLinkType linkTypeId="2" displayName="站内连接" displayLevel="2"/>
+
+ 	<CmsCommentType commentTypeId="1" displayName="文章评论" displayLevel="1"/>
+	<CmsCommentType commentTypeId="2" displayName="网站留言" displayLevel="2"/>
+ 
+	    <!-- 广告类型 -->
+    <CmsAdvertiseType adTypeId="9101" description ="底部广告" sequenceId ="01"/>
+    <CmsAdvertiseType adTypeId="9102" description ="中部广告" sequenceId ="02"/>
+    <CmsAdvertiseType adTypeId="9103" description ="顶部广告" sequenceId ="03"/>
+ 
+ 
+
+
+    <StatusType description="Vote Status Item" statusTypeId="VOTE_STATUS" hasTable="N" parentTypeId=""/>
+    <StatusItem description="草稿" sequenceId="01" statusCode="DRAFT" statusId="VOTE_DRAFT" statusTypeId="VOTE_STATUS"/>
+    <StatusItem description="正在进行" sequenceId="02" statusCode="RUNNING" statusId="VOTE_RUNNING" statusTypeId="VOTE_STATUS"/>
+    <StatusItem description="过期" sequenceId="03" statusCode="OUTDATE" statusId="VOTE_OUTDATE" statusTypeId="VOTE_STATUS"/>
+
+    <StatusValidChange condition="" statusId="VOTE_DRAFT" statusIdTo="VOTE_RUNNING" transitionName="StartVote"/>
+    <StatusValidChange condition="" statusId="VOTE_RUNNING" statusIdTo="VOTE_OUTDATE" transitionName="EndVote"/>
+
+	<!-- 附件状态 -->
+	<StatusType description="CmsAccessoryStatusItem" statusTypeId="CMS_ACCESSORY_STATUS" hasTable="N" parentTypeId=""/>
+    <StatusItem description="等待审核" sequenceId="11" statusCode="DEFINED" statusId="CCAS_DEFINED" statusTypeId="CMS_ACCESSORY_STATUS"/>
+    <StatusItem description="审核通过" sequenceId="12" statusCode="APPROVED" statusId="CCAS_APPROVED" statusTypeId="CMS_ACCESSORY_STATUS"/>
+    <StatusItem description="审核作废" sequenceId="13" statusCode="CANCELLED" statusId="CCAS_CANCELLED" statusTypeId="CMS_ACCESSORY_STATUS"/>
+</entity-engine-xml>

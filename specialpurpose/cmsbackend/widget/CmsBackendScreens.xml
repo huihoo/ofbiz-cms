@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+    <screen name="main">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/><!-- this highlights the selected menu-item with name "main"
+-->
+            </actions>
+            <widgets>
+                <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="FindCmsCalendarEvents">
+        <section>
+            <actions>
+                <set field="headerItem" value="CmsCalendarEvents"/>
+                <set field="titleProperty" value="CmsCalendarEvents"/>
+                <set field="pCtx" from-field="parameters"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                                <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
+                                    <decorator-section name="search-options">
+                                        <include-form name="FindCmsCalendarEvents" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                                    </decorator-section>
+                                    <decorator-section name="search-results">
+                                        <include-form name="ListCmsCalendarEvents" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                                    </decorator-section>
+                                </decorator-screen>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="EditCmsCalendarEvents">
+        <section>
+            <actions>
+                <set field="titleProperty" value="CmsCalendarEvents"/>
+                <set field="tabButtonItem" value="CmsCalendarEvents"/>
+                <set field="eventId" from-field="parameters.eventId"/>
+                <entity-one entity-name="CmsCalendarEvents" value-field="entity"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <include-form name="EditCmsCalendarEvents" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="FindCmsArticleType">
+        <section>
+            <actions>
+                <set field="headerItem" value="CmsArticleType"/>
+                <set field="titleProperty" value="CmsArticleType"/>
+                <set field="pCtx" from-field="parameters"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                                <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
+                                    <decorator-section name="menu-bar">
+                                        <container style="button-bar">
+                                            <link target="EditCmsArticleType" link-type="anchor" text="${uiLabelMap.CommonNew}${uiLabelMap.CmsArticleType}" style="buttontext create"/>
+                                        </container>
+                                    </decorator-section>
+                                    <decorator-section name="search-options">
+                                        <include-form name="FindCmsArticleType" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                                    </decorator-section>
+                                    <decorator-section name="search-results">
+                                        <include-form name="ListCmsArticleType" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                                    </decorator-section>
+                                </decorator-screen>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="EditCmsArticleType">
+        <section>
+            <actions>
+                <set field="titleProperty" value="CmsArticleType"/>
+                <set field="tabButtonItem" value="CmsArticleType"/>
+                <set field="articleTypeId" from-field="parameters.articleTypeId"/>
+                <entity-one entity-name="CmsArticleType" value-field="entity"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <include-form name="EditCmsArticleType" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+   <screen name="FindCmsArticle">
+        <section>
+            <actions>
+                <set field="headerItem" value="CmsArticle"/>
+                <set field="titleProperty" value="CmsArticle"/>
+                <set field="pCtx" from-field="parameters"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                                <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
+                                    <decorator-section name="menu-bar">
+                                        <container style="button-bar">
+                                            <link target="FindCmsArticleType" link-type="anchor" text="${uiLabelMap.CommonFind}${uiLabelMap.CmsArticleType}" style="buttontext search"/>
+                                            <link target="EditCmsArticle" link-type="anchor" text="${uiLabelMap.CommonNew}${uiLabelMap.CmsArticle}" style="buttontext create"/>
+                                        </container>
+                                    </decorator-section>
+                                    <decorator-section name="search-options">
+                                        <include-form name="FindCmsArticle" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                                    </decorator-section>
+                                    <decorator-section name="search-results">
+                                        <include-form name="ListCmsArticle" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                                    </decorator-section>
+                                </decorator-screen>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="EditCmsArticle">
+        <section>
+            <actions>
+                <set field="titleProperty" value="CmsArticle"/>
+                <set field="tabButtonItem" value="CmsArticle"/>
+                <set field="articleId" from-field="parameters.articleId"/>
+                <entity-one entity-name="CmsArticle" value-field="entity"/>
+                <entity-one entity-name="StatusItem" value-field="currentStatus" auto-field-map="false">
+                    <field-map field-name="statusId" from-field="entity.statusId"/>
+                </entity-one>
+            </actions>
+            <widgets>
+                <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <include-form name="EditCmsArticle" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                        <platform-specific><html ><html-template location="component://cmsbackend/webapp/cmsbackend/article/edit.ftl"></html-template></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 链接管理 by Surpass Li 开始 -->
+    <screen name="FindCmsFellowshipLinkType">
+        <section>
+            <actions>
+                <set field="headerItem" value="CmsFellowshipLinkType"/>
+                <set field="titleProperty" value="CmsFellowshipLinkType"/>
+                <set field="pCtx" from-field="parameters"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                                <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
+                                    <decorator-section name="menu-bar">
+                                        <container style="button-bar">
+                                            <link target="EditCmsFellowshipLinkType" link-type="anchor" text="${uiLabelMap.EditCmsFellowshipLinkType}" style="buttontext create"/>
+                                        </container>
+                                    </decorator-section>
+                                    <decorator-section name="search-options">
+                                        <include-form name="FindCmsFellowshipLinkType" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                                    </decorator-section>
+                                    <decorator-section name="search-results">
+                                        <include-form name="ListCmsFellowshipLinkType" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                                    </decorator-section>
+                                </decorator-screen>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="EditCmsFellowshipLinkType">
+        <section>
+            <actions>
+                <set field="titleProperty" value="CmsFellowshipLinkType"/>
+                <set field="tabButtonItem" value="CmsFellowshipLinkType"/>
+                <set field="articleTypeId" from-field="parameters.articleTypeId"/>
+                <entity-one entity-name="CmsFellowshipLinkType" value-field="entity"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <include-form name="EditCmsFellowshipLinkType" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="FindCmsFellowshipLink">
+        <section>
+            <actions>
+                <set field="headerItem" value="CmsFellowshipLink"/>
+                <set field="titleProperty" value="CmsFellowshipLink"/>
+                <set field="pCtx" from-field="parameters"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                                <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
+                                    <decorator-section name="menu-bar">
+                                        <container style="button-bar">
+                                            <link target="EditCmsFellowshipLink" link-type="anchor" text="${uiLabelMap.EditCmsFellowshipLink}" style="buttontext create"/>
+                                        </container>
+                                    </decorator-section>
+                                    <decorator-section name="search-options">
+                                        <include-form name="FindCmsFellowshipLink" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                                    </decorator-section>
+                                    <decorator-section name="search-results">
+                                        <include-form name="ListCmsFellowshipLink" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                                    </decorator-section>
+                                </decorator-screen>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="EditCmsFellowshipLink">
+        <section>
+            <actions>
+                <set field="titleProperty" value="CmsFellowshipLink"/>
+                <set field="tabButtonItem" value="CmsFellowshipLink"/>
+                <set field="linkId" from-field="parameters.linkId"/>
+                <entity-one entity-name="CmsFellowshipLink" value-field="entity"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <include-form name="EditCmsFellowshipLink" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 链接管理 by Surpass Li 结束 -->
+ 
+    <!-- 评论管理 by Surpass Li 开始 -->
+    <screen name="FindCmsCommentType">
+        <section>
+            <actions>
+                <set field="headerItem" value="CmsCommentType"/>
+                <set field="titleProperty" value="CmsCommentType"/>
+                <set field="pCtx" from-field="parameters"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                                <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
+                                    <decorator-section name="menu-bar">
+                                        <container style="button-bar">
+                                        	<link target="FindCmsComment" link-type="anchor" text="${uiLabelMap.FindCmsComment}" style="buttontext search"/>
+                                            <link target="EditCmsCommentType" link-type="anchor" text="${uiLabelMap.EditCmsCommentType}" style="buttontext search"/>
+										</container>
+                                    </decorator-section>
+                                    <decorator-section name="search-options">
+                                        <include-form name="FindCmsCommentType" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                                    </decorator-section>
+                                    <decorator-section name="search-results">
+                                        <include-form name="ListCmsCommentType" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                                    </decorator-section>
+                                </decorator-screen>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="EditCmsCommentType">
+        <section>
+            <actions>
+                <set field="titleProperty" value="CmsCommentType"/>
+                <set field="tabButtonItem" value="CmsCommentType"/>
+                <set field="articleTypeId" from-field="parameters.articleTypeId"/>
+                <entity-one entity-name="CmsCommentType" value-field="entity"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <include-form name="EditCmsCommentType" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+   <screen name="FindCmsComment">
+        <section>
+            <actions>
+                <set field="headerItem" value="CmsComment"/>
+                <set field="titleProperty" value="CmsComment"/>
+                <set field="pCtx" from-field="parameters"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                                <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
+                                    <decorator-section name="menu-bar">
+                                        <container style="button-bar">
+                                            <link target="FindCmsCommentType" link-type="anchor" text="${uiLabelMap.CommonFind}${uiLabelMap.FindCmsCommentType}" style="buttontext search"/>
+                                            <link target="EditCmsComment" link-type="anchor" text="${uiLabelMap.CommonNew}${uiLabelMap.EditCmsComment}" style="buttontext create"/>
+                                        </container>
+                                    </decorator-section>
+                                    <decorator-section name="search-options">
+                                        <include-form name="FindCmsComment" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                                    </decorator-section>
+                                    <decorator-section name="search-results">
+                                        <include-form name="ListCmsComment" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                                    </decorator-section>
+                                </decorator-screen>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="EditCmsComment">
+        <section>
+            <actions>
+                <set field="titleProperty" value="CmsComment"/>
+                <set field="tabButtonItem" value="CmsComment"/>
+                <set field="articleId" from-field="parameters.articleId"/>
+                <entity-one entity-name="CmsComment" value-field="entity"/>
+                <entity-one entity-name="StatusItem" value-field="currentStatus" auto-field-map="false">
+                    <field-map field-name="statusId" from-field="entity.statusId"/>
+                </entity-one>
+            </actions>
+            <widgets>
+                <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <include-form name="EditCmsComment" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                        <platform-specific><html ><html-template location="component://cmsbackend/webapp/cmsbackend/article/edit.ftl"></html-template></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 评论管理 by Surpass Li 结束 -->
+ 
+    <!-- 搜索栏目 -->
+    <screen name="FindCmsCatalog">
+        <section>
+            <actions>
+                <set field="headerItem" value="FindCmsCatalog"/>
+                <set field="titleProperty" value="PageTitleFindCmsCatalog"/>
+                <set field="tabButtonItem" value="FindCmsCatalog"/>
+                <set field="parameters.noConditionFind" value="Y"/>
+                <set field="pCtx" from-field="parameters"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                                <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
+                                    <decorator-section name="search-options">
+                                        <include-form name="FindCmsCatalog" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                                    </decorator-section>
+                                    <decorator-section name="search-results">
+                                        <include-form name="ListCmsCatalog" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                                    </decorator-section>
+                                </decorator-screen>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	<!-- 编辑栏目 -->
+    <screen name="EditCmsCatalog">
+        <section>
+            <actions>
+            	<set field="headerItem" value="EditCmsCatalog"/>
+                <set field="titleProperty" value="PageTitleEditCmsCatalog"/>
+                <set field="tabButtonItem" value="EditCmsCatalog"/>
+                <set field="catalogId" from-field="parameters.catalogId"/>
+                <entity-one entity-name="CmsCatalog" value-field="entity"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <include-form name="EditCmsCatalog" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+ 
+ <screen name="FindCmsAccessoryType">
+		<section>
+			<actions>
+				<set field="headerItem" value="FindCmsAccessory" />
+				<set field="titleProperty" value="FindCmsAccessoryType" />
+				<set field="pCtx" from-field="parameters" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CmsBackendCommonDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="FindScreenDecorator"
+							location="component://common/widget/CommonScreens.xml">
+							<decorator-section name="menu-bar">
+                            	<container style="button-bar">
+                                    	<link target="FindCmsAccessory" link-type="anchor" text="${uiLabelMap.FindCmsAccessory}" style="buttontext search"/>
+                                        <link target="EditCmsAccessoryType" link-type="anchor" text="${uiLabelMap.CommonNew}${uiLabelMap.CmsAccessoryType}" style="buttontext search"/>
+								</container>
+                            </decorator-section>
+							<decorator-section name="search-options">
+								<include-form name="FindCmsAccessoryType"
+									location="component://cmsbackend/widget/CmsBackendForms.xml" />
+							</decorator-section>
+							<decorator-section name="search-results">
+								<include-form name="ListCmsAccessoryType"
+									location="component://cmsbackend/widget/CmsBackendForms.xml" />
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="EditCmsAccessoryType">
+		<section>
+			<actions>
+				<set field="headerItem" value="FindCmsAccessory" />
+				<set field="titleProperty" value="EditCmsAccessoryType" />
+				<set field="tabButtonItem" value="FindCmsAccessory" />
+				<entity-one entity-name="CmsAccessoryType" value-field="entity" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CmsBackendCommonDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<include-form name="EditCmsAccessoryType"
+							location="component://cmsbackend/widget/CmsBackendForms.xml" />
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="FindCmsAccessory">
+		<section>
+			<actions>
+				<set field="headerItem" value="FindCmsAccessory" />
+				<set field="titleProperty" value="FindCmsAccessory" />
+				<set field="pCtx" from-field="parameters" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CmsBackendCommonDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="FindScreenDecorator"
+							location="component://common/widget/CommonScreens.xml">
+							<decorator-section name="menu-bar">
+                                <container style="button-bar">
+                                    <link target="FindCmsAccessoryType" link-type="anchor" text="${uiLabelMap.CommonFind}${uiLabelMap.CmsAccessoryType}" style="buttontext search"/>
+                                    <link target="EditCmsAccessory" link-type="anchor" text="${uiLabelMap.CommonNew}${uiLabelMap.CmsAccessory}" style="buttontext create"/>
+                                </container>
+                            </decorator-section>
+							<decorator-section name="search-options">
+								<include-form name="FindCmsAccessory"
+									location="component://cmsbackend/widget/CmsBackendForms.xml" />
+							</decorator-section>
+							<decorator-section name="search-results">
+								<include-form name="ListCmsAccessory"
+									location="component://cmsbackend/widget/CmsBackendForms.xml" />
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="EditCmsAccessory">
+        <section>
+            <actions>
+                <set field="headerItem" value="FindCmsAccessory" />
+				<set field="titleProperty" value="EditCmsAccessory" />
+				<set field="pCtx" from-field="parameters" />
+                <set field="accessoryId" from-field="parameters.accessoryId"/>
+                <entity-one entity-name="CmsAccessory" value-field="entity"/>
+                <entity-one entity-name="StatusItem" value-field="currentStatus" auto-field-map="false">
+                    <field-map field-name="statusId" from-field="entity.statusId"/>
+                </entity-one>
+            </actions>
+            <widgets>
+                <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <include-form name="EditCmsAccessory" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                        <platform-specific><html ><html-template location="component://cmsbackend/webapp/cmsbackend/accessory/edit.ftl"></html-template></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <!--投票管理 jingchao.yan start-->
+    <screen name="VoteManage">
+        <section>
+            <actions>
+                <set field="requestParameters.noConditionFind" value="Y"/>
+                <service service-name="performFind" result-map="result">
+                    <field-map field-name="inputFields" from-field="requestParameters"/>
+                    <field-map field-name="entityName" value="VoteManage"/>
+                    <field-map field-name="orderBy" from-field="parameters.sortField"/>
+                    <field-map field-name="viewIndex" from-field="viewIndex"/>
+                    <field-map field-name="viewSize" from-field="viewSize"/>
+                </service>
+                <set field="listIt" value="${result.listIt}"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                                <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
+                                    <decorator-section name="search-options">
+                                        <include-form name="FindVote" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                                    </decorator-section>
+                                    <decorator-section name="search-results">
+                                        <include-form name="ListVotes" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                                    </decorator-section>
+                                </decorator-screen>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="CreateNewVote">
+        <section>
+            <actions>
+                <set field="titleProperty" value="CreateNewVote"/>
+                <set field="tabButtonItem" value="CreateNewVote"/>
+                <set field="target" value="createVote"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <include-form name="CreateNewVote" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="UpdateCmsVote">
+        <section>
+            <actions>
+                <set field="titleProperty" value="CreateNewVote"/>
+                <set field="tabButtonItem" value="CreateNewVote"/>
+                <set field="voteId" value="${requestParameters.voteId}"/>
+                <entity-one entity-name="VoteManage" value-field="voteManage"/>
+                <set field="target" value="updateVote"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <include-form name="CreateNewVote" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!--投票管理 jingchao.yan end-->
+    <!-- 留言管理 by Surpass Li 2011-09-15 开始-->
+    <screen name="FindCmsLeaveword">
+        <section>
+            <actions>
+                <set field="headerItem" value="CmsLeaveword"/>
+                <set field="titleProperty" value="CmsLeaveword"/>
+                <set field="pCtx" from-field="parameters"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                                <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
+                                    <decorator-section name="menu-bar">
+                                        <container style="button-bar">
+											<link target="EditCmsLeaveword" link-type="anchor" text="${uiLabelMap.EditCmsLeaveword}" style="buttontext search"/>
+										</container>
+                                    </decorator-section>
+                                    <decorator-section name="search-options">
+                                        <include-form name="FindCmsLeaveword" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                                    </decorator-section>
+                                    <decorator-section name="search-results">
+                                        <include-form name="ListCmsLeaveword" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                                    </decorator-section>
+                                </decorator-screen>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="EditCmsLeaveword">
+        <section>
+            <actions>
+                <set field="titleProperty" value="CmsLeaveword"/>
+                <set field="tabButtonItem" value="CmsLeaveword"/>
+                <set field="articleId" from-field="parameters.articleId"/>
+                <entity-one entity-name="CmsLeaveword" value-field="entity"/>
+                <entity-one entity-name="StatusItem" value-field="currentStatus" auto-field-map="false">
+                    <field-map field-name="statusId" from-field="entity.statusId"/>
+                </entity-one>
+            </actions>
+            <widgets>
+                <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <include-form name="EditCmsLeaveword" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                        <platform-specific><html ><html-template location="component://cmsbackend/webapp/cmsbackend/article/edit.ftl"></html-template></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 留言管理 by Surpass Li 2011-09-15 结束-->
+    <!-- 权限及会员管理 by Surpass Li 2011-09-15 开始-->
+    <screen name="FindCmsSecurityGroup">
+        <section>
+            <actions>
+                <set field="headerItem" value="FindCmsSecurityGroup"/>
+                <set field="titleProperty" value="SecurityGroup"/>
+                <set field="pCtx" from-field="parameters"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    	<container style="page-title">
+                            <label text="${uiLabelMap.PageTitleFindSecurityGroup}"/>
+                        </container>
+                        <container style="button-bar">
+                            <link target="CreateNewCmsSecurityGroup" style="buttontext create" text="${uiLabelMap.CommonCreateNew}"/>
+                        </container>
+						<include-form name="ListSecurityGroups" location="component://common/widget/SecurityForms.xml"/>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!-- CreateCmsSecurityGroup -->
+    <screen name="CreateCmsSecurityGroup">
+        <section>
+            <actions>
+                <set field="headerItem" value="CreateCmsSecurityGroup"/>
+                <set field="titleProperty" value="SecurityGroup"/>
+                <set field="pCtx" from-field="parameters"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    	<container style="page-title">
+                            <label text="${uiLabelMap.NewSecurityGroup}"/>
+                        </container>
+                        <include-form name="CreateSecurityGroup" location="component://common/widget/SecurityForms.xml"/>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="CreateCmlUserLogin">
+        <section>
+            <actions>
+                <set field="headerItem" value="CreateCmsSecurityGroup"/>
+                <set field="titleProperty" value="SecurityGroup"/>
+                <set field="pCtx" from-field="parameters"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body"> 
+                        <container style="page-title">
+                            <label text="${uiLabelMap.CreateUserLogin}"/>
+                        </container>
+                        <include-form name="AddUserLogin" location="component://common/widget/SecurityForms.xml"/>
+                    </decorator-section> 
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="EditCmsSecurityGroup">
+        <section>
+            <actions>
+                <set field="headerItem" value="CreateCmsSecurityGroup"/>
+                <set field="titleProperty" value="SecurityGroup"/>
+                <set field="pCtx" from-field="parameters"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body"> 
+                        <container style="page-title">
+                            <label text="${uiLabelMap.PageTitleEditSecurityGroup} - ${groupId}"/>
+                        </container>
+                        <container style="button-bar">
+                            <link target="FindCmsSecurityGroup" style="buttontext create" text="${uiLabelMap.CommonFind}"/>
+                        </container>
+                        <include-form name="EditSecurityGroup" location="component://common/widget/SecurityForms.xml"/>
+                    </decorator-section> 
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!-- 权限及会员管理 by Surpass Li 2011-09-15 结束-->
+</screens>

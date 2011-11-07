@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+    <!-- The controller elements that are common to all OFBiz components
+         can be found in the following xml file. A component can override the
+         elements found in the common-controller.xml file. -->
+    <include location="component://common/webcommon/WEB-INF/common-controller.xml"/>
+
+    <description>Cms Component Site Configuration File</description>
+
+    <!-- Events to run on every request before security (chains exempt) -->
+    <!--
+    <preprocessor>
+    </preprocessor>
+    -->
+    <!-- Events to run on every request after all other processing (chains exempt) -->
+    <!--
+    <postprocessor>
+        <event name="test" type="java" path="org.ofbiz.webapp.event.TestEvent" invoke="test"/>
+    </postprocessor>
+    -->
+
+    <!-- Request Mappings -->
+    <request-map uri="main"><security https="false" auth="false"/><response name="success" type="view" value="main"/></request-map>
+    <request-map uri="ViewMain"><security https="false" auth="false"/><response name="success" type="view" value="ViewMain"/></request-map>
+    <request-map uri="ViewCatalog"><security https="false" auth="false"/><response name="success" type="view" value="ViewCatalog"/></request-map>
+    <request-map uri="ViewArticle"><security https="false" auth="false"/><response name="success" type="view" value="ViewArticle"/></request-map>
+    
+    <request-map uri="ViewSearch"><security https="false" auth="false"/><response name="success" type="view" value="ViewSearch"/></request-map>
+    <request-map uri="ViewMessageBoard"><security https="false" auth="false"/><response name="success" type="view" value="ViewMessageBoard"/></request-map>
+    
+    <request-map uri="LoginAlone"><security https="false" auth="false"/><response name="success" type="view" value="LoginAlone"/></request-map>
+    <request-map uri="LoginFrame"><security https="false" auth="false"/><response name="success" type="view" value="LoginFrame"/></request-map>
+    
+    <request-map uri="ViewCalendar"><security https="false" auth="false"/><response name="success" type="view" value="ViewCalendar"/></request-map>
+    
+    
+    <!-- View Mappings -->
+    <view-map name="main" type="screen" page="component://cms/widget/CmsScreens.xml#main"/>
+    <view-map name="ViewMain" type="screen" page="component://cms/widget/CmsScreens.xml#ViewMain"/>
+    <view-map name="ViewCatalog" type="screen" page="component://cms/widget/CmsScreens.xml#ViewCatalog"/>
+    <view-map name="ViewArticle" type="screen" page="component://cms/widget/CmsScreens.xml#ViewArticle"/>
+    
+    <view-map name="ViewSearch" type="screen" page="component://cms/widget/CmsScreens.xml#ViewSearch"/>
+    <view-map name="ViewMessageBoard" type="screen" page="component://cms/widget/CmsScreens.xml#ViewMessageBoard"/> 
+    
+    <view-map name="LoginAlone" type="screen" page="component://cms/widget/CmsScreens.xml#LoginAlone"/>
+    <view-map name="LoginFrame" type="screen" page="component://cms/widget/CmsScreens.xml#LoginFrame"/>
+    
+    <view-map name="ViewCalendar" type="screen" page="component://cms/widget/CmsScreens.xml#ViewCalendar"/>
+   
+    
+</site-conf>

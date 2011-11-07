@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>投票结果 - ${web.name} - powered by OFBizCMS</title>
+<meta content="投票结果" name="keywords" />
+<meta content="投票结果" name="description" />
+<style type="text/css">
+body{margin:10px 0px;padding:0px;font-size:12px;font-family:verdana;}
+</style>
+</head>
+<body>
+[#if error??]
+${error}
+[#else]
+<table width="98%" border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#5AADF6">
+  <tr>
+    <td height="25" colspan="2" bgcolor="#AAD5FB"><strong>投票主题:${bean.title}</strong></td>
+  </tr>
+  <tr>
+    <td height="25" colspan="2" bgcolor="#FFFFFF">投票总人数：${bean.totalCount}</td>
+  </tr>
+[#list bean.items as item]
+  <tr>
+    <td width="256" height="25" bgcolor="#FFFFFF">${item_index+1}、${item.title}</td>
+    <td width="719" bgcolor="#FFFFFF">
+    <img src="${root}/default/auxiliary/img/vote/vote_bar.gif" width="${item.percent}%" height="10px" border="0"/>${item.percent}%(${item.voteCount})    </td>
+  </tr>
+[/#list]
+</table>
+[/#if]
+</body>
+</html>

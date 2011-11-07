@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>错误提示信息</title>
+<link href="${root}/default/cms_member/css/whole.css" rel="stylesheet" type="text/css"/>
+<link href="${root}/default/cms_member/css/layout.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+<div class="list error_msg">
+	<div class="list_bar">错误提示:</div>
+	<div class="error_content">
+		<ul>
+			[#list actionErrors as error]
+				<li>&middot; ${error}</li>
+			[/#list]
+			[#list fieldErrors?keys as key]
+				<li>&middot; ${key}：[#list fieldErrors[key] as s]${s}； [/#list]</li>
+			[/#list]
+		</ul>					   
+	</div>
+	<div class="foot">【<a href="javascript:history.back();">点击这里返回上一页</a>】</div>
+</div>
+</body>
+</html>

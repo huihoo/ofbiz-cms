@@ -1,0 +1,25 @@
+<script type="text/javascript">
+    $(window).scroll(function() { 
+	    var diffY = $(window).scrollTop();
+	    var diffH = $(window).height()/1.5;
+	    var percent=diffH + diffY;
+	    if(percent<0){
+		    percent=Math.ceil(percent);
+	    }else{
+		    percent=Math.floor(percent);
+	        var v = percent+"px";
+	        $("#advertise").css("top",v);
+	    }
+    });
+
+    function closeDiv(){
+	    $("#advertise").css('display','none'); 
+    }
+
+
+</script>
+
+<div id="advertise" style="position:absolute; right:0px; bottom:0px;">
+   <div id="closeDiv" onClick="closeDiv()" style="cursor:pointer;text-align:right;display:none" >关闭</div>
+   <div id="ad" ><@cms.AdvertiseList typeId='default' /></div>
+</div>

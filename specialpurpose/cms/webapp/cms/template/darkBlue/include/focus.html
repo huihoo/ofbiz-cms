@@ -1,0 +1,48 @@
+<style type="text/css">
+ .all,.imgs {width:480px;height:240px;}
+ .all {overflow:hidden;position:relative;}
+ .imgs,.num {position:absolute;}
+ .imgs {left:0;top:0;}
+ .imgs li {display:none}
+ .imgs li.cur {display:block;}
+ .num {right:2px;bottom:10px;width:100px;height:16px;}
+ .num li {float:left;border:1px solid #666;height:16px;width:16px;background:#fff;margin-left:5px;line-height:16px;text-align:center;color:#333;}
+ .num li.hover {background:#ff0;color:#000;}
+ .imgs li.cur img {width:480px;height:240px;}
+</style>
+<script type="text/javascript">
+ $(function(){
+  var numb = $(".num li").size();
+  var xx = 0;
+  $(".num li").mouseover(function(aa){
+   aa = $(this).index();
+   xx = aa;
+   $(this).addClass("hover").siblings().removeClass("hover");
+   $(".imgs li").eq(aa).addClass("cur").siblings().removeClass("cur");
+  });
+
+  function setTab() {
+   $(".num li").eq(xx).addClass("hover").siblings().removeClass("hover");
+   $(".imgs li").eq(xx).addClass("cur").siblings().removeClass("cur");
+   xx+=1;
+   if(xx>3) xx=0;
+  }
+  setInterval(setTab,1000);
+ });
+</script>
+
+<div class="all">
+ <ul class="imgs">
+  <li class="cur"><img src="/cms/images/upload/article/20111001/xingcheng_460x200.jpg" alt="" /></li>
+  <li><img src="/cms/images/upload/article/20111001/jinmahui_460x200.jpg" alt="" /></li>
+  <li><img src="/cms/images/upload/article/20111001/kaiyuan_460x200.jpg" alt="" /></li>
+  <li><img src="/cms/images/upload/article/20111001/guanzhi_460x200.jpg" alt="" /></li>
+ </ul>
+ <ul class="num">
+  <li class="hover">1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+ </ul>
+</div>
+

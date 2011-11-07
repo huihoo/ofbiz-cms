@@ -1,0 +1,56 @@
+<script type="text/javascript">
+
+
+/*自定义焦点图*/
+$(function(){
+		   var xindex = 0;
+		   var xdimg ;
+		   var $xfoucs = $('ul.xnav li')
+		   $xfoucs.css("opacity","0.5")
+		   $xfoucs.mouseover(function(){
+											 xindex = $xfoucs.index(this);
+											 ximg(xindex);
+											 //alert(xindex)
+											}).eq(0).mouseover();
+		   $('.xfoucs').hover(function(){
+									  clearInterval(xdimg)
+									  }
+									  ,function(){
+										  xdimg = setInterval(function(){
+										  ximg(xindex)
+										  xindex++
+										  if(xindex==4){xindex=0}
+																			  },3000)
+										  }).trigger("mouseleave");
+		   function ximg(i){
+			    $('.ximg').stop(true,false).animate({top:-i*240},1000); //滚动展示方式   也可以淡入淡出
+			    $xfoucs.eq(i).addClass('on').siblings().removeClass('on');
+			   }
+		   
+		   })
+</script> 
+<style type="text/css">
+.xfoucs{width:480px; height:240px;margin-left:3px;  position:relative; overflow:hidden; cursor:pointer;}
+.ximg{ position:absolute;}
+.ximg img{ vertical-align:middle;}
+.xnav { position:absolute; left:0; bottom:0;}
+.xnav li{ float:left; background:#ffc; text-align:center; border:1px solid #000; padding:3px 0; width:118px; color:#f09; font-weight:bold;}
+.xnav li.on{ background:#ccc; color:#09f;}
+.xfoucs ul.ximg img {width:480px;height:240px;}
+/**/
+</style>
+
+<div class="xfoucs"> 
+  <ul class="ximg"> 
+  <div><img src="/cms/images/upload/article/20111002/02.jpg" /></div> 
+  <div><img src="/cms/images/upload/article/20111002/03.jpg" /></div> 
+  <div><img src="/cms/images/upload/article/20111002/04.jpg" /></div> 
+  <div><img src="/cms/images/upload/article/20111002/05.jpg" /></div> 
+  </ul> 
+    <ul class="xnav"> 
+      <li>曾经的你</li> 
+      <li>那一年</li> 
+      <li>完美生活</li> 
+      <li>时光</li> 
+    </ul> 
+</div> 

@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>${arti.title} - ${web.name}</title>
+<meta content="${arti.title}" name="keywords" />
+<meta content="${arti.title}" name="description" />
+
+<link href="${root}/darkBlue/app/css/whole.css" rel="stylesheet" type="text/css"/>
+<link href="${root}/darkBlue/app/css/layout.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+<!--页头Begin-->
+<@cms.Include name='head.html' solution='darkBlue'/> 
+<!--页头End-->
+<!--搜索栏Begin-->
+<@cms.Include name='search.html' solution='darkBlue'/>
+<!--搜索栏End-->
+<!--主体下Begin-->
+<div class="page_row">
+	<div class="page_main_msg left">		
+		<div class="left_row">
+		  <div class="list pic_news">
+		  	<div class="list_bar"><@cms.Position /></div>
+		  	<div class="ctitle ctitle1">${arti.title}</div>
+			<div class="ctitleinfo">
+				${uiLabelMap.Author}:${arti.author}&nbsp;&nbsp;&nbsp;${uiLabelMap.ReleaseDate}: ${arti.releaseDate}&nbsp;&nbsp;&nbsp;${uiLabelMap.VisitTotal}: ${arti.visitTotal} ${uiLabelMap.Times}
+			</div>
+			<div class="intr">
+				<span class="intr_front">${uiLabelMap.Intro}:</span>	<#if arti.description?length lte 150 >${arti.description}<#else>${arti.description[0..149]}..</#if>
+			</div>
+			<div class="pbox">
+				${(StringUtil.wrapString(arti.content))!}
+            </div>
+
+			<div class="arti_ref">${uiLabelMap.PreArticle}: [@cms.ArtiSide side='pre'/] &nbsp;&nbsp; ${uiLabelMap.NextArticle}: [@cms.ArtiSide side='next'/] </div>	
+			<!--文章评论Begin-->
+			<div class="comment_list">	
+				<#include 'inc_comment_input.html'/>	
+			</div>
+			<!--文章评论End-->
+		  </div>
+		</div>	
+	</div>
+	
+	<div class="page_other_msg right">
+	 	<@cms.Include name='right.html' solution='darkBlue'/> 
+	</div>
+	<div style="clear:both;"></div>
+</div>
+<!--主体下End-->
+
+
+<!--友情链接Begin-->
+<@cms.Include name='hotlink.html' solution='darkBlue'/> 
+<!--友情链接End-->
+
+<!--页脚Begin-->
+<@cms.Include name='foot.html' solution='darkBlue'/> 
+<!--页脚End-->
+</body>
+</html>

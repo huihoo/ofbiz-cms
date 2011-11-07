@@ -1,0 +1,45 @@
+<#import "component://cms/webapp/cms/ftl/index.ftl" as cms> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head xmlns="">
+<title>${chnl.catalogName} - ${web.name}</title>
+<meta content="text/html; charset=gb2312" http-equiv="Content-Type" />
+<meta content="${chnl.keywords}" name="keywords" />
+<meta content="${chnl.description}" name="description" />
+<script src="${sysResRoot}/jquery.js" type="text/javascript"></script>
+<link href="${sysResRoot}/front.css" type="text/css" rel="stylesheet" />
+<link href="${root}/default/article/css/whole.css" type="text/css" rel="stylesheet" />
+<link href="${root}/default/article/css/layout.css" type="text/css" rel="stylesheet" />
+</head>
+<body xmlns="">
+<!--页头Begin-->
+<@cms.Include name='head.html' solution='default'/>
+<!--页头End-->
+<!--搜索栏Begin-->
+<@cms.Include name='search.html' solution='default'/>
+<!--搜索栏End-->
+<!--主体下Begin-->
+<div class="page_row">
+  <div class="page_main_msg left">
+    <div class="list_bar" style="width:680px;"><@cms.Position /></div>
+    <div class="left_row"><img src="${root}/default/article/img/banner.jpg" /></div>
+    <div class="left_row"><@cms.ChnlList hasContent='1' inner='1';c>
+      <div class="list pic_news" style="margin-top: 5px">
+        <div class="list_bar"> // <a target="_blank" href="$--{c.url}">$--{c.name}</a></div>
+        <div class="list_content"><@cms.ArtiList count='20' sysContent='1-1' titLen='50' lineHeight='6' chnlId='c.id' dateFormat='1' datePosition='2' headMark='4' bottomLine='1'/></div>
+      </div>
+      </@cms.ChnlList></div>
+    <div style="clear: both"></div>
+  </div>
+  <div class="page_other_msg right"><@cms.Include name='right.html' solution='default'/></div>
+  <div style="clear: both"></div>
+</div>
+<!--主体下End-->
+<!--友情链接Begin-->
+<@cms.Include name='hotlink.html' solution='default'/>
+<!--友情链接End-->
+<!--页脚Begin-->
+<@cms.Include name='foot.html' solution='default'/>
+<!--页脚End-->
+</body>
+</html>

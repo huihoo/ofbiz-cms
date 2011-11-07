@@ -1,0 +1,69 @@
+<#macro pagination totalCount pageSize>   
+    <#--声明一个函数，根据传入的totalCount,pageSize得到总页数-->   
+    <#assign pageCount=getpageCount(totalCount,pageSize)>   
+    <#--得到当前的URI和请求参数,得到当前的页码-->   
+    <#assign pageIndex=requestParameters.pager_offset?default(1)> 
+    <#if request.queryString?exists>   
+        <#assign uri=request.requestURI+"?"+request.queryString>     
+        <#assign new_uri=uri+"">   
+    <#else>   
+        <#assign uri=request.requestURI>    
+        <#assign new_uri=uri+"">   
+    </#if>   
+    <#if pageIndex gt pageCount>   
+        <#assign pageIndex=pageCount>   
+    </#if>   
+    <#if pageIndex gt 1>   
+        <a href="${new_uri+1}" title="首页">&lt;&lt;</a>   
+    </#if>   
+    <#--如果前面页数过多,显示"..."-->   
+    <#if pageIndex gt 5>   
+        <#assign prevPages=pageIndex-9>   
+        <#if prevPages lt 1>   
+            <#assign prevPages=1>   
+        </#if>   
+        <#assign start=pageIndex-4>   
+        <a href="${new_uri+prevPages}" title="向前5页">...</a>   
+    <#else>   
+        <#assign start=1>   
+    </#if>   
+    <#-- 显示当前页附近的页-->   
+    <#assign end=pageIndex+4>   
+    <#if end gt pageCount>   
+        <#assign end=pageCount>   
+    </#if>   
+    <#list start..end as index>   
+        <#if pageIndex==index>   
+            <b>${index}</b>   
+        <#else>   
+            <a href="${new_uri+index}">${index}</a>   
+        </#if>   
+    </#list>   
+    <#--如果后面页数过多,显示"...":-->   
+    <#if end lt pageCount>   
+        <#assign endend=end+5>   
+        <#if end gt pageCount>   
+            <#assign end=pageCount>   
+        </#if>   
+        <a href="${new_uri+end}" title="向后5页">...</a>   
+    </#if>   
+    <#-- 显示"下一页":-->   
+    <#if pageIndex lt pageCount>   
+        <a href="${new_uri+pageCount}" title="末页">&gt;&gt;</a>   
+    </#if>   
+</#macro>  
+<#function getpageCount totalCount pageSize>
+  <#return totalCount / pageSize + eCount(totalCount,pageSize)>
+</#function>
+<#function eCount totalCount pageSize>
+    <#if (totalCount % pageSize == 0)>  
+		<#return 0>
+	<#else>   
+		<#return 1>
+	</#if>   
+</#function>
+<DIV class=PageNum>
+			<#--前一个参数是总记录数，后一个参数是页面记录数-->
+			<@pagination 1000 50/>
+		</div>
+

@@ -1,0 +1,25 @@
+body {margin:0px;padding:0px;text-align:center;font-family: ËÎÌו;font-size:12px;background-color: #004e82;}
+.gbook_answer {font-weight: bold; color: #ff9900;}
+.white {color: #ffffff;}
+a{text-decoration: none;}
+a:link {color: #000000;}
+a:visited {color: #000000;}
+a:hover{color: #ee0000;}
+a:active {color: #000000;}
+a2{text-decoration: none;}
+a2:link {color: #ffffff;}
+a2:visited {color: #ffffff;}
+a2:hover{color: #ee0000;}
+a2:active {color: #ffffff;}
+#gbook_head{width:780px; height:70px; background-color:#f5f4fa; margin:0px auto;}
+#gbook_content{width:780px; background-color:#f5f4fa; margin:0px auto;}
+.gbook_msg_list{width:98%; margin:0px auto 10px; text-align:left; border:#ff9900 1px solid; background-color:#fff6dd;}
+.msg_bar{height:26px; line-height:26px; margin:8px; border-bottom:#cccccc 1px solid;}
+.gbook_usrname {float:left; font-weight:bold; color:#1172c3;}
+.msg_time{float:right;}
+.msg_content{padding:0px 10px;line-height:1.6em; word-break:break-all;}
+.reply_content{margin:5px;padding:10px;line-height:1.6em;border:#cccccc 1px solid; background-color:#f5f4fa;}
+.msg_page{height:26px; line-height:26px;}
+#gbook_form{text-align:left;}
+#gbook_foot{width:780px; height:30px; line-height:30px; margin:0px auto; color:#ffffff;}
+.clear{clear:both; height:0; overflow:hidden;}

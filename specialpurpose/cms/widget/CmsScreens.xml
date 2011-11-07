@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+   <screen name="main">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/><!-- this highlights the selected menu-item with name "main" -->
+            </actions>
+            <widgets>
+                <decorator-screen name="CommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+     <screen name="ViewMain">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CmsUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="id" default-value="default"/>
+               
+
+                <entity-one value-field="web" entity-name="CmsWebSite">
+                    <field-map field-name="websiteId" from-field="id"/>
+                </entity-one>
+
+                <entity-and list="cmsSolution" entity-name="CmsSolution"  >
+                    <field-map field-name="websiteId" from-field="web.websiteId"/>
+                </entity-and> 
+                <entity-and list="fellowshipLinkList" entity-name="CmsFellowshipLink"  >
+                    <field-map field-name="statusId" value="Y"/>
+                </entity-and> 
+                
+                <set field="solution" from-field="cmsSolution[0].solutionName" default-value="darkBlue"><!-- default darkBlue red blue green --></set>
+                <set field="module" value="app"/>
+                <set field="html" value="index"/>
+                
+                
+                <set field="root" value="/cms/images/template"/>
+    
+               
+
+                <set field="chnl.keywords" value="chnl.keywords"/>
+                <set field="chnl.description" value="chnl.description"/>
+            </actions>
+            <widgets>
+                
+                <platform-specific>
+                    <html><html-template location="component://cms/webapp/cms/ftl/operation.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+   <screen name="ViewCatalog">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CmsUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="websiteId" default-value="default"/>
+                <entity-one value-field="web" entity-name="CmsWebSite">
+                    <field-map field-name="websiteId" from-field="websiteId"/>
+                </entity-one>
+                <entity-and list="cmsSolution" entity-name="CmsSolution"  >
+                    <field-map field-name="websiteId" from-field="web.websiteId"/>
+                </entity-and> 
+                <set field="solution" from-field="cmsSolution[0].solutionName" default-value="darkBlue"><!-- default darkBlue red blue green --></set>
+                <set field="module" value="app"/>
+                <set field="html" value="catalog"/>
+               
+               <entity-and list="fellowshipLinkList" entity-name="CmsFellowshipLink"  >
+                    <field-map field-name="statusId" value="Y"/>
+                </entity-and> 
+                
+               <entity-one value-field="catalog" entity-name="CmsCatalog">
+                    <field-map field-name="catalogId" from-field="parameters.id"/>
+               </entity-one>
+          
+               <set field="viewIndex" from-field="parameters.viewIndex" type="Integer" default-value="0"/>
+               <set field="viewSize" from-field="parameters.viewSize" type="Integer" default-value="20"/>
+               <set field="root" value="/cms/images/template"/>
+    
+               
+               
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://cms/webapp/cms/ftl/operation.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="ViewArticle">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CmsUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="id" default-value="default"/>
+                <entity-one value-field="web" entity-name="CmsWebSite">
+                    <field-map field-name="websiteId" from-field="id"/>
+                </entity-one>
+                <entity-and list="cmsSolution" entity-name="CmsSolution"  >
+                    <field-map field-name="websiteId" from-field="web.websiteId"/>
+                </entity-and> 
+                <set field="solution" from-field="cmsSolution[0].solutionName" default-value="darkBlue"><!-- default darkBlue red blue green --></set>
+                <set field="module" value="app"/>
+                <set field="html" value="article"/>
+                
+               <entity-and list="fellowshipLinkList" entity-name="CmsFellowshipLink"  >
+                    <field-map field-name="statusId" value="Y"/>
+                </entity-and> 
+                <entity-one value-field="arti" entity-name="CmsArticle">
+                    <field-map field-name="articleId" from-field="parameters.id"/>
+                </entity-one>
+                <entity-one value-field="catalog" entity-name="CmsCatalog">
+                    <field-map field-name="catalogId" from-field="arti.catalogId"/>
+                </entity-one>                
+                <set field="root" value="/cms/images/template"/>
+            </actions>
+            <widgets>
+            
+            <platform-specific>
+                    <html><html-template location="component://cms/webapp/cms/ftl/operation.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="ViewMessageBoard">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CmsUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="websiteId" default-value="default"/>
+                <entity-one value-field="web" entity-name="CmsWebSite">
+                    <field-map field-name="websiteId" from-field="websiteId"/>
+                </entity-one>
+                <entity-and list="cmsSolution" entity-name="CmsSolution"  >
+                    <field-map field-name="websiteId" from-field="web.websiteId"/>
+                </entity-and> 
+                <set field="solution" from-field="cmsSolution[0].solutionName" default-value="darkBlue"><!-- default darkBlue red blue green --></set>
+                <set field="module" value="app"/>
+                <set field="html" value="comment"/>
+               <set field="searchKey" from-field="parameters.searchKey" default-value=""/>
+               <entity-condition list="searchArticleList" entity-name="CmsArticle">
+                   <condition-list combine="and">
+                      <condition-expr field-name="statusId" value="CAST_APPROVED"/>
+                      <condition-expr field-name="title" operator="equals" from-field="searchKey"/>
+                   </condition-list>
+               </entity-condition>
+               
+               <entity-and list="fellowshipLinkList" entity-name="CmsFellowshipLink"  >
+                    <field-map field-name="statusId" value="Y"/>
+                </entity-and> 
+                
+               <entity-one value-field="chnl" entity-name="CmsCatalog">
+                    <field-map field-name="catalogId" from-field="parameters.id"/>
+               </entity-one>
+          
+               <set field="viewIndex" from-field="parameters.viewIndex" type="Integer" default-value="0"/>
+               <set field="viewSize" from-field="parameters.viewSize" type="Integer" default-value="20"/>
+               <set field="root" value="/cms/images/template"/>
+
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://cms/webapp/cms/ftl/operation.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="LoginFrame">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CmsUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="web.name" value="main"/>
+                <set field="chnl.keywords" value="chnl.keywords"/>
+                <set field="chnl.description" value="chnl.description"/>
+                
+                <set field="sysResRoot" value="/cms/images/front_res"/>
+                <set field="root" value="/cms/images/template"/>
+    
+                <set field="pageNo" value="1"/>
+    
+                <set field="base" value="/cms/"/>
+                
+                
+                <set field="chnl.name" value="chnl.name"/>
+                <set field="chnl.id" value="chnl.id"/>
+                
+                <set field="solution" default-value="darkBlue"><!-- default darkBlue red blue green --></set>
+                <set field="module" value="member"/>
+                <set field="html" value="sys_LoginFrameInput"/>
+               
+            </actions>
+            <widgets>
+            
+                <platform-specific>
+                    <html><html-template location="component://cms/webapp/cms/ftl/operation.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="ViewSearch">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CmsUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="websiteId" default-value="default"/>
+                <entity-one value-field="web" entity-name="CmsWebSite">
+                    <field-map field-name="websiteId" from-field="websiteId"/>
+                </entity-one>
+                <entity-and list="cmsSolution" entity-name="CmsSolution"  >
+                    <field-map field-name="websiteId" from-field="web.websiteId"/>
+                </entity-and> 
+                <set field="solution" from-field="cmsSolution[0].solutionName" default-value="darkBlue"><!-- default darkBlue red blue green --></set>
+                <set field="module" value="app"/>
+                <set field="html" value="search_result"/>
+                
+               <set field="searchKey" from-field="parameters.searchKey" default-value=""/>
+               <entity-condition list="searchArticleList" entity-name="CmsArticle">
+                   <condition-list combine="and">
+                      <condition-expr field-name="statusId" value="CAST_APPROVED"/>
+                      <condition-expr field-name="title" operator="equals" from-field="searchKey"/>
+                   </condition-list>
+               </entity-condition>
+               
+               <entity-and list="fellowshipLinkList" entity-name="CmsFellowshipLink"  >
+                    <field-map field-name="statusId" value="Y"/>
+                </entity-and> 
+                
+               <entity-one value-field="chnl" entity-name="CmsCatalog">
+                    <field-map field-name="catalogId" from-field="parameters.id"/>
+               </entity-one>
+          
+               <set field="viewIndex" from-field="parameters.viewIndex" type="Integer" default-value="0"/>
+               <set field="viewSize" from-field="parameters.viewSize" type="Integer" default-value="20"/>
+                <set field="sysResRoot" value="/cms/images/front_res"/>
+                <set field="root" value="/cms/images/template"/>
+    
+                <set field="pageNo" value="1"/>
+    
+                <set field="base" value="/cms/"/>
+                
+               
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://cms/webapp/cms/ftl/operation.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="LoginAlone">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CmsUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="web.name" value="main"/>
+                <set field="chnl.keywords" value="chnl.keywords"/>
+                <set field="chnl.description" value="chnl.description"/>
+                
+                <set field="sysResRoot" value="/cms/images/front_res"/>
+                <set field="root" value="/cms/images/template"/>
+    
+                <set field="pageNo" value="1"/>
+    
+                <set field="base" value="/cms/"/>
+                
+                
+                <set field="chnl.name" value="chnl.name"/>
+                <set field="chnl.id" value="chnl.id"/>
+                
+                <set field="solution" default-value="darkBlue"><!-- default darkBlue red blue green --></set>
+                <set field="module" value="app"/>
+                <set field="html" value="search_result"/>
+            </actions>
+            <widgets>
+            
+                <platform-specific>
+                    <html><html-template location="component://cms/webapp/cms/bridge/operation.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    
+    <screen name="ViewCalendar">
+        <section>
+            <actions>
+                <set field="nowDate" value="${bsh:org.ofbiz.base.util.UtilDateTime.nowDateString(&quot;yyyy-MM-dd HH:mm:ss.S&quot;)}" type="String"/>
+                <set field="calendrFromDate" value="2011-08-15"/>
+                <set field="calendrToDate" value="2011-10-15"/>
+                <entity-condition list="calendarList" entity-name="CmsDisplayEvents">
+                    <condition-list>
+                        <condition-expr field-name="startTime" operator="greater" from-field="calendrFromDate" />
+                        <condition-expr field-name="startTime" operator="less" from-field="calendrToDate"/></condition-list>
+
+                </entity-condition>
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <!--<html><html-template location="component://cms/webapp/cms/plugin/fullcalendar/ViewCalendar.ftl"/></html>-->
+                    <html><html-template location="component://cms/webapp/cms/plugin/calendar/ViewCalendar.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+
+</screens>

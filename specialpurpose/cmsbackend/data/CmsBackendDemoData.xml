@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+
+
+
+    <CmsCatalog catalogId="9301" catalogTypeId="Artile" websiteId="default" catalogName ="新闻" keywords ="新闻"  statusId="Y" title="标题" description="描述"   isDisplay ="Y" />
+    <CmsCatalog catalogId="9302" catalogTypeId="Artile" websiteId="default" catalogName ="军事" keywords ="新闻"  statusId="Y" title="标题" description="描述"  isDisplay ="Y" />
+    <CmsCatalog catalogId="9303" catalogTypeId="Artile" websiteId="default" catalogName ="科技" keywords ="新闻"  statusId="Y" title="标题" description="描述"  isDisplay ="Y" />
+    <CmsCatalog catalogId="9304" catalogTypeId="Artile" websiteId="default" catalogName ="财经" keywords ="新闻"  statusId="Y" title="标题" description="描述"  isDisplay ="Y" />
+    <CmsCatalog catalogId="9305" catalogTypeId="Artile" websiteId="default" catalogName ="娱乐" keywords ="新闻"  statusId="Y" title="标题" description="描述"  isDisplay ="Y" />
+    <CmsCatalog catalogId="9306" catalogTypeId="Artile" websiteId="default" catalogName ="体育" keywords ="新闻" path="ViewCatalog?id=9306" statusId="Y" title="标题" description="描述"  isDisplay ="Y" />
+    <CmsCatalog catalogId="9307" catalogTypeId="Artile" websiteId="default" catalogName ="房产" keywords ="新闻" path="ViewCatalog?id=9307" statusId="Y" title="标题" description="描述"  isDisplay ="Y" />
+    
+    <CmsArticle articleId="9501" articleTypeId ="default" statusId ="CAST_DEFINED" title ="文章标题1" description ="描述"
+        author ="作者" releaseDate ="2011-12-12" visitTotal ="100" shortTitle ="简短标题" titleColor ="标题颜色" 
+        titleImg ="name" contentImg ="" tags ="标记，类似关键字" origin ="来源" commentCount="0"
+        releaseSysDate ="2011-12-12" checkTime ="2011-12-12 12:12:00" disableTime ="2011-12-13 12:12:00" 
+        catalogId ="9301" websiteId="default" allowComment="Y"/>
+    <CmsArticle articleId="9502" articleTypeId ="default" statusId ="CAST_DEFINED" title ="文章标题2" description ="描述"
+        author ="作者" releaseDate ="2011-12-12" visitTotal ="100" shortTitle ="简短标题" titleColor ="标题颜色" 
+        titleImg ="name" contentImg ="" tags ="标记，类似关键字" origin ="来源" commentCount="0"
+        releaseSysDate ="2011-12-12" checkTime ="2011-12-12 12:12:00" disableTime ="2011-12-13 12:12:00" 
+        catalogId ="9301" websiteId="default" allowComment="Y"/>
+    <CmsArticle articleId="9503" articleTypeId ="default" statusId ="CAST_DEFINED" title ="文章标题3" description ="描述"
+        author ="作者" releaseDate ="2011-12-12" visitTotal ="100" shortTitle ="简短标题" titleColor ="标题颜色" 
+        titleImg ="name" contentImg ="" tags ="标记，类似关键字" origin ="来源" commentCount="0"
+        releaseSysDate ="2011-12-12" checkTime ="2011-12-12 12:12:00" disableTime ="2011-12-13 12:12:00" 
+        catalogId ="9301" websiteId="default" allowComment="Y"/>
+    <CmsArticle articleId="9504" articleTypeId ="default" statusId ="CAST_DEFINED" title ="文章标题4" description ="描述"
+        author ="作者" releaseDate ="2011-12-12" visitTotal ="100" shortTitle ="简短标题" titleColor ="标题颜色" 
+        titleImg ="name" contentImg ="" tags ="标记，类似关键字" origin ="来源" commentCount="0"
+        releaseSysDate ="2011-12-12" checkTime ="2011-12-12 12:12:00" disableTime ="2011-12-13 12:12:00" 
+        catalogId ="9302" websiteId="default" allowComment="Y"/>
+    <CmsArticle articleId="9505" articleTypeId ="default" statusId ="CAST_DEFINED" title ="文章标题5" description ="描述"
+        author ="作者" releaseDate ="2011-12-12" visitTotal ="100" shortTitle ="简短标题" titleColor ="标题颜色" 
+        titleImg ="name" contentImg ="" tags ="标记，类似关键字" origin ="来源" commentCount="0"
+        releaseSysDate ="2011-12-12" checkTime ="2011-12-12 12:12:00" disableTime ="2011-12-13 12:12:00" 
+        catalogId ="9302" websiteId="default" allowComment="Y"/>
+    <CmsArticle articleId="9506" articleTypeId ="default" statusId ="CAST_DEFINED" title ="文章标题6" description ="描述"
+        author ="作者" releaseDate ="2011-12-12" visitTotal ="100" shortTitle ="简短标题" titleColor ="标题颜色" 
+        titleImg ="name" contentImg ="" tags ="标记，类似关键字" origin ="来源" commentCount="0"
+        releaseSysDate ="2011-12-12" checkTime ="2011-12-12 12:12:00" disableTime ="2011-12-13 12:12:00" 
+        catalogId ="9303" websiteId="default" allowComment="Y"/>
+    <CmsArticle articleId="9507" articleTypeId ="default" statusId ="CAST_DEFINED" title ="文章标题7" description ="描述"
+        author ="作者" releaseDate ="2011-12-12" visitTotal ="100" shortTitle ="简短标题" titleColor ="标题颜色" 
+        titleImg ="name" contentImg ="" tags ="标记，类似关键字" origin ="来源" commentCount="0"
+        releaseSysDate ="2011-12-12" checkTime ="2011-12-12 12:12:00" disableTime ="2011-12-13 12:12:00" 
+        catalogId ="9304" websiteId="default" allowComment="Y"/>
+    <CmsArticle articleId="9508" articleTypeId ="picture" statusId ="CAST_DEFINED" title ="文章标题8" description ="描述"
+        author ="作者" releaseDate ="2011-12-12" visitTotal ="100" shortTitle ="简短标题" titleColor ="标题颜色" 
+        titleImg ="name" contentImg ="" tags ="标记，类似关键字" origin ="来源" commentCount="0"
+        releaseSysDate ="2011-12-12" checkTime ="2011-12-12 12:12:00" disableTime ="2011-12-13 12:12:00" 
+        catalogId ="9304" websiteId="default" allowComment="Y"/>
+    <CmsArticle articleId="9509" articleTypeId ="picture" statusId ="CAST_DEFINED" title ="文章标题9" description ="描述"
+        author ="作者" releaseDate ="2011-12-12" visitTotal ="100" shortTitle ="简短标题" titleColor ="标题颜色" 
+        titleImg ="name" contentImg ="" tags ="标记，类似关键字" origin ="来源" commentCount="0"
+        releaseSysDate ="2011-12-12" checkTime ="2011-12-12 12:12:00" disableTime ="2011-12-13 12:12:00"
+        catalogId ="9304" websiteId="default" allowComment="Y"/>
+    <CmsArticle articleId="9510" articleTypeId ="focus" statusId ="CAST_DEFINED" title ="文章标题10" description ="描述"
+        author ="作者" releaseDate ="2011-12-12" visitTotal ="100" shortTitle ="简短标题" titleColor ="标题颜色" 
+        titleImg ="name" contentImg ="" tags ="标记，类似关键字" origin ="来源" commentCount="0"
+        releaseSysDate ="2011-12-12" checkTime ="2011-12-12 12:12:00" disableTime ="2011-12-13 12:12:00" 
+        catalogId ="9304" websiteId="default" allowComment="Y"/>
+    <CmsArticle articleId="9511" articleTypeId ="focus" statusId ="CAST_DEFINED" title ="文章标题11" description ="描述"
+        author ="作者" releaseDate ="2011-12-12" visitTotal ="100" shortTitle ="简短标题" titleColor ="标题颜色" 
+        titleImg ="name" contentImg ="" tags ="标记，类似关键字" origin ="来源" commentCount="0"
+        releaseSysDate ="2011-12-12" checkTime ="2011-12-12 12:12:00" disableTime ="2011-12-13 12:12:00" 
+        catalogId ="9304" websiteId="default" allowComment="Y"/>
+    <CmsArticle articleId="9512" articleTypeId ="focus" statusId ="CAST_DEFINED" title ="文章标题12" description ="描述"
+        author ="作者" releaseDate ="2011-12-12" visitTotal ="100" shortTitle ="简短标题" titleColor ="标题颜色" 
+        titleImg ="name" contentImg ="" tags ="标记，类似关键字" origin ="来源" commentCount="0"
+        releaseSysDate ="2011-12-12" checkTime ="2011-12-12 12:12:00" disableTime ="2011-12-13 12:12:00" 
+        catalogId ="9304" websiteId="default" allowComment="Y"/>
+   
+    
+    <CmsCalendarEvents eventId="9501" title="标题" address="行政大楼一楼梯教"
+		eventType="CAL_01" shortTitle="香港今日亚洲交易有限公司上海" content="香港今日亚洲交易有限公司上海代表处"
+		eventTime="18:30" startTime="2011-09-02" createBy="admin" statusId="CAL_IMPLEMENTED" />
+    <CmsCalendarEvents eventId="9502" title="标题" address="行政大楼一楼梯教"
+		eventType="CAL_01" shortTitle="香港今日亚洲交易有限公司上海" content="香港今日亚洲交易有限公司上海代表处"
+		eeventTime="18:30"
+		startTime="2011-09-02" createBy="admin" statusId="CAL_IMPLEMENTED" />
+    <CmsCalendarEvents eventId="9503" title="标题" address="行政大楼一楼梯教"
+		eventType="CAL_01" shortTitle="香港今日亚洲交易有限公司上海" content="香港今日亚洲交易有限公司上海代表处香港今日亚洲交易有限公司上海代表处"
+		eventTime="18:30"
+		startTime="2011-09-03" createBy="admin" statusId="CAL_IMPLEMENTED" />
+    <CmsCalendarEvents eventId="9504" title="标题" address="行政大楼一楼梯教"
+		eventType="CAL_01" shortTitle="香港今日亚洲交易有限公司上海代表处" content="香港今日亚洲交易有限公司上海代表处香港今日亚洲交易有限公司上海代表处"
+		eventTime="18:30"
+		startTime="2011-09-04" createBy="admin" statusId="CAL_IMPLEMENTED" />
+    <CmsCalendarEvents eventId="9505" title="标题" address="行政大楼一楼梯教"
+		eventType="CAL_01" shortTitle="香港今日亚洲交易有限公司上海代表处" content="香港今日亚洲交易有限公司上海代表处香港今日亚洲交易有限公司上海代表处"
+		eventTime="18:30"
+		startTime="2011-09-12" createBy="admin" statusId="CAL_IMPLEMENTED" />
+    <CmsCalendarEvents eventId="9506" title="标题" address="行政大楼一楼梯教"
+		eventType="CAL_01" shortTitle="香港今日亚洲交易有限公司上海代表处" content="香港今日亚洲交易有限公司上海代表处香港今日亚洲交易有限公司上海代表处"
+		eventTime="18:30"
+		startTime="2011-09-12" createBy="admin" statusId="CAL_IMPLEMENTED" />
+    <CmsCalendarEvents eventId="9507" title="标题" address="行政大楼一楼梯教"
+		eventType="CAL_01" shortTitle="香港今日亚洲交易有限公司上海代表处" content="香港今日亚洲交易有限公司上海代表处香港今日亚洲交易有限公司上海代表处"
+		eventTime="18:30"
+		startTime="2011-09-07" createBy="admin" statusId="CAL_IMPLEMENTED" />
+    <CmsCalendarEvents eventId="9508" title="标题" address="行政大楼一楼梯教"
+		eventType="CAL_01" shortTitle="香港今日亚洲交易有限公司上海代表处" content="香港今日亚洲交易有限公司上海代表处香港今日亚洲交易有限公司上海代表处"
+		eventTime="18:30"
+		startTime="2011-09-02" createBy="admin" statusId="_CANCELLED" />
+		
+		
+	<CmsDisplayEvents shortTitle="comment" content="18:30&lt;br&gt;梯教&lt;br&gt;交易有限公司上海" startTime="2011-09-08" eventNumber="2" />
+	
+	
+	<CmsDisplayEvents shortTitle="comment" content="18:30&lt;br&gt;大楼一楼梯教&lt;br&gt;香港交易上海" startTime="2011-09-04" eventNumber="1" />
+	
+	
+ 	<CmsDisplayEvents shortTitle="comment" content="18:30&lt;br&gt;一楼梯教&lt;br&gt;亚洲交易有限公司" startTime="2011-09-04" eventNumber="2" />
+	
+	
+	<CmsDisplayEvents shortTitle="comment" content="18:30&lt;br&gt;大楼一楼梯教&lt;br&gt;上海交易有限公司" startTime="2011-09-12" eventNumber="1" />
+	
+	
+	<CmsDisplayEvents shortTitle="comment" content="09:30&lt;br&gt;大楼一楼梯教&lt;br&gt;香港亚洲交易有限公司&lt;br&gt;18:30&lt;br&gt;行政大楼一楼梯教&lt;br&gt;xxx有限公司" startTime="2011-09-20" eventNumber="3" />
+	
+	
+	<CmsDisplayEvents shortTitle="comment" content="18:30&lt;br&gt;行政大楼一楼梯教&lt;br&gt;xxx有限公司" startTime="2011-09-24" eventNumber="2" />
+	
+	
+ 	<CmsDisplayEvents shortTitle="comment" content="18:30&lt;br&gt;大楼一楼梯教&lt;br&gt;香港d公司上海" startTime="2011-09-28" eventNumber="1" />
+	
+	
+	<CmsDisplayEvents shortTitle="comment" content="18:30&lt;br&gt;行政大楼一楼梯教&lt;br&gt;yyy有限公司" startTime="2011-09-18" eventNumber="4" />
+	
+	
+
+	
+	<CmsFellowshipLink linkId="1" linkName="ofbiz" url="http://ofbiz.apache.com" statusId="N" linkTypeId="1"/>
+	<CmsFellowshipLink linkId="1" linkName="OFBiz" url="http://code.google.com/p/ofbiz-cms/" statusId="Y" linkTypeId="1"/>
+</entity-engine-xml>

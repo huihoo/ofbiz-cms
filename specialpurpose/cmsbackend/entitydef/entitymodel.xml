@@ -1,0 +1,1063 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+	<!-- ========================================================= -->
+	<!-- ======================== Defaults ======================= -->
+	<!-- ========================================================= -->
+	<title>Entity of CmsBackend Component</title>
+	<description>None</description>
+	<copyright></copyright>
+	<version></version>
+
+
+	<entity entity-name="CmsArticle" package-name="org.ofbiz.cms.article"
+		title="Article Entity">
+		<field name="articleId" type="id-ne">
+			<description>primary sequenced ID</description>
+		</field>
+		<field name="articleTypeId" type="id-ne"></field>
+		<field name="statusId" type="id-ne"></field>
+		<field name="catalogId" type="id-ne">
+			<description></description>
+		</field>
+		<field name="websiteId" type="id-ne">
+			<description>网站Id</description>
+		</field>
+		<field name="description" type="description"></field>
+		<field name="title" type="name"></field>
+		<field name="content" type="very-long">
+			<description>文章内容</description>
+		</field>
+		<field name="author" type="name">
+			<description>作者</description>
+		</field>
+		<field name="visitTotal" type="name">
+			<description>查看次数</description>
+		</field>
+		<field name="shortTitle" type="name">
+			<description>简短标题（用于栏目或首页索引）</description>
+		</field>
+		<field name="titleColor" type="name">
+			<description>标题颜色</description>
+		</field>
+		<field name="titleImg" type="name">
+			<description>文章标题缩略图</description>
+		</field>
+		<field name="contentImg" type="name">
+			<description>文章内容图</description>
+		</field>
+		<field name="tags" type="name">
+			<description>标记，类似关键字</description>
+		</field>
+		<field name="origin" type="name">
+			<description>来源</description>
+		</field>
+
+		<field name="releaseDate" type="date">
+			<description>发表日期（可人为设置）</description>
+		</field>
+		<field name="releaseSysDate" type="date">
+			<description>发布日期（系统日期）</description>
+		</field>
+		<field name="checkTime" type="date-time">
+			<description>终审通过时间</description>
+		</field>
+		<field name="disableTime" type="date-time">
+			<description>禁用时间</description>
+		</field>
+
+		<field name="comments" type="comment"></field>
+		<field name="allowComment" type="very-short"></field>
+
+		<field name="commentCount" type="numeric">
+			<description>评论数量</description>
+		</field>
+		<prim-key field="articleId" />
+		<relation type="one" fk-name="CARTI_TYP" rel-entity-name="CmsArticleType">
+			<key-map field-name="articleTypeId" />
+		</relation>
+
+		<relation type="one" fk-name="CCA_CATA" rel-entity-name="CmsCatalog">
+			<key-map field-name="catalogId" />
+		</relation>
+		<relation type="one" fk-name="CARTI_WSITE" rel-entity-name="CmsWebSite">
+			<key-map field-name="websiteId" />
+		</relation>
+
+
+
+	</entity>
+	<!-- , NEXT_ID bigint comment '下一篇', PRE_ID bigint comment '上一篇', GROUP_ID 
+		bigint comment '允许浏览会员组', MEMBER_ID bigint comment '录入会员', ADMIN_CHECK bigint 
+		comment '审核管理员', ADMIN_DISABLE bigint comment '禁用管理员', ADMIN_INPUT bigint 
+		comment '录入管理员', VISIT_TOTAL bigint not null default 0 comment '总共访问次数', 
+		VISIT_TODAY bigint not null default 0 comment '当天访问次数', VISIT_WEEK bigint 
+		not null default 0 comment '本周下载次数', VISIT_MONTH bigint not null default 
+		0 comment '本月下载次数', VISIT_QUARTER bigint not null default 0 comment '本季下载次数', 
+		VISIT_YEAR bigint not null default 0 comment '本年下载次数', STAT_DATE date comment 
+		'统计时间', OUTER_URL varchar(255) comment '外部链接', CONTENT_RES_PATH varchar(200) 
+		comment '文章内容的资源路径', PAGE_COUNT int comment '文章总页数', TPL_CONTENT varchar(100) 
+		comment '指定模板', TOP_LEVEL int not null default 0 comment '置顶级别', CHECK_OPINION 
+		varchar(255) comment '审核意见', RELATED_IDS varchar(255) comment '相关文章ID', HAS_TITLEIMG 
+		bool not null default 0 comment '是否有标题图片', IS_BOLD bool not null default 
+		0 comment '是否加粗', IS_DRAFT bool not null default 0 comment '是否草稿', IS_RECOMMEND 
+		bool not null default 0 comment '是否推荐', IS_CHECK bool not null default 1 
+		comment '是否审核', IS_DISABLED bool not null default 0 comment '是否禁用', IS_REJECT 
+		bool not null default 0 comment '是否驳回', -->
+	<entity entity-name="CmsArticleType" package-name="org.ofbiz.cms.article"
+		title="文章类型">
+		<field name="articleTypeId" type="id-ne">
+			<description>编号</description>
+		</field>
+		<field name="displayName" type="id-long">
+			<description>显示名称</description>
+		</field>
+		<field name="displayLevel" type="very-short">
+			<description>优先级别</description>
+		</field>
+		<prim-key field="articleTypeId" />
+	</entity>
+
+	<entity entity-name="CmsCatalog" package-name="org.ofbiz.cms.article"
+		title="CmsCatalog Entity">
+		<field name="catalogId" type="id-ne">
+			<description>primary sequenced ID</description>
+		</field>
+		<field name="catalogTypeId" type="id-ne"></field>
+		<field name="statusId" type="id-ne"></field>
+		<field name="websiteId" type="id-ne">
+			<description>网站Id</description>
+		</field>
+		<field name="parentId" type="name">
+			<description>父栏目</description>
+		</field>
+		<field name="path" type="url">
+			<description>栏目路径</description>
+		</field>
+		<field name="catalogName" type="name">
+			<description>栏目名称</description>
+		</field>
+		<field name="content" type="name">
+			<description>栏目内容</description>
+		</field>
+		<field name="titleImg" type="name">
+			<description>栏目缩略图</description>
+		</field>
+		<field name="contentImg" type="name">
+			<description>栏目内容图</description>
+		</field>
+		<field name="tplIndex" type="name">
+			<description>栏目页模板路径</description>
+		</field>
+		<field name="tplContent" type="name">
+			<description>内容页模板路径</description>
+		</field>
+		<field name="title" type="name">
+			<description>TITLE</description>
+		</field>
+		<field name="keywords" type="name">
+			<description>KEYWORDS</description>
+		</field>
+		<field name="description" type="name">
+			<description>DESCRIPTION</description>
+		</field>
+
+		<field name="isDisplay" type="very-short">
+			<description>是否显示</description>
+		</field>
+
+		<prim-key field="catalogId" />
+		<relation type="one" fk-name="CCATA_WSITE" rel-entity-name="CmsWebSite">
+			<key-map field-name="websiteId" />
+		</relation>
+	</entity>
+	<!-- GROUP_CONTRI_ID bigint comment '投稿会员组', GROUP_VISIT_ID bigint comment 
+		'访问会员组', MODEL_ID bigint not null comment '模型', SYS_TYPE varchar(20) not 
+		null comment '系统类型', DOC_COUNT int not null default 0 comment '文档数量', VISIT_TOTAL 
+		bigint comment '总共访问次数', VISIT_TODAY bigint comment '当天访问次数', STAT_DATE date 
+		comment '统计日期', OUTER_URL varchar(255) comment '外部链接', PRIORITY int not null 
+		default 10 comment '栏目排列顺序', HAS_TITLEIMG bool not null default 0 comment 
+		'是否有标题图片', HAS_CHILD bool not null default 1 comment '是否可以有子节点', -->
+
+	<entity entity-name="CmsSolution" package-name="org.ofbiz.cms.article"
+		title="CmsSolution Entity">
+		<field name="systemName" type="id-ne">
+			<description>系统名称</description>
+		</field>
+		<field name="websiteId" type="id-ne">
+			<description>网站Id</description>
+		</field>
+		<field name="solutionName" type="name">
+			<description>方案名称</description>
+		</field>
+		<field name="description" type="description">
+			<description>DESCRIPTION</description>
+		</field>
+
+		<prim-key field="websiteId" />
+		<prim-key field="solutionName" />
+
+	</entity>
+
+	<entity entity-name="CmsWebSite" package-name="org.ofbiz.cms.article"
+		title="CmsWebSite Entity">
+
+		<field name="websiteId" type="id-ne">
+			<description>网站Id</description>
+		</field>
+		<field name="name" type="id-ne">
+			<description>站点名称</description>
+		</field>
+		<field name="parentId" type="id">
+			<description>父站点</description>
+		</field>
+		<field name="webDomain" type="name">
+			<description>域名</description>
+		</field>
+		<field name="resPath" type="value">
+			<description>资源路径</description>
+		</field>
+		<field name="resDomain" type="name">
+			<description>资源地址</description>
+		</field>
+		<field name="baseDomain" type="name">
+			<description>根域名</description>
+		</field>
+		<field name="shortName" type="name">
+			<description>简称</description>
+		</field>
+		<field name="systemType" type="name">
+			<description>系统类型</description>
+		</field>
+		<field name="cookieKey" type="name">
+			<description>系统cookie识别码</description>
+		</field>
+		<field name="closeReason" type="description">
+			<description>网站暂时关闭  关闭原因</description>
+		</field>
+		<field name="isClose" type="very-short">
+			<description>是否关闭网站（后台仍可访问）</description>
+		</field>
+		<field name="description" type="description">
+			<description>DESCRIPTION</description>
+		</field>
+		<field name="copyright" type="description">
+			<description>DESCRIPTION</description>
+		</field>
+		<field name="recordCode" type="description">
+			<description>DESCRIPTION</description>
+		</field>
+
+
+		<prim-key field="websiteId" />
+		<index name="CW_DOM">
+			<index-field name="webDomain" />
+		</index>
+	</entity>
+
+
+
+	<!-- OWNER_NAME varchar(100) default '' comment '网站拥有者姓名', OWNER_IDENTITY 
+		varchar(100) default '' comment '网站拥有者身份证号', COMPANY varchar(200) default 
+		'' comment '公司名称', COPYRIGHT varchar(255) default '' comment '版权信息', RECORD_CODE 
+		varchar(255) default '' comment '备案号', EMAIL varchar(100) default '' comment 
+		'网站拥有者电子邮箱', PHONE_CODE varchar(200) default '' comment '电话号码', MOBILE_CODE 
+		varchar(200) default '' comment '手机号码', CONTROL_FRONT_IPS longtext comment 
+		'前台允许访问的IP', CONTROL_ADMIN_IPS longtext comment '后台允许访问的IP', CONTROL_RESERVED 
+		longtext comment '用户信息保留字', CONTROL_NAME_MINLEN int not null default 4 comment 
+		'用户名最短几个字符', CREATE_TIME datetime not null comment '站点创建时间', EMAIL_CHARSET 
+		varchar(20) default 'gbk' comment '邮件发送编码', EMAIL_HOSTNAME varchar(50) default 
+		'' comment '邮件发送服务器', EMAIL_ACCOUNT varchar(100) default '' comment '网站邮箱账号', 
+		EMAIL_USER_NAME varchar(50) default '' comment '网站邮箱名称', EMAIL_USER_ID varchar(100) 
+		default '' comment '网站邮箱登录名', EMAIL_USER_PWD varchar(50) default '' comment 
+		'网站邮箱密码', EMAIL_SUBJECT varchar(255) default '' comment '邮件主题（标题）', EMAIL_CONTENT 
+		longtext comment '邮件内容', --><!-- <entity entity-name="CmsCatalogArticle" package-name="org.ofbiz.hair" 
+		title="文章类型"> <field name="articleId" type="id-ne"> <description></description> 
+		</field> <field name="catalogId" type="id-ne" > <description></description> 
+		</field> <field name="description" type="description" > <description>description</description> 
+		</field> <prim-key field="articleId"/> <prim-key field="catalogId"/> <relation 
+		type="one" fk-name="CCA_ARTI" rel-entity-name="CmsArticle"> <key-map field-name="articleId"/> 
+		</relation> <relation type="one" fk-name="CCA_CATA" rel-entity-name="CmsCatalog"> 
+		<key-map field-name="catalogId"/> </relation> </entity> -->
+
+	<view-entity entity-name="CmsArticleStatusItem"
+		package-name="org.ofbiz.cms.article">
+		<member-entity entity-alias="SI" entity-name="StatusItem" />
+		<alias-all entity-alias="SI" />
+		<entity-condition>
+			<condition-expr entity-alias="SI" field-name="statusTypeId"
+				operator="equals" value="CMS_ARTICLE_STATUS" />
+			<order-by field-name="sequenceId" />
+		</entity-condition>
+	</view-entity>
+	<entity entity-name="CmsCalendarEvents" package-name="org.ofbiz.cms.CalendarEvents"
+		title="CmsCalendarEvents Entity">
+		<field name="eventId" type="id-ne"></field>
+		<field name="title" type="value"></field>
+		<field name="eventTime" type="short-varchar"></field>
+		<field name="address" type="name"></field>
+		<field name="eventTypeId" type="id-ne"></field>
+		<field name="shortTitle" type="comment"></field>
+		<field name="content" type="description"></field>
+
+		<field name="startTime" type="id-ne"></field>
+
+		<field name="createBy" type="id-ne"></field>
+		<field name="statusId" type="id-ne"></field>
+		<prim-key field="eventId" />
+	</entity>
+
+	<entity entity-name="CmsDisplayEvents" package-name="org.ofbiz.cms.CalendarEvents"
+		title="CmsDisplayEvents Entity">
+
+		<field name="shortTitle" type="comment"></field>
+		<field name="content" type="very-long"></field>
+
+		<field name="startTime" type="id-ne"></field>
+
+		<field name="eventNumber" type="very-short"></field>
+
+		<field name="statusId" type="id-ne"></field>
+		<prim-key field="startTime" />
+
+	</entity>
+
+	<entity entity-name="CmsFellowshipLinkType" package-name="org.ofbiz.cms.plugin"
+		title="CmsFellowshipLinkType Entity">
+		<field name="linkTypeId" type="id-ne">
+			<description>编号</description>
+		</field>
+		<field name="displayName" type="id-long">
+			<description>显示名称</description>
+		</field>
+		<field name="displayLevel" type="very-short">
+			<description>优先级别</description>
+		</field>
+		<prim-key field="linkTypeId" />
+	</entity>
+	<entity entity-name="CmsFellowshipLink" package-name="org.ofbiz.cms.plugin"
+		title="FellowshipLink Entity">
+		<field name="linkId" type="id-ne"></field>
+		<field name="linkName" type="name"></field>
+		<field name="url" type="value"></field>
+		<field name="fileName" type="value"></field>
+		<field name="fromDate" type="date-time"></field>
+		<field name="thruDate" type="date-time"></field>
+		<field name="statusId" type="id"></field>
+		<field name="linkTypeId" type="id-ne"></field>
+		<prim-key field="linkId" />
+		<relation type="one" fk-name="FL_TYP" rel-entity-name="CmsFellowshipLinkType">
+			<key-map field-name="linkTypeId" />
+		</relation>
+	</entity>
+
+	<!-- 评论类型表 -->
+	<entity entity-name="CmsCommentType" package-name="org.ofbiz.cms.Comment"
+		title="CmsCommentType Entity">
+		<field name="commentTypeId" type="id-ne">
+			<description>编号</description>
+		</field>
+		<field name="displayName" type="id-long">
+			<description>显示名称</description>
+		</field>
+		<field name="displayLevel" type="very-short">
+			<description>优先级别</description>
+		</field>
+		<prim-key field="commentTypeId" />
+	</entity>
+	<view-entity entity-name="CmsCommentStatusItem"
+		package-name="org.ofbiz.hair">
+		<member-entity entity-alias="SI" entity-name="StatusItem" />
+		<alias-all entity-alias="SI" />
+		<entity-condition>
+			<condition-expr entity-alias="SI" field-name="statusTypeId"
+				operator="equals" value="CMS_COMMENT_STATUS" />
+			<order-by field-name="sequenceId" />
+		</entity-condition>
+	</view-entity>
+	<!-- 评论表 -->
+	<entity entity-name="CmsComment" package-name="org.ofbiz.cms.Comment"
+		title="Comment Entity">
+		<field name="commentId" type="id-ne">
+			<description>编号</description>
+		</field>
+		<field name="commentTypeId" type="id-ne">
+			<description>评论类型ID</description>
+		</field>
+		<field name="websiteId" type="id-ne">
+			<description>网站ＩＤ</description>
+		</field>
+		<field name="memberId" type="id-ne">
+			<description>会员ＩＤ</description>
+		</field>
+		<field name="refDocId" type="id-ne">
+			<description>文档引用ID</description>
+		</field>
+		<field name="refDocTypeId" type="id-ne">
+			<description>文档引用ID</description>
+		</field>
+		<field name="adminId" type="id-ne">
+			<description>管理员ID</description>
+		</field>
+		<field name="title" type="name">
+			<description>标题</description>
+		</field>
+		<field name="contentMember" type="very-long">
+			<description>会员评论内容</description>
+		</field>
+		<field name="contentAdmin" type="very-long">
+			<description>管理员回复内容</description>
+		</field>
+		<field name="createTime" type="date-time">
+			<description>创建时间</description>
+		</field>
+		<field name="replayTime" type="date-time">
+			<description>回复时间</description>
+		</field>
+		<field name="ip" type="very-long">
+			<description>评论者IP</description>
+		</field>
+
+		<field name="isRecommend" type="very-short">
+			<description>是否推荐</description>
+		</field>
+
+		<field name="statusId" type="id-ne">
+			<description>状态</description>
+		</field>
+
+		<field name="commentNeedCheck" type="very-short">
+			<description>评论是否需要审核</description>
+		</field>
+		<field name="commentNeedLogin" type="very-short">
+			<description>评论是否需要登录</description>
+		</field>
+		<field name="commentNeedSort" type="very-short">
+			<description>评论排序方式(升序,降序)</description>
+		</field>
+		<field name="commentMaxSize" type="very-short">
+			<description>评论最大字节</description>
+		</field>
+
+
+		<prim-key field="commentId" />
+	</entity>
+	<entity entity-name="CmsAccessoryType" package-name="org.ofbiz.cms.accessory"
+		title="附件类型">
+		<field name="accessoryTypeId" type="id-ne">
+			<description>编号</description>
+		</field>
+		<field name="displayName" type="id-long">
+			<description>附件类型显示名</description>
+		</field>
+		<field name="displayLevel" type="very-short">
+			<description>优先级别，数字越小，显示的位置越靠前</description>
+		</field>
+
+		<prim-key field="accessoryTypeId" />
+	</entity>
+
+	<entity entity-name="CmsAccessory" package-name="org.ofbiz.cms.accessory"
+		title="附件">
+		<field name="accessoryId" type="id-ne">
+			<description>附件编号</description>
+		</field>
+
+		<field name="accessoryTypeId" type="id-ne">
+			<description>附件的类型编号</description>
+		</field>
+
+		<field name="statusId" type="id-ne">
+			<description>附件的状态</description>
+		</field>
+
+		<field name="catalogId" type="id-ne">
+		</field>
+
+		<field name="websiteId" type="id-ne">
+		</field>
+
+		<field name="title" type="name">
+			<description>软件名称</description>
+		</field>
+
+		<field name="shortTitle" type="name">
+			<description>简短标题（用于栏目或首页索引）</description>
+		</field>
+
+		<field name="description" type="description">
+			<description>软件摘要</description>
+		</field>
+
+		<field name="content" type="very-long">
+			<description>软件介绍</description>
+		</field>
+
+		<field name="userLoginId" type="id-vlong-ne">
+			<description>发布者的loginId</description>
+		</field>
+
+		<field name="visitTotal" type="numeric">
+			<description>查看次数</description>
+		</field>
+
+		<field name="downloadTotal" type="numeric">
+			<description>下载次数</description>
+		</field>
+
+		<field name="titleColor" type="name">
+			<description>标题颜色</description>
+		</field>
+
+		<field name="titleImg" type="name">
+			<description>附件标题缩略图</description>
+		</field>
+
+		<field name="contentImg" type="name">
+			<description>内容图</description>
+		</field>
+
+		<field name="tags" type="name">
+			<description>标记，类似关键字</description>
+		</field>
+
+		<field name="releaseDate" type="date">
+			<description>发表日期（可人为设置）</description>
+		</field>
+
+		<field name="releaseSysDate" type="date">
+			<description>发布日期（系统日期）</description>
+		</field>
+
+		<field name="checkTime" type="date-time">
+			<description>终审通过时间</description>
+		</field>
+
+		<field name="disableTime" type="date-time">
+			<description>禁用时间</description>
+		</field>
+
+		<prim-key field="accessoryId" />
+
+		<relation rel-entity-name="CmsAccessoryType" type="one"
+			fk-name="CACC_TYPE">
+			<key-map field-name="accessoryTypeId" rel-field-name="accessoryTypeId" />
+		</relation>
+
+		<relation type="one" fk-name="CACC_CATA" rel-entity-name="CmsCatalog">
+			<key-map field-name="catalogId" />
+		</relation>
+		<relation type="one" fk-name="CACC_WSITE" rel-entity-name="CmsWebSite">
+			<key-map field-name="websiteId" />
+		</relation>
+	</entity>
+
+	<entity entity-name="VoteManage" package-name="org.ofbiz.cms.VoteMange"
+		title="Vote Management">
+		<description>投票管理</description>
+		<field name="voteId" type="id-ne" />
+		<field name="voteTitle" type="name">
+			<description>投票名称，用户自定义</description>
+		</field>
+		<field name="description" type="description">
+			<description>投票描述</description>
+		</field>
+		<field name="totalCount" type="numeric">
+			<description>投票数量</description>
+		</field>
+		<field name="startTime" type="date-time">
+			<description>开始时间</description>
+		</field>
+		<field name="endTime" type="date-time">
+			<description>结束时间</description>
+		</field>
+		<field name="repeatHour" type="numeric">
+			<description>重复投票限制时间(单位小时)</description>
+		</field>
+		<field name="multiSelc" type="numeric">
+			<description>最多可以选择几项</description>
+		</field>
+		<field name="isRestrictMember" type="indicator">
+			<description>是否限制会员ID</description>
+		</field>
+		<field name="isRestrictIp" type="indicator">
+			<description>是否限制IP</description>
+		</field>
+		<field name="isRestrictCookie" type="indicator">
+			<description>是否限制cookie</description>
+		</field>
+		<field name="voteType" type="indicator">
+			<description>投票类型（单选{0}，多选{1}）</description>
+		</field>
+		<field name="voteStatusId" type="id-ne">
+			<description>该投票状态</description>
+		</field>
+		<prim-key field="voteId" />
+		<relation type="one" rel-entity-name="StatusItem" fk-name="VOTE_STATUS">
+			<key-map field-name="voteStatusId" rel-field-name="statusId" />
+		</relation>
+	</entity>
+
+	<entity entity-name="VoteOptions" package-name="org.ofbiz.cms.VoteOptions"
+		title="Vote Options">
+		<description>投票包含选项</description>
+		<field name="voteOptId" type="id-ne" />
+		<field name="voteId" type="id-ne">
+			<description>该选项属于哪个投票</description>
+		</field>
+		<field name="description" type="description">
+			<description>选项描述</description>
+		</field>
+		<field name="priority" type="indicator">
+			<description>显示优先级</description>
+		</field>
+		<field name="voteTimes" type="numeric">
+			<description>选项点击次数</description>
+		</field>
+		<prim-key field="voteOptId" />
+		<relation type="one" rel-entity-name="VoteManage" fk-name="OPT_MANGE">
+			<key-map field-name="voteId" />
+		</relation>
+	</entity>
+	<entity entity-name="Voter" package-name="org.ofbiz.cms.Voter"
+		title="Voter">
+		<description>投票参与人</description>
+		<field name="voterId" type="id-ne">
+			<description>投票参与人ID，主键</description>
+		</field>
+		<field name="userLoginId" type="id-vlong-ne">
+			<description>投票参与人登录ID</description>
+		</field>
+		<field name="ipAddress" type="id-vlong-ne">
+			<description>IP地址</description>
+		</field>
+		<field name="voteId" type="id-ne">
+			<description>投票</description>
+		</field>
+		<field name="voteOptId" type="id-ne">
+			<description>选择选项</description>
+		</field>
+		<prim-key field="voterId" />
+		<relation type="one" rel-entity-name="UserLogin" fk-name="VOTER_USERLOGIN">
+			<key-map field-name="userLoginId" />
+		</relation>
+		<relation type="one" rel-entity-name="VoteManage" fk-name="VOTER_MANGE">
+			<key-map field-name="voteId" />
+		</relation>
+	</entity>
+	<entity entity-name="VoteItem" package-name="org.ofbiz.cms.VoteItem"
+		title="Vote Item">
+		<description>记录选择的投票选项</description>
+		<field name="voteOptId" type="id-ne">
+			<description>投票的选项</description>
+		</field>
+		<field name="voteId" type="id-ne">
+			<description>投票ID</description>
+		</field>
+		<prim-key field="voteId" />
+		<prim-key field="voteOptId" />
+		<relation type="one" rel-entity-name="VoteManage">
+			<key-map field-name="voteId" />
+		</relation>
+		<relation type="one" rel-entity-name="VoteOptions">
+			<key-map field-name="voteOptId" />
+		</relation>
+	</entity>
+	<entity entity-name="CmsAdvertiseType" package-name="org.ofbiz.cms.plugin"
+		title="CmsAdvertise Entity">
+		<field name="adTypeId" type="id-ne">
+			<description>编号</description>
+		</field>
+		<field name="description" type="id-long">
+			<description>显示名称</description>
+		</field>
+		<field name="sequenceId" type="very-short">
+			<description>优先级别</description>
+		</field>
+		<prim-key field="adTypeId" />
+	</entity>
+	<entity entity-name="CmsAdvertise" package-name="org.ofbiz.cms.plugin"
+		title="CmsAdvertise Entity">
+		<field name="adId" type="id-ne"></field>
+		<field name="adName" type="name"></field>
+		<field name="url" type="value"></field>
+		<field name="fileName" type="value"></field>
+		<field name="fromDate" type="date-time"></field>
+		<field name="thruDate" type="date-time"></field>
+		<field name="statusId" type="id"></field>
+		<field name="adTypeId" type="id-ne"></field>
+		<prim-key field="adId" />
+		<relation type="one" fk-name="CA_TYP" rel-entity-name="CmsAdvertiseType">
+			<key-map field-name="adTypeId" />
+		</relation>
+	</entity>
+
+	<view-entity entity-name="CmsAccessoryStatusItem"
+		package-name="org.ofbiz.cms.accessory">
+		<member-entity entity-alias="SI" entity-name="StatusItem" />
+		<alias-all entity-alias="SI" />
+		<entity-condition>
+			<condition-expr entity-alias="SI" field-name="statusTypeId"
+				operator="equals" value="CMS_ACCESSORY_STATUS" />
+			<order-by field-name="sequenceId" />
+		</entity-condition>
+	</view-entity>
+
+	<entity entity-name="CmsAccessoryType" package-name="org.ofbiz.cms.accessory"
+		title="附件类型">
+		<field name="accessoryTypeId" type="id-ne">
+			<description>编号</description>
+		</field>
+		<field name="displayName" type="id-long">
+			<description>附件类型显示名</description>
+		</field>
+		<field name="displayLevel" type="very-short">
+			<description>优先级别，数字越小，显示的位置越靠前</description>
+		</field>
+
+		<prim-key field="accessoryTypeId" />
+	</entity>
+
+	<entity entity-name="CmsAccessory" package-name="org.ofbiz.cms.accessory"
+		title="附件">
+		<field name="accessoryId" type="id-ne">
+			<description>附件编号</description>
+		</field>
+
+		<field name="accessoryTypeId" type="id-ne">
+			<description>附件的类型编号</description>
+		</field>
+
+		<field name="statusId" type="id-ne">
+			<description>附件的状态，0待审核，1已审核通过，2审核未通过</description>
+		</field>
+
+		<field name="catalogId" type="id-ne">
+		</field>
+
+		<field name="websiteId" type="id-ne">
+		</field>
+
+		<field name="title" type="name">
+			<description>软件名称</description>
+		</field>
+
+		<field name="shortTitle" type="name">
+			<description>简短标题（用于栏目或首页索引）</description>
+		</field>
+
+		<field name="description" type="description">
+			<description>软件摘要</description>
+		</field>
+
+		<field name="content" type="very-long">
+			<description>软件介绍</description>
+		</field>
+
+		<field name="userLoginId" type="id-vlong-ne">
+			<description>发布者的loginId</description>
+		</field>
+
+		<field name="visitTotal" type="numeric">
+			<description>查看次数</description>
+		</field>
+
+		<field name="downloadTotal" type="numeric">
+			<description>下载次数</description>
+		</field>
+
+		<field name="titleColor" type="name">
+			<description>标题颜色</description>
+		</field>
+
+		<!-- <field name="titleImg" type="name"> -->
+		<!-- <description>附件标题</description> -->
+		<!-- </field> -->
+<!---->
+		<!-- <field name="contentImg" type="name"> -->
+		<!-- <description>内容图</description> -->
+		<!-- </field> -->
+
+		<field name="file" type="name">
+			<description>附件</description>
+		</field>
+
+		<field name="tags" type="name">
+			<description>标记，类似关键字</description>
+		</field>
+
+		<field name="releaseDate" type="date">
+			<description>发表日期（可人为设置）</description>
+		</field>
+
+		<field name="releaseSysDate" type="date">
+			<description>发布日期（系统日期）</description>
+		</field>
+
+		<field name="checkTime" type="date-time">
+			<description>终审通过时间</description>
+		</field>
+
+		<field name="disableTime" type="date-time">
+			<description>禁用时间</description>
+		</field>
+
+		<prim-key field="accessoryId" />
+
+		<relation rel-entity-name="CmsAccessoryType" type="one"
+			fk-name="CACC_TYPE">
+			<key-map field-name="accessoryTypeId" rel-field-name="accessoryTypeId" />
+		</relation>
+
+		<relation type="one" fk-name="CACC_CATA" rel-entity-name="CmsCatalog">
+			<key-map field-name="catalogId" />
+		</relation>
+		<relation type="one" fk-name="CACC_WSITE" rel-entity-name="CmsWebSite">
+			<key-map field-name="websiteId" />
+		</relation>
+	</entity>
+	
+	<!-- Surpass Li add by 2011-09-15 留言管理表 开始-->
+	
+	<view-entity entity-name="CmsLeavewordStatusItem" package-name="org.ofbiz.hair">
+        <member-entity entity-alias="SI" entity-name="StatusItem"/>
+        <alias-all entity-alias="SI"/>
+        <entity-condition>
+            <condition-expr entity-alias="SI" field-name="statusTypeId" operator="equals" value="CMS_LEAVEWORD_STATUS"/>
+            <order-by field-name="sequenceId"/>
+        </entity-condition>
+    </view-entity>
+	<entity entity-name="CmsLeaveword"
+            package-name="org.ofbiz.cms.Leaveword"
+            title="Leaveword Entity">
+		<field name="leavewordId" type="id-ne">		 
+		    <description>编号</description>
+		</field>
+		<field name="websiteId" type="id-ne">		 
+		    <description>网站ＩＤ</description>
+		</field>
+		<field name="memberId" type="id-ne" >
+	      	<description>会员ＩＤ</description>
+	  	</field>
+	  	<field name="adminId" type="id-ne" >
+	      	<description>管理员ID</description>
+	  	</field>
+	  	<field name="title" type="name" >
+	      	<description>标题</description>
+	  	</field>
+	  	<field name="contentMember" type="very-long" >
+	      	<description>留言内容</description>
+	  	</field>
+	  	<field name="contentAdmin" type="very-long" >
+	      	<description>管理员回复内容</description>
+	  	</field>
+	  	<field name="createTime" type="date-time" >
+	      	<description>创建时间</description>
+	  	</field>
+	  	<field name="replayTime" type="date-time" >
+	      	<description>回复时间</description>
+	  	</field>
+	  	<field name="ip" type="very-long" >
+	      	<description>留言者IP</description>
+	  	</field>
+
+	  	<field name="isRecommend" type="very-short" >
+	      	<description>是否推荐</description>
+	  	</field>
+
+	  	<field name="statusId" type="id-ne" >
+	      	<description>状态</description>
+	  	</field>
+	  	
+	  	<field name="commentNeedCheck" type="very-short" >
+	      	<description>是否需要审核</description>
+	  	</field>
+	  	<field name="commentNeedLogin" type="very-short" >
+	      	<description>是否需要登录</description>
+	  	</field>
+		<prim-key field="leavewordId"/>
+	</entity>
+	<!-- Surpass Li add by 2011-09-15 留言管理表 结束-->
+
+	<!--视频管理实体 -->
+	<entity entity-name="CmsVideoType" package-name="org.ofbiz.cms.video"
+		title="CmsVideoType Entity">
+		<field name="videoTypeId" type="id-ne">
+			<description>视频分类编号</description>
+		</field>
+		<field name="description" type="description">
+			<description>显示名称</description>
+		</field>
+		<prim-key field="videoTypeId" />
+	</entity>
+	<entity entity-name="CmsVideo" package-name="org.ofbiz.cms.video"
+		title="CmsVideo Entity">
+		<field name="videoId" type="id-ne">
+			<description>视频id</description>
+		</field>
+		<field name="videoTypeId" type="id-ne">
+			<description>视频分类编号</description>
+		</field>
+		<field name="videoName" type="name">
+			<description>视频名称</description>
+		</field>
+		<field name="videoDescription" type="description">
+			<description>视频描述</description>
+		</field>
+		<field name="videoPath" type="value">
+			<description>视频资源路径</description>
+		</field>
+		<field name="statusId" type="id">
+			<description>视频状态    0:废弃      1:正在用 </description>
+		</field>
+		<field name="userLoginId" type="id-vlong-ne">
+			<description>发布者的loginId</description>
+		</field>
+		<field name="releaseSysDate" type="date">
+			<description>发布日期（系统日期）</description>
+		</field>
+		<field name="videoTypeId" type="id-ne">
+			<description>视频TypeId</description>
+		</field>
+		<prim-key field="videoId" />
+		<relation type="one" rel-entity-name="CmsVideoType"  fk-name="CV_TYP">
+			<key-map field-name="videoTypeId" />
+		</relation>
+		<relation type="one" rel-entity-name="UserLogin" fk-name="CV_USERLOGIN">
+			<key-map field-name="userLoginId" />
+		</relation>
+	</entity>
+	<!--flash阅读器（文档）实体 -->
+	<entity entity-name="CmsFlashDocumentType" package-name="org.ofbiz.cms.flashDocument"
+		title="CmsFlashDocumentType Entity">
+		<field name="flashDocumentTypeId" type="id-ne">
+			<description>flash文档分类编号</description>
+		</field>
+		<field name="description" type="description">
+			<description>flash文档显示名称</description>
+		</field>
+		<prim-key field="flashDocumentTypeId" />
+	</entity>
+	<entity entity-name="CmsFlashDocument" package-name="org.ofbiz.cms.flashDocument"
+		title="CmsFlashDocument Entity">
+		<field name="flashDocumentId" type="id-ne">
+			<description>flash文档id</description>
+		</field>
+		<field name="flashDocumentName" type="name">
+			<description>flash文档名称</description>
+		</field>
+		<field name="flashDocumentDescription" type="description">
+			<description>flash文档描述</description>
+		</field>
+		<field name="flashDocumentPDFSourcePath" type="value">
+			<description>flash文档原始的pdf资源路径</description>
+		</field>
+		<!-- FIXME： 感觉这个应该关联pdf文件那个实体，这样文档的时间和所有者等等信息就都有了，不过没找到pdf文件实体 -->
+		<field name="flashDocumentPath" type="value">
+			<description>flash文档资源路径</description>
+		</field>
+		<field name="statusId" type="id">
+			<description>flash文档状态    0:废弃      1:正在用 </description>
+		</field>
+		<field name="flashDocumentTypeId" type="id-ne"></field>
+		<prim-key field="flashDocumentId" />
+		<relation rel-entity-name="CmsFlashDocumentType" type="one"
+			fk-name="CF_TYP">
+			<key-map field-name="flashDocumentTypeId" />
+		</relation>
+	</entity>
+
+
+	<entity entity-name="CmsQuestionCategory" package-name="org.ofbiz.cms.Question"
+		title="Question And Answer">
+		<description>推荐分类</description>
+		<field name="categoryId" type="id-ne" />
+		<field name="description" type="description">
+			<description>描述</description>
+		</field>
+		<field name="pptr" type="id-vlong-ne">
+			<description>上级id</description>
+		</field>
+		<field name="hide" type="id-ne">
+			<description>是否隐藏</description>
+		</field>
+		<prim-key field="categoryId" />
+	</entity>
+
+	<entity entity-name="CmsQuestion" package-name="org.ofbiz.cms.Question"
+		title="Question And Answer">
+		<description>提问</description>
+		<field name="questionId" type="id-ne" />
+		<field name="categoryId" type="id-ne">
+			<description>问题类型</description>
+		</field>
+		<field name="title" type="name">
+			<description>提问内容</description>
+		</field>
+		<field name="content" type="very-long">
+			<description>提问补充</description>
+		</field>
+		<field name="userLoginId" type="id-vlong-ne">
+			<description>提问人ID</description>
+		</field>
+		<field name="releaseSysDate" type="date">
+			<description>发布日期（系统日期）</description>
+		</field>
+		<field name="checkTime" type="date-time">
+			<description>终审通过时间</description>
+		</field>
+		<field name="disableTime" type="date-time">
+			<description>禁止时间</description>
+		</field>
+		<field name="closeTime" type="date-time">
+			<description>关闭时间</description>
+		</field>
+		<field name="visitTotal" type="name">
+			<description>查看次数</description>
+		</field>
+		<field name="star" type="id-ne">
+			<description>星级</description>
+		</field>
+		<field name="statusId" type="id-ne">
+			<description>问题状态</description>
+		</field>
+		<prim-key field="questionId" />
+		<relation type="one" rel-entity-name="StatusItem" fk-name="CMS_QUESTION_STATUS">
+			<key-map field-name="statusId" rel-field-name="statusId" />
+		</relation>
+	</entity>
+	<entity entity-name="CmsQuestionAnswer" package-name="org.ofbiz.cms.Question"
+		title="Question And Answer">
+		<description>回答</description>
+		<field name="answerId" type="id-ne" />
+		<field name="questionId" type="id-ne" />
+		<field name="content" type="very-long">
+			<description>回答</description>
+		</field>
+		<field name="userLoginId" type="id-vlong-ne">
+			<description>回答人ID</description>
+		</field>
+		<field name="releaseSysDate" type="date">
+			<description>发布日期（系统日期）</description>
+		</field>
+		<field name="checkTime" type="date-time">
+			<description>终审通过时间</description>
+		</field>
+		<field name="disableTime" type="date-time">
+			<description>禁止时间</description>
+		</field>
+		<field name="isBest" type="id-ne">
+			<description>是否最佳</description>
+		</field>
+		<field name="star" type="id-ne">
+			<description>星级</description>
+		</field>
+		<field name="statusId" type="id-ne">
+			<description>回答状态</description>
+		</field>
+		<prim-key field="answerId" />
+		<relation type="one" rel-entity-name="StatusItem" fk-name="CMS_QUESTION_ANSWERID_STATUS">
+			<key-map field-name="statusId" rel-field-name="statusId" />
+		</relation>
+	</entity>
+</entitymodel>

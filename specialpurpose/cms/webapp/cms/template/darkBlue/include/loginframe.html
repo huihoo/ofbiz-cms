@@ -1,0 +1,18 @@
+<form action="/cms/control/login" method="post">
+      <table cellspacing="0" cellpadding="0" width="98%" align="center" border="0">
+        <tbody>
+
+          <tr>
+            <td align="right" width="31%" height="30" class="label">${uiLabelMap.CommonUsername}:</td>
+            <td align="left" width="69%"><input class="input" id="username" title="用户名不能为空" size="16" name="username" type="text" /></td>
+          </tr>
+          <tr>
+            <td align="right" height="30" class="label">${uiLabelMap.CommonPassword}:</td>
+            <td align="left"><input class="input" title="密码不能为空" type="password" size="16" name="password" /></td>
+          </tr>
+          <tr>
+            <td align="center" colspan="2" height="30"><input type="image" src="${root}/default/cms_member/img/login.gif" name="submit" /> &nbsp; <img name="reg" onClick="window.open('/cms/control/RegisterInput')" style="cursor: pointer" alt="" src="${root}/default/cms_member/img/reg.gif" /></td>
+          </tr>
+        </tbody>
+      </table>
+</form>

@@ -1,0 +1,24 @@
+<!--页头Begin-->
+
+<div class="top cbody">
+  <div class="toplogo"><a href=""></a></div>
+  <div class="topbanner">&nbsp;</div>
+  <div class="toplink">
+    <ul>
+      <li><a href="#">${uiLabelMap.AdvancedSearch}</a></li>
+      <li><a onclick="javascript:window.external.AddFavorite('http://code.google.com/p/ofbiz-cms','OFBizCMS - Open Source JAVA CMS');" href="javascript:void(0);">${uiLabelMap.Favorites}</a></li>
+      <li><a href="/">${uiLabelMap.ContactUs}</a></li>
+      <li><a onclick="this.style.behavior='url(#default#homepage)';this.setHomePage(location.href)" href="javascript:void(0);">${uiLabelMap.SetFirstPage}</a></li>
+    </ul>
+  </div>
+</div>
+<!--页头End-->
+<!--导航栏Begin-->
+<div class="topmenu cbody1">
+  <ul>
+    <li class="thisclass"><a href="/cms">${uiLabelMap.FirstPage}</a><@cms.CatalogList id='' catalogType='article' orderBy='0';c,url></li>
+    <li class="thisclass"><a href="${url}">${c.catalogName}</a> </@cms.CatalogList></li>
+    <li class="thisclass"><a target="_blank" href="/cms/control/ViewMessageBoard">${uiLabelMap.MessageBoard}</a></li>
+  </ul>
+</div>
+<!--导航栏End-->
