@@ -14,7 +14,7 @@ import org.ofbiz.service.ModelService;
 
 public class ArticleEvents {
     public static final String  module         = ArticleEvents.class.getName();
-    private static final String IMAGE_FOLDER   = UtilProperties.getPropertyValue("cms.properties",  "cms.uploadfile.article");
+    private static final String IMAGE_FOLDER   = UtilProperties.getPropertyValue("cmsupload.properties",  "cms.uploadfile.article");
     
     public static String createCmsArticle(HttpServletRequest request, HttpServletResponse response) {
         LocalDispatcher dispatcher = (LocalDispatcher) request.getAttribute("dispatcher");

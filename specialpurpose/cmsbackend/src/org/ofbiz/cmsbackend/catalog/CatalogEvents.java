@@ -18,7 +18,7 @@ public class CatalogEvents {
 
 
     public static final String  module         = CatalogEvents.class.getName();
-    private static final String IMAGE_FOLDER   = UtilProperties.getPropertyValue("cms.properties",
+    private static final String IMAGE_FOLDER   = UtilProperties.getPropertyValue("cmsupload.properties",
                                                        "cms.uploadfile.catalog");
 
     public static String createCmsCatalog(HttpServletRequest request, HttpServletResponse response) {

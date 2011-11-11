@@ -26,10 +26,10 @@ public class UtilFileUpload {
 	public static final String module = UtilFileUpload.class.getName();
 	/**
 	 * TODO 
-	 * cms.properties
+	 * cmsupload.properties
 	 * disable.debug.config=true
 	 */
-	public static final Boolean useDebug = UtilProperties.getPropertyAsBoolean("cms.properties", "isable.debug.config",false);
+	public static final Boolean useDebug = UtilProperties.getPropertyAsBoolean("cmsupload.properties", "isable.debug.config",false);
 
 	
 

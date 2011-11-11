@@ -36,7 +36,7 @@ public class CmsAccessory {
 	public static final String MODULE = CmsAccessory.class.getName();
 	public static final String LABEL_RESOURCE = "CmsUiLabels";
 	private static final String IMAGE_FOLDER = UtilProperties.getPropertyValue(
-			"cms.properties", "cms.uploadfile.accessory");
+			"cmsupload.properties", "cms.uploadfile.accessory");
 
 	public static String createCmsAccessory(HttpServletRequest request,
 			HttpServletResponse response) {
