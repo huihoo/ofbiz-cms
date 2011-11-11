@@ -916,9 +916,6 @@
 		<field name="releaseSysDate" type="date">
 			<description>发布日期（系统日期）</description>
 		</field>
-		<field name="videoTypeId" type="id-ne">
-			<description>视频TypeId</description>
-		</field>
 		<prim-key field="videoId" />
 		<relation type="one" rel-entity-name="CmsVideoType"  fk-name="CV_TYP">
 			<key-map field-name="videoTypeId" />

@@ -47,14 +47,14 @@ under the License.
         <auto-attributes include="pk" mode="OUT" optional="false"/>
         <auto-attributes include="nonpk" mode="IN" optional="true"/>
     </service>
-    <service name="updateQuestion" default-entity-name="CmsQuestionCategory" auth="true" engine="simple"
+    <service name="updateQuestionCategory" default-entity-name="CmsQuestionCategory" auth="true" engine="simple"
             location="component://cmsbackend/script/org/ofbiz/cmsbackend/survey/SurveyServices.xml" invoke="updateQuestionCategory">
         <description>Update a Survey</description>
         
         <auto-attributes include="pk" mode="IN" optional="false"/>
         <auto-attributes include="nonpk" mode="IN" optional="true"/>
     </service>
-    <service name="deleteQuestion" default-entity-name="CmsQuestionCategory" auth="true" engine="simple"
+    <service name="deleteQuestionCategory" default-entity-name="CmsQuestionCategory" auth="true" engine="simple"
             location="component://cmsbackend/script/org/ofbiz/cmsbackend/survey/SurveyServices.xml" invoke="deleteQuestionCategory">
         <description>Delete Survey</description>
         

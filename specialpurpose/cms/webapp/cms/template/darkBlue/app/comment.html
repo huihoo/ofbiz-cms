@@ -31,7 +31,7 @@
 						$.postJson('/ofbizcms/ajax/cms/CommentSubmit.do', {
 							'content' : $('#commentContent').val(),
 							'checkCode' : $('#commentCheckCode').val(),
-							'articleId' : ${articleId}
+							'articleId' : ${(articleId)!}
 						}, function(data) {
 							if (data.success) {
 								alert(data.msg);

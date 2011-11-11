@@ -114,13 +114,13 @@
         <description>Create a CmsComment</description>
         <auto-attributes include="pk" mode="OUT" optional="false"/>
         <auto-attributes include="nonpk" mode="IN" optional="true"/>
-        <override name="content" allow-html="safe"></override>
+        
     </service>
     <service name="updateCmsComment" default-entity-name="CmsComment" engine="entity-auto" invoke="update" auth="true">
         <description>Update a CmsCommentType</description>
         <auto-attributes include="pk" mode="IN" optional="false"/>
         <auto-attributes include="nonpk" mode="IN" optional="true"/>
-        <override name="content" allow-html="safe"></override>
+        
     </service>
     <service name="deleteCmsComment" default-entity-name="CmsComment" engine="entity-auto" invoke="delete" auth="true">
         <description>Delete a CmsComment</description>
@@ -161,66 +161,7 @@
         <override name="content" allow-html="safe"></override>
     </service>
     
-<!-- 创建附件 -->
-	<service name="createCmsAccessory" default-entity-name="CmsAccessory"
-		engine="java" location="org.ofbiz.cms.CmsAccessory" invoke="createCmsAccessory"
-		auth="true">
-		<description>Create a CmsAccessory</description>
-		<auto-attributes include="pk" mode="OUT" optional="false" />
-		<auto-attributes include="nonpk" mode="IN" optional="true" />
-	</service>
 
-	<!-- 更新附件 -->
-	<service name="updateCmsAccessory" default-entity-name="CmsAccessory"
-		engine="java" location="org.ofbiz.cms.CmsAccessory" invoke="updateCmsAccessory"
-		auth="true">
-		<description>Update a CmsAccessory</description>
-		<auto-attributes include="pk" mode="IN" optional="false" />
-		<auto-attributes include="nonpk" mode="IN" optional="true" />
-	</service>
-
-	<!-- 删除附件 -->
-	<service name="deleteCmsAccessory" default-entity-name="CmsAccessory"
-		engine="java" location="org.ofbiz.cms.CmsAccessory" invoke="deleteCmsAccessory"
-		auth="true">
-		<description>Delete a CmsAccessory</description>
-		<auto-attributes include="pk" mode="IN" optional="false" />
-	</service>
-
-	<!-- 附件详细 -->
-	<service name="getCmsAccessoryDetailed" default-entity-name="CmsAccessory"
-		engine="java" location="org.ofbiz.cms.CmsAccessory" invoke="getCmsAccessoryDetailed"
-		auth="true">
-		<description>Delete a CmsAccessory</description>
-		<auto-attributes include="pk" mode="IN" optional="false" />
-	</service>
-
-	<!-- 附件条件搜索 -->
-	<service name="getCmsAccessoryList" default-entity-name="CmsAccessory"
-		engine="java" location="org.ofbiz.cms.CmsAccessory" invoke="getCmsAccessoryList"
-		auth="true">
-		<description>Delete a CmsAccessory</description>
-		<auto-attributes include="pk" mode="IN" optional="false" />
-		<auto-attributes include="nonpk" mode="IN" optional="true" />
-	</service>
-
-	<service name="createCmsAccessoryType" default-entity-name="CmsAccessoryType"
-		engine="entity-auto" invoke="create" auth="true">
-		<description>Create a CmsAccessoryType</description>
-		<auto-attributes include="pk" mode="OUT" optional="false" />
-		<auto-attributes include="nonpk" mode="IN" optional="true" />
-	</service>
-	<service name="updateCmsCmsAccessoryType" default-entity-name="CmsAccessoryType"
-		engine="entity-auto" invoke="update" auth="true">
-		<description>Update a CmsAccessoryType</description>
-		<auto-attributes include="pk" mode="IN" optional="false" />
-		<auto-attributes include="nonpk" mode="IN" optional="true" />
-	</service>
-	<service name="deleteCmsAccessoryType" default-entity-name="CmsAccessoryType"
-		engine="entity-auto" invoke="delete" auth="true">
-		<description>Delete a CmsAccessoryType</description>
-		<auto-attributes include="pk" mode="IN" optional="false" />
-	</service>
 	
 	<!-- 创建附件 -->
 	<service name="createCmsAccessory" default-entity-name="CmsAccessory"
@@ -322,13 +263,11 @@
         <description>Create a CmsLeaveword</description>
         <auto-attributes include="pk" mode="OUT" optional="false"/>
         <auto-attributes include="nonpk" mode="IN" optional="true"/>
-        <override name="content" allow-html="safe"></override>
     </service>
     <service name="updateCmsLeaveword" default-entity-name="CmsLeaveword" engine="entity-auto" invoke="update" auth="true">
         <description>Update a CmsLeaveword</description>
         <auto-attributes include="pk" mode="IN" optional="false"/>
         <auto-attributes include="nonpk" mode="IN" optional="true"/>
-        <override name="content" allow-html="safe"></override>
     </service>
     <service name="deleteCmsLeaveword" default-entity-name="CmsLeaveword" engine="entity-auto" invoke="delete" auth="true">
         <description>Delete a CmsLeaveword</description>
