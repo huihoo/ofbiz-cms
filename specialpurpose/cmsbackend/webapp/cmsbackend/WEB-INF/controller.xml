@@ -202,13 +202,13 @@
     </request-map>
     
     <request-map uri="FindCmsAccessory"><security https="true" auth="true"/><response name="success" type="view" value="FindCmsAccessory"/></request-map>
+     <request-map uri="EditCmsAccessory"><security https="true" auth="true"/><response name="success" type="view" value="EditCmsAccessory"/></request-map>
 	<request-map uri="createCmsAccessory">
-        <event type="java" path="org.ofbiz.cmsbackend.CmsAccessory" invoke="createCmsAccessory"/>
+        <event type="java" path="org.ofbiz.cmsbackend.accessory.AccessoryEvents" invoke="createCmsAccessory"/>
         <response name="success" type="request-redirect-noparam" value="FindCmsAccessory"></response>
     </request-map>
-    <request-map uri="EditCmsAccessory"><security https="true" auth="true"/><response name="success" type="view" value="EditCmsAccessory"/></request-map>
     <request-map uri="updateCmsAccessory">
-       <event type="java" path="org.ofbiz.cmsbackend.CmsAccessory" invoke="updateCmsAccessory"/>
+       <event type="java" path="org.ofbiz.cmsbackend.accessory.AccessoryEvents" invoke="updateCmsAccessory"/>
        <response name="success" type="request-redirect-noparam" value="FindCmsAccessory"></response>
     </request-map>
     <request-map uri="deleteCmsAccessory">

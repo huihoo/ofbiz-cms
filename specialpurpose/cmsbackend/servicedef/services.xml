@@ -165,7 +165,7 @@
 	
 	<!-- 创建附件 -->
 	<service name="createCmsAccessory" default-entity-name="CmsAccessory"
-		engine="java" location="org.ofbiz.cmsbackend.CmsAccessory" invoke="createCmsAccessory"
+		engine="java" location="org.ofbiz.cmsbackend.accessory.AccessoryServices" invoke="createCmsAccessory"
 		auth="true">
 		<description>Create a CmsAccessory</description>
 		<auto-attributes include="pk" mode="OUT" optional="false" />
@@ -176,7 +176,7 @@
 
 	<!-- 更新附件 -->
 	<service name="updateCmsAccessory" default-entity-name="CmsAccessory"
-		engine="java" location="org.ofbiz.cmsbackend.CmsAccessory" invoke="updateCmsAccessory"
+		engine="java" location="org.ofbiz.cmsbackend.accessory.AccessoryServices" invoke="updateCmsAccessory"
 		auth="true">
 		<description>Update a CmsAccessory</description>
 		<auto-attributes include="pk" mode="IN" optional="false" />
@@ -186,28 +186,13 @@
 
 	<!-- 删除附件 -->
 	<service name="deleteCmsAccessory" default-entity-name="CmsAccessory"
-		engine="java" location="org.ofbiz.cmsbackend.CmsAccessory" invoke="deleteCmsAccessory"
+		engine="java" location="org.ofbiz.cmsbackend.accessory.AccessoryServices" invoke="deleteCmsAccessory"
 		auth="true">
 		<description>Delete a CmsAccessory</description>
 		<auto-attributes include="pk" mode="IN" optional="false" />
 	</service>
 
-	<!-- 附件详细 -->
-	<service name="getCmsAccessoryDetailed" default-entity-name="CmsAccessory"
-		engine="java" location="org.ofbiz.cmsbackend.CmsAccessory" invoke="getCmsAccessoryDetailed"
-		auth="true">
-		<description>Delete a CmsAccessory</description>
-		<auto-attributes include="pk" mode="IN" optional="false" />
-	</service>
-
-	<!-- 附件条件搜索 -->
-	<service name="getCmsAccessoryList" default-entity-name="CmsAccessory"
-		engine="java" location="org.ofbiz.cmsbackend.CmsAccessory" invoke="getCmsAccessoryList"
-		auth="true">
-		<description>Delete a CmsAccessory</description>
-		<auto-attributes include="pk" mode="IN" optional="false" />
-		<auto-attributes include="nonpk" mode="IN" optional="true" />
-	</service>
+	
 
 	<service name="createCmsAccessoryType" default-entity-name="CmsAccessoryType"
 		engine="entity-auto" invoke="create" auth="true">
