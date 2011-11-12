@@ -87,23 +87,7 @@
 
 
 	</entity>
-	<!-- , NEXT_ID bigint comment '下一篇', PRE_ID bigint comment '上一篇', GROUP_ID 
-		bigint comment '允许浏览会员组', MEMBER_ID bigint comment '录入会员', ADMIN_CHECK bigint 
-		comment '审核管理员', ADMIN_DISABLE bigint comment '禁用管理员', ADMIN_INPUT bigint 
-		comment '录入管理员', VISIT_TOTAL bigint not null default 0 comment '总共访问次数', 
-		VISIT_TODAY bigint not null default 0 comment '当天访问次数', VISIT_WEEK bigint 
-		not null default 0 comment '本周下载次数', VISIT_MONTH bigint not null default 
-		0 comment '本月下载次数', VISIT_QUARTER bigint not null default 0 comment '本季下载次数', 
-		VISIT_YEAR bigint not null default 0 comment '本年下载次数', STAT_DATE date comment 
-		'统计时间', OUTER_URL varchar(255) comment '外部链接', CONTENT_RES_PATH varchar(200) 
-		comment '文章内容的资源路径', PAGE_COUNT int comment '文章总页数', TPL_CONTENT varchar(100) 
-		comment '指定模板', TOP_LEVEL int not null default 0 comment '置顶级别', CHECK_OPINION 
-		varchar(255) comment '审核意见', RELATED_IDS varchar(255) comment '相关文章ID', HAS_TITLEIMG 
-		bool not null default 0 comment '是否有标题图片', IS_BOLD bool not null default 
-		0 comment '是否加粗', IS_DRAFT bool not null default 0 comment '是否草稿', IS_RECOMMEND 
-		bool not null default 0 comment '是否推荐', IS_CHECK bool not null default 1 
-		comment '是否审核', IS_DISABLED bool not null default 0 comment '是否禁用', IS_REJECT 
-		bool not null default 0 comment '是否驳回', -->
+
 	<entity entity-name="CmsArticleType" package-name="org.ofbiz.cms.article"
 		title="文章类型">
 		<field name="articleTypeId" type="id-ne">
@@ -171,13 +155,6 @@
 			<key-map field-name="websiteId" />
 		</relation>
 	</entity>
-	<!-- GROUP_CONTRI_ID bigint comment '投稿会员组', GROUP_VISIT_ID bigint comment 
-		'访问会员组', MODEL_ID bigint not null comment '模型', SYS_TYPE varchar(20) not 
-		null comment '系统类型', DOC_COUNT int not null default 0 comment '文档数量', VISIT_TOTAL 
-		bigint comment '总共访问次数', VISIT_TODAY bigint comment '当天访问次数', STAT_DATE date 
-		comment '统计日期', OUTER_URL varchar(255) comment '外部链接', PRIORITY int not null 
-		default 10 comment '栏目排列顺序', HAS_TITLEIMG bool not null default 0 comment 
-		'是否有标题图片', HAS_CHILD bool not null default 1 comment '是否可以有子节点', -->
 
 	<entity entity-name="CmsSolution" package-name="org.ofbiz.cms.article"
 		title="CmsSolution Entity">
@@ -271,14 +248,7 @@
 		EMAIL_USER_NAME varchar(50) default '' comment '网站邮箱名称', EMAIL_USER_ID varchar(100) 
 		default '' comment '网站邮箱登录名', EMAIL_USER_PWD varchar(50) default '' comment 
 		'网站邮箱密码', EMAIL_SUBJECT varchar(255) default '' comment '邮件主题（标题）', EMAIL_CONTENT 
-		longtext comment '邮件内容', --><!-- <entity entity-name="CmsCatalogArticle" package-name="org.ofbiz.hair" 
-		title="文章类型"> <field name="articleId" type="id-ne"> <description></description> 
-		</field> <field name="catalogId" type="id-ne" > <description></description> 
-		</field> <field name="description" type="description" > <description>description</description> 
-		</field> <prim-key field="articleId"/> <prim-key field="catalogId"/> <relation 
-		type="one" fk-name="CCA_ARTI" rel-entity-name="CmsArticle"> <key-map field-name="articleId"/> 
-		</relation> <relation type="one" fk-name="CCA_CATA" rel-entity-name="CmsCatalog"> 
-		<key-map field-name="catalogId"/> </relation> </entity> -->
+		longtext comment '邮件内容', -->
 
 	<view-entity entity-name="CmsArticleStatusItem"
 		package-name="org.ofbiz.cms.article">
@@ -703,119 +673,7 @@
 		</entity-condition>
 	</view-entity>
 
-	<entity entity-name="CmsAccessoryType" package-name="org.ofbiz.cms.accessory"
-		title="附件类型">
-		<field name="accessoryTypeId" type="id-ne">
-			<description>编号</description>
-		</field>
-		<field name="displayName" type="id-long">
-			<description>附件类型显示名</description>
-		</field>
-		<field name="displayLevel" type="very-short">
-			<description>优先级别，数字越小，显示的位置越靠前</description>
-		</field>
-
-		<prim-key field="accessoryTypeId" />
-	</entity>
-
-	<entity entity-name="CmsAccessory" package-name="org.ofbiz.cms.accessory"
-		title="附件">
-		<field name="accessoryId" type="id-ne">
-			<description>附件编号</description>
-		</field>
-
-		<field name="accessoryTypeId" type="id-ne">
-			<description>附件的类型编号</description>
-		</field>
-
-		<field name="statusId" type="id-ne">
-			<description>附件的状态，0待审核，1已审核通过，2审核未通过</description>
-		</field>
-
-		<field name="catalogId" type="id-ne">
-		</field>
-
-		<field name="websiteId" type="id-ne">
-		</field>
-
-		<field name="title" type="name">
-			<description>软件名称</description>
-		</field>
-
-		<field name="shortTitle" type="name">
-			<description>简短标题（用于栏目或首页索引）</description>
-		</field>
-
-		<field name="description" type="description">
-			<description>软件摘要</description>
-		</field>
-
-		<field name="content" type="very-long">
-			<description>软件介绍</description>
-		</field>
-
-		<field name="userLoginId" type="id-vlong-ne">
-			<description>发布者的loginId</description>
-		</field>
-
-		<field name="visitTotal" type="numeric">
-			<description>查看次数</description>
-		</field>
-
-		<field name="downloadTotal" type="numeric">
-			<description>下载次数</description>
-		</field>
-
-		<field name="titleColor" type="name">
-			<description>标题颜色</description>
-		</field>
-
-		<!-- <field name="titleImg" type="name"> -->
-		<!-- <description>附件标题</description> -->
-		<!-- </field> -->
-<!---->
-		<!-- <field name="contentImg" type="name"> -->
-		<!-- <description>内容图</description> -->
-		<!-- </field> -->
-
-		<field name="file" type="name">
-			<description>附件</description>
-		</field>
-
-		<field name="tags" type="name">
-			<description>标记，类似关键字</description>
-		</field>
-
-		<field name="releaseDate" type="date">
-			<description>发表日期（可人为设置）</description>
-		</field>
-
-		<field name="releaseSysDate" type="date">
-			<description>发布日期（系统日期）</description>
-		</field>
-
-		<field name="checkTime" type="date-time">
-			<description>终审通过时间</description>
-		</field>
-
-		<field name="disableTime" type="date-time">
-			<description>禁用时间</description>
-		</field>
-
-		<prim-key field="accessoryId" />
-
-		<relation rel-entity-name="CmsAccessoryType" type="one"
-			fk-name="CACC_TYPE">
-			<key-map field-name="accessoryTypeId" rel-field-name="accessoryTypeId" />
-		</relation>
-
-		<relation type="one" fk-name="CACC_CATA" rel-entity-name="CmsCatalog">
-			<key-map field-name="catalogId" />
-		</relation>
-		<relation type="one" fk-name="CACC_WSITE" rel-entity-name="CmsWebSite">
-			<key-map field-name="websiteId" />
-		</relation>
-	</entity>
+	
 	
 	<!-- Surpass Li add by 2011-09-15 留言管理表 开始-->
 	
@@ -879,7 +737,7 @@
 	</entity>
 	<!-- Surpass Li add by 2011-09-15 留言管理表 结束-->
 
-	<!--视频管理实体 -->
+	<!--视频管理 -->
 	<entity entity-name="CmsVideoType" package-name="org.ofbiz.cms.video"
 		title="CmsVideoType Entity">
 		<field name="videoTypeId" type="id-ne">
@@ -924,7 +782,7 @@
 			<key-map field-name="userLoginId" />
 		</relation>
 	</entity>
-	<!--flash阅读器（文档）实体 -->
+	<!--flash阅读器（文档） -->
 	<entity entity-name="CmsFlashDocumentType" package-name="org.ofbiz.cms.flashDocument"
 		title="CmsFlashDocumentType Entity">
 		<field name="flashDocumentTypeId" type="id-ne">
