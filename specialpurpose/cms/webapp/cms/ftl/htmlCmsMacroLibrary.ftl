@@ -22,8 +22,8 @@ target：是否原窗口打开。【0：原窗口打开；1：新窗口打开】
 <#macro Position homepage='${uiLabelMap.FirstPage}' title='0' split='>' target='0' class='' style=''>
 
 
-            <#if catalog.path??>
-  	           <#assign url = "${(catalog.path)!}"/>
+            <#if catalog.catalogPath??>
+  	           <#assign url = "${(catalog.catalogPath)!}"/>
   	        <#else>
   	           <#assign url = "ViewCatalog?id=${catalog.catalogId}"/>
   	        </#if>
@@ -187,8 +187,8 @@ MsgList
     
   	    <#list catalogList as c>
   	    
-  	        <#if c.path??>
-  	           <#assign url = "${(c.path)!}"/>
+  	        <#if c.catalogPath??>
+  	           <#assign url = "${(c.catalogPath)!}"/>
   	        <#else>
   	           <#assign url = "ViewCatalog?id=${c.catalogId}"/>
   	        </#if>

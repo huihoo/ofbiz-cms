@@ -8,8 +8,8 @@
     <CmsCatalog catalogId="9303" catalogTypeId="Artile" websiteId="default" catalogName ="科技" keywords ="新闻"  statusId="Y" title="标题" description="描述"  isDisplay ="Y" />
     <CmsCatalog catalogId="9304" catalogTypeId="Artile" websiteId="default" catalogName ="财经" keywords ="新闻"  statusId="Y" title="标题" description="描述"  isDisplay ="Y" />
     <CmsCatalog catalogId="9305" catalogTypeId="Artile" websiteId="default" catalogName ="娱乐" keywords ="新闻"  statusId="Y" title="标题" description="描述"  isDisplay ="Y" />
-    <CmsCatalog catalogId="9306" catalogTypeId="Artile" websiteId="default" catalogName ="体育" keywords ="新闻" path="ViewCatalog?id=9306" statusId="Y" title="标题" description="描述"  isDisplay ="Y" />
-    <CmsCatalog catalogId="9307" catalogTypeId="Artile" websiteId="default" catalogName ="房产" keywords ="新闻" path="ViewCatalog?id=9307" statusId="Y" title="标题" description="描述"  isDisplay ="Y" />
+    <CmsCatalog catalogId="9306" catalogTypeId="Artile" websiteId="default" catalogName ="体育" keywords ="新闻" catalogPath="ViewCatalog?id=9306" statusId="Y" title="标题" description="描述"  isDisplay ="Y" />
+    <CmsCatalog catalogId="9307" catalogTypeId="Artile" websiteId="default" catalogName ="房产" keywords ="新闻" catalogPath="ViewCatalog?id=9307" statusId="Y" title="标题" description="描述"  isDisplay ="Y" />
     
     <CmsArticle articleId="9501" articleTypeId ="default" statusId ="CAST_DEFINED" title ="文章标题1" description ="描述"
         author ="作者" releaseDate ="2011-12-12" visitTotal ="100" shortTitle ="简短标题" titleColor ="标题颜色" 
@@ -74,34 +74,34 @@
    
     
     <CmsCalendarEvents eventId="9501" title="标题" address="行政大楼一楼梯教"
-		eventType="CAL_01" shortTitle="香港今日亚洲交易有限公司上海" content="香港今日亚洲交易有限公司上海代表处"
+		eventTypeId="CAL_01" shortTitle="香港今日亚洲交易有限公司上海" content="香港今日亚洲交易有限公司上海代表处"
 		eventTime="18:30" startTime="2011-09-02" createBy="admin" statusId="CAL_IMPLEMENTED" />
     <CmsCalendarEvents eventId="9502" title="标题" address="行政大楼一楼梯教"
-		eventType="CAL_01" shortTitle="香港今日亚洲交易有限公司上海" content="香港今日亚洲交易有限公司上海代表处"
-		eeventTime="18:30"
+		eventTypeId="CAL_01" shortTitle="香港今日亚洲交易有限公司上海" content="香港今日亚洲交易有限公司上海代表处"
+		eventTime="18:30"
 		startTime="2011-09-02" createBy="admin" statusId="CAL_IMPLEMENTED" />
     <CmsCalendarEvents eventId="9503" title="标题" address="行政大楼一楼梯教"
-		eventType="CAL_01" shortTitle="香港今日亚洲交易有限公司上海" content="香港今日亚洲交易有限公司上海代表处香港今日亚洲交易有限公司上海代表处"
+		eventTypeId="CAL_01" shortTitle="香港今日亚洲交易有限公司上海" content="香港今日亚洲交易有限公司上海代表处香港今日亚洲交易有限公司上海代表处"
 		eventTime="18:30"
 		startTime="2011-09-03" createBy="admin" statusId="CAL_IMPLEMENTED" />
     <CmsCalendarEvents eventId="9504" title="标题" address="行政大楼一楼梯教"
-		eventType="CAL_01" shortTitle="香港今日亚洲交易有限公司上海代表处" content="香港今日亚洲交易有限公司上海代表处香港今日亚洲交易有限公司上海代表处"
+		eventTypeId="CAL_01" shortTitle="香港今日亚洲交易有限公司上海代表处" content="香港今日亚洲交易有限公司上海代表处香港今日亚洲交易有限公司上海代表处"
 		eventTime="18:30"
 		startTime="2011-09-04" createBy="admin" statusId="CAL_IMPLEMENTED" />
     <CmsCalendarEvents eventId="9505" title="标题" address="行政大楼一楼梯教"
-		eventType="CAL_01" shortTitle="香港今日亚洲交易有限公司上海代表处" content="香港今日亚洲交易有限公司上海代表处香港今日亚洲交易有限公司上海代表处"
+		eventTypeId="CAL_01" shortTitle="香港今日亚洲交易有限公司上海代表处" content="香港今日亚洲交易有限公司上海代表处香港今日亚洲交易有限公司上海代表处"
 		eventTime="18:30"
 		startTime="2011-09-12" createBy="admin" statusId="CAL_IMPLEMENTED" />
     <CmsCalendarEvents eventId="9506" title="标题" address="行政大楼一楼梯教"
-		eventType="CAL_01" shortTitle="香港今日亚洲交易有限公司上海代表处" content="香港今日亚洲交易有限公司上海代表处香港今日亚洲交易有限公司上海代表处"
+		eventTypeId="CAL_01" shortTitle="香港今日亚洲交易有限公司上海代表处" content="香港今日亚洲交易有限公司上海代表处香港今日亚洲交易有限公司上海代表处"
 		eventTime="18:30"
 		startTime="2011-09-12" createBy="admin" statusId="CAL_IMPLEMENTED" />
     <CmsCalendarEvents eventId="9507" title="标题" address="行政大楼一楼梯教"
-		eventType="CAL_01" shortTitle="香港今日亚洲交易有限公司上海代表处" content="香港今日亚洲交易有限公司上海代表处香港今日亚洲交易有限公司上海代表处"
+		eventTypeId="CAL_01" shortTitle="香港今日亚洲交易有限公司上海代表处" content="香港今日亚洲交易有限公司上海代表处香港今日亚洲交易有限公司上海代表处"
 		eventTime="18:30"
 		startTime="2011-09-07" createBy="admin" statusId="CAL_IMPLEMENTED" />
     <CmsCalendarEvents eventId="9508" title="标题" address="行政大楼一楼梯教"
-		eventType="CAL_01" shortTitle="香港今日亚洲交易有限公司上海代表处" content="香港今日亚洲交易有限公司上海代表处香港今日亚洲交易有限公司上海代表处"
+		eventTypeId="CAL_01" shortTitle="香港今日亚洲交易有限公司上海代表处" content="香港今日亚洲交易有限公司上海代表处香港今日亚洲交易有限公司上海代表处"
 		eventTime="18:30"
 		startTime="2011-09-02" createBy="admin" statusId="_CANCELLED" />
 		

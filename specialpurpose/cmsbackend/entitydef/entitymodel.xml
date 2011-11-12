@@ -115,7 +115,7 @@
 		<field name="parentId" type="name">
 			<description>父栏目</description>
 		</field>
-		<field name="path" type="url">
+		<field name="catalogPath" type="url">
 			<description>栏目路径</description>
 		</field>
 		<field name="catalogName" type="name">
@@ -182,7 +182,7 @@
 		<field name="websiteId" type="id-ne">
 			<description>网站Id</description>
 		</field>
-		<field name="name" type="id-ne">
+		<field name="websiteName" type="id-ne">
 			<description>站点名称</description>
 		</field>
 		<field name="parentId" type="id">
@@ -785,26 +785,26 @@
 	<!--flash阅读器（文档） -->
 	<entity entity-name="CmsFlashDocumentType" package-name="org.ofbiz.cms.flashDocument"
 		title="CmsFlashDocumentType Entity">
-		<field name="flashDocumentTypeId" type="id-ne">
+		<field name="fdTypeId" type="id-ne">
 			<description>flash文档分类编号</description>
 		</field>
 		<field name="description" type="description">
 			<description>flash文档显示名称</description>
 		</field>
-		<prim-key field="flashDocumentTypeId" />
+		<prim-key field="fdTypeId" />
 	</entity>
 	<entity entity-name="CmsFlashDocument" package-name="org.ofbiz.cms.flashDocument"
 		title="CmsFlashDocument Entity">
-		<field name="flashDocumentId" type="id-ne">
+		<field name="documentId" type="id-ne">
 			<description>flash文档id</description>
 		</field>
-		<field name="flashDocumentName" type="name">
+		<field name="documentName" type="name">
 			<description>flash文档名称</description>
 		</field>
-		<field name="flashDocumentDescription" type="description">
+		<field name="description" type="description">
 			<description>flash文档描述</description>
 		</field>
-		<field name="flashDocumentPDFSourcePath" type="value">
+		<field name="pdfSourcePath" type="value">
 			<description>flash文档原始的pdf资源路径</description>
 		</field>
 		<!-- FIXME： 感觉这个应该关联pdf文件那个实体，这样文档的时间和所有者等等信息就都有了，不过没找到pdf文件实体 -->
@@ -814,11 +814,11 @@
 		<field name="statusId" type="id">
 			<description>flash文档状态    0:废弃      1:正在用 </description>
 		</field>
-		<field name="flashDocumentTypeId" type="id-ne"></field>
-		<prim-key field="flashDocumentId" />
+		<field name="fdTypeId" type="id-ne"></field>
+		<prim-key field="documentId" />
 		<relation rel-entity-name="CmsFlashDocumentType" type="one"
 			fk-name="CF_TYP">
-			<key-map field-name="flashDocumentTypeId" />
+			<key-map field-name="fdTypeId" />
 		</relation>
 	</entity>
 
@@ -877,7 +877,7 @@
 			<description>问题状态</description>
 		</field>
 		<prim-key field="questionId" />
-		<relation type="one" rel-entity-name="StatusItem" fk-name="CMS_QUESTION_STATUS">
+		<relation type="one" rel-entity-name="StatusItem" fk-name="CMS_QTN_STTS">
 			<key-map field-name="statusId" rel-field-name="statusId" />
 		</relation>
 	</entity>
@@ -911,7 +911,7 @@
 			<description>回答状态</description>
 		</field>
 		<prim-key field="answerId" />
-		<relation type="one" rel-entity-name="StatusItem" fk-name="CMS_QUESTION_ANSWERID_STATUS">
+		<relation type="one" rel-entity-name="StatusItem" fk-name="CMS_QTN_AN_STTS">
 			<key-map field-name="statusId" rel-field-name="statusId" />
 		</relation>
 	</entity>
