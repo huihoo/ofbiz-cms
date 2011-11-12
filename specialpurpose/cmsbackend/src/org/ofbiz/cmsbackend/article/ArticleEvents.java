@@ -12,6 +12,11 @@ import org.ofbiz.entity.GenericValue;
 import org.ofbiz.service.LocalDispatcher;
 import org.ofbiz.service.ModelService;
 
+/**
+ * 
+ * @author hezengyao
+ * @since 2010-05
+ */
 public class ArticleEvents {
     public static final String  module         = ArticleEvents.class.getName();
     private static final String IMAGE_FOLDER   = UtilProperties.getPropertyValue("cmsupload.properties",  "cms.uploadfile.article");

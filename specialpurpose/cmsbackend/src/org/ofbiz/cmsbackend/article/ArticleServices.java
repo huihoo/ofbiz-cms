@@ -10,6 +10,12 @@ import org.ofbiz.entity.GenericValue;
 import org.ofbiz.service.DispatchContext;
 import org.ofbiz.service.ServiceUtil;
 
+
+/**
+ * 
+ * @author hezengyao
+ * @since 2010-05
+ */
 public class ArticleServices {
 
     public static final String  module         = ArticleServices.class.getName();

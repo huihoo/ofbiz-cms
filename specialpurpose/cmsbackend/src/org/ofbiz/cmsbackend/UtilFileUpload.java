@@ -18,8 +18,9 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.ofbiz.base.util.Debug;
 import org.ofbiz.base.util.UtilProperties;
 /**
- * 2010.04
+ * 
  * @author hezengyao
+ * @since 2010-05
  */
 public class UtilFileUpload {
 

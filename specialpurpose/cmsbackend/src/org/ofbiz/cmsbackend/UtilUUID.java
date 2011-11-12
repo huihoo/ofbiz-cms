@@ -22,8 +22,9 @@ UUID是把128个二进制数，转换成32个16进制数的，每4个二进制�
 最终是把36位的UUID，变成一个22位的数表示，短了14位。
  */
 /**
- * 2011.08
+ * 
  * @author hezengyao
+ * @since 2010-08
  */
 public class UtilUUID {
 

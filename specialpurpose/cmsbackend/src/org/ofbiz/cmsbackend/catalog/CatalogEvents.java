@@ -31,7 +31,6 @@ public class CatalogEvents {
             ModelService pService = dispatcher.getDispatchContext().getModelService("createCmsCatalog");
             context = pService.makeValid(context, ModelService.IN_PARAM);
             dispatcher.runSync(pService.name, context);
-            dispatcher.runSync("createCmsCatalog", context);
         }
         catch (Exception e) {
             Debug.logError(e.getMessage(), module);

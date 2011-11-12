@@ -48,14 +48,14 @@
     </service>
 
 
-    <service name="createCmsCalendarEvents" default-entity-name="CmsCalendarEvents" engine="java" location="org.ofbiz.cmsbackend.CmsDisplayEvents" invoke="createCmsCalendarEvents" auth="true">
+    <service name="createCmsCalendarEvents" default-entity-name="CmsCalendarEvents" engine="java" location="org.ofbiz.cmsbackend.plugin.CalendarEventServices" invoke="createCalendarEvents" auth="true">
         <description>Create a CmsCalendarEvents</description>
         <auto-attributes include="pk" mode="OUT" optional="false"/>
         <auto-attributes include="nonpk" mode="IN" optional="true"/>
         <override name="startTime" type="String" mode="INOUT" optional="false"></override>
     </service>
 
-    <service name="deleteCmsCalendarEvents" default-entity-name="CmsCalendarEvents" engine="java" location="org.ofbiz.cmsbackend.CmsDisplayEvents" invoke="deleteCmsCalendarEvents" auth="true">
+    <service name="deleteCmsCalendarEvents" default-entity-name="CmsCalendarEvents" engine="java" location="org.ofbiz.cmsbackend.plugin.CalendarEventServices" invoke="deleteCalendarEvents" auth="true">
         <description>Delete a CmsCalendarEvents</description>
         <auto-attributes include="pk" mode="IN" optional="false"/>
         <attribute name="startTime" type="String" mode="OUT" optional="false"/>
@@ -72,7 +72,7 @@
         <auto-attributes include="pk" mode="IN" optional="false"/>
     </service>
     
-    <service name="checkCmsDisplayEvents" engine="java" location="org.ofbiz.cmsbackend.CmsDisplayEvents" invoke="checkCmsDisplayEvents" >
+    <service name="checkCmsDisplayEvents" engine="java" location="org.ofbiz.cmsbackend.plugin.CalendarEventServices" invoke="checkCmsDisplayEvents" >
         <attribute name="startTime" mode="IN" type="String" optional="false"/>
     </service>
     
@@ -92,17 +92,17 @@
         <auto-attributes include="pk" mode="IN" optional="false"/>
     </service>
     
-    <service name="createCmsFellowshipLink" default-entity-name="CmsFellowshipLink" engine="java" location="org.ofbiz.cmsbackend.CmsFellowshipLink" invoke="createCmsFellowshipLink" auth="true">
+    <service name="createCmsFellowshipLink" default-entity-name="CmsFellowshipLink" engine="java" location="org.ofbiz.cmsbackend.plugin.FellowshipLinkServices" invoke="createCmsFellowshipLink" auth="true">
         <description>Create a CmsCalendarEvents</description>
         <auto-attributes include="pk" mode="OUT" optional="false"/>
         <auto-attributes include="nonpk" mode="IN" optional="true"/>
     </service>
 
-    <service name="deleteCmsFellowshipLink" default-entity-name="CmsFellowshipLink" engine="java" location="org.ofbiz.cmsbackend.CmsFellowshipLink" invoke="deleteCmsFellowshipLink" auth="true">
+    <service name="deleteCmsFellowshipLink" default-entity-name="CmsFellowshipLink" engine="java" location="org.ofbiz.cmsbackend.plugin.FellowshipLinkServices" invoke="deleteCmsFellowshipLink" auth="true">
         <description>Delete a CmsCalendarEvents</description>
         <auto-attributes include="pk" mode="IN" optional="false"/>
     </service> 
-    <service name="updateCmsFellowshipLink" default-entity-name="CmsFellowshipLink" engine="java" location="org.ofbiz.cmsbackend.CmsFellowshipLink" invoke="updateCmsFellowshipLink" auth="true">
+    <service name="updateCmsFellowshipLink" default-entity-name="CmsFellowshipLink" engine="java" location="org.ofbiz.cmsbackend.plugin.FellowshipLinkServices" invoke="updateCmsFellowshipLink" auth="true">
         <description>Update a CmsCalendarEvents</description>
         <auto-attributes include="pk" mode="IN" optional="false"/>
         <auto-attributes include="nonpk" mode="IN" optional="true"/>
