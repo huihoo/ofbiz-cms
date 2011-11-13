@@ -2,7 +2,7 @@
 <entity-engine-xml>
 
 <!-- 网站信息 -->
-    <CmsWebSite websiteId="default" name ="websiteName" isClose ="N" closeReason ="系统维护中" description ="描述" copyright="版权信息" recordCode="备案号" systemType ="CMS"/>
+    <CmsWebSite websiteId="default" websiteName ="OFBiz内容管理网" isClose ="N" closeReason ="系统维护中" description ="描述" copyright="版权信息" recordCode="备案号" systemType ="CMS"/>
     
     <!-- 文章类型 -->
     <CmsArticleType articleTypeId="default" displayName ="普通文章" displayLevel ="01"/>

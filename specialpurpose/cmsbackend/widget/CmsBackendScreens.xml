@@ -28,6 +28,11 @@
                 <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
                                 <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
+                                    <decorator-section name="menu-bar">
+                                        <container style="button-bar">
+                                            <link target="EditCmsCalendarEvents" link-type="anchor" text="${uiLabelMap.CommonNew}${uiLabelMap.CmsCalendarEvents}" style="buttontext create"/>
+                                        </container>
+                                    </decorator-section>
                                     <decorator-section name="search-options">
                                         <include-form name="FindCmsCalendarEvents" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
                                     </decorator-section>
@@ -217,6 +222,7 @@
                                 <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
                                     <decorator-section name="menu-bar">
                                         <container style="button-bar">
+                                            <link target="FindCmsFellowshipLinkType" link-type="anchor" text="${uiLabelMap.FindCmsFellowshipLinkType}" style="buttontext search"/>
                                             <link target="EditCmsFellowshipLink" link-type="anchor" text="${uiLabelMap.EditCmsFellowshipLink}" style="buttontext create"/>
                                         </container>
                                     </decorator-section>
@@ -367,6 +373,11 @@
                 <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
                                 <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
+                                    <decorator-section name="menu-bar">
+                                        <container style="button-bar">
+                                            <link target="EditCmsCatalog" link-type="anchor" text="${uiLabelMap.EditCmsCatalog}" style="buttontext create"/>
+                                        </container>
+                                    </decorator-section>
                                     <decorator-section name="search-options">
                                         <include-form name="FindCmsCatalog" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
                                     </decorator-section>

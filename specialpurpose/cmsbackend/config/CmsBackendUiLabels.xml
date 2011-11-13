@@ -32,6 +32,15 @@
 		<value xml:lang="zh">编辑下载类型</value>
 	</property>
 	
+
+	<property key="FindCmsArticle">
+		<value xml:lang="en">FindCmsArticle</value>
+		<value xml:lang="zh">文章管理</value>
+	</property>
+	<property key="FindCmsCalendarEvents">
+		<value xml:lang="en">FindCmsCalendarEvents</value>
+		<value xml:lang="zh">日程管理</value>
+	</property>
 	<property key="CmsAccessory">
 		<value xml:lang="en">Asscessory</value>
 		<value xml:lang="zh">下载</value>

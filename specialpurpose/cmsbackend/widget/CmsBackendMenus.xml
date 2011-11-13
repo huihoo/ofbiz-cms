@@ -6,16 +6,8 @@
 		<menu-item name="main" title="${uiLabelMap.CommonMain}">
 			<link target="main" />
 		</menu-item>
-        <menu-item name="survey" title="${uiLabelMap.ContentSurvey}">
-			<link target="EditSurveyQuestions"/>
-		</menu-item>
 
-		<menu-item name="FindCmsCalendarEvents" title="${uiLabelMap.FindCmsCalendarEvents}">
-			<link target="FindCmsCalendarEvents" />
-		</menu-item>
-		<menu-item name="EditCmsCalendarEvents" title="${uiLabelMap.EditCmsCalendarEvents}">
-			<link target="EditCmsCalendarEvents" />
-		</menu-item>
+
 		<menu-item name="FindCmsArticle" title="${uiLabelMap.FindCmsArticle}">
 			<link target="FindCmsArticle" />
 		</menu-item>
@@ -25,9 +17,6 @@
 		</menu-item>
 		<!-- 下载管理 结束 -->
 		<!-- 链接管理 by Surpass Li 开始-->
-		<menu-item name="FindCmsFellowshipLinkType" title="${uiLabelMap.FindCmsFellowshipLinkType}">
-			<link target="FindCmsFellowshipLinkType" />
-		</menu-item>
 		<menu-item name="FindCmsFellowshipLink" title="${uiLabelMap.FindCmsFellowshipLink}">
 			<link target="FindCmsFellowshipLink" />
 		</menu-item>
@@ -44,11 +33,15 @@
 		<menu-item name="FindCmsCatalog" title="${uiLabelMap.FindCmsCatalog}">
 			<link target="FindCmsCatalog" />
 		</menu-item>
-		<menu-item name="EditCmsCatalog" title="${uiLabelMap.EditCmsCatalog}">
-			<link target="EditCmsCatalog" />
-		</menu-item>
-		<!-- 栏目管理 by Suozhu Wang 结束-->
 
+		<!-- 栏目管理 by Suozhu Wang 结束-->
+        <menu-item name="survey" title="${uiLabelMap.ContentSurvey}">
+			<link target="EditSurveyQuestions"/>
+		</menu-item>
+
+		<menu-item name="FindCmsCalendarEvents" title="${uiLabelMap.FindCmsCalendarEvents}">
+			<link target="FindCmsCalendarEvents" />
+		</menu-item>
         <!--投票管理 by jingchao.yan start-->
         <menu-item name="VoteManage" title="${uiLabelMap.VoteManage}">
             <link target="VoteManage"/>
