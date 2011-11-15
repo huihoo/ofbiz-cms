@@ -259,4 +259,26 @@
         <auto-attributes include="pk" mode="IN" optional="false"/>
     </service>
     <!-- 留言管理服务 by Surpass Li 2011-09-15 结束-->
+    
+    
+    <service name="createEPaketConfig" default-entity-name="EPaketConfig" engine="java" location="org.ofbiz.shipment.EPaketConfigServices" invoke="createEPaketConfig" auth="true">
+        <description>Create a EPaketConfig</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <override name="ebayAccount" optional="false"></override>
+        <override name="devId" optional="false"></override>
+        <override name="apiCode" optional="false"></override>   
+    </service>
+    <service name="updateEPaketConfig" default-entity-name="EPaketConfig" engine="java" location="org.ofbiz.shipment.EPaketConfigServices" invoke="updateEPaketConfig" auth="true">
+        <description>Update a EPaketConfigType</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <override name="ebayAccount" optional="false"></override>
+        <override name="devId" optional="false"></override>
+        <override name="apiCode" optional="false"></override> 
+    </service>
+    <service name="deleteEPaketConfig" default-entity-name="EPaketConfig" engine="java" location="org.ofbiz.shipment.EPaketConfigServices" invoke="deleteEPaketConfig" auth="true">
+        <description>Delete a EPaketConfig</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+    </service>
 </services>

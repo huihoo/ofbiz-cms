@@ -282,6 +282,25 @@
     </request-map>
     <!-- 会员及权限管理 Request Mappings by Surpass Li  2011-09-15 结束-->
     
+    
+    <request-map uri="FindEPaketConfigStatus"><security https="true" auth="true"/><response name="success" type="view" value="FindEPaketConfigStatus"/></request-map>
+    
+    <request-map uri="FindEPaketConfig"><security https="true" auth="true"/><response name="success" type="view" value="FindEPaketConfig"/></request-map>
+    <request-map uri="EditEPaketConfig"><security https="true" auth="true"/><response name="success" type="view" value="EditEPaketConfig"/></request-map>
+    <request-map uri="createEPaketConfig">
+        <event type="service" invoke="createEPaketConfig"/>
+        <response name="success" type="request-redirect-noparam" value="FindEPaketConfig"></response>
+    </request-map>
+    <request-map uri="updateEPaketConfig">
+       <event type="service" invoke="updateEPaketConfig"/>
+       <response name="success" type="request-redirect-noparam" value="FindEPaketConfig"></response>
+    </request-map>
+    <request-map uri="deleteEPaketConfig">
+        <event type="service" invoke="deleteEPaketConfig"/>
+        <response name="success" type="request-redirect-noparam" value="FindEPaketConfig"></response>
+    </request-map>
+    
+    
     <!-- View Mappings -->
     <view-map name="main" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#main"/>
     
@@ -348,5 +367,11 @@
        	
 	<!-- 会员及权限 view Map by Surpass Li  2011-09-15 结束-->
     <view-map name="pagetest" type="ftl" page="component://cmsbackend/webapp/cmsbackend/survey/pagetest.ftl"/>
+    
+    
+    <view-map name="FindEPaketConfig" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#FindEPaketConfig"/>
+    <view-map name="EditEPaketConfig" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#EditEPaketConfig"/>
+    <view-map name="FindEPaketConfigStatus" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#FindEPaketConfigStatus"/>
+    
     
 </site-conf>

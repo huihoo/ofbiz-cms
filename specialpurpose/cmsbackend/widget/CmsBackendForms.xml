@@ -1248,4 +1248,141 @@
         <field name="submitButton" use-when="entity!=null" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
     </form>
     <!-- 留言管理 by Surpass Li 2011-09-15 结束-->
+    
+    <form name="FindEPaketConfig" type="single" target="FindEPaketConfig" default-entity-name="EPaketConfig">
+        <field name="noConditionFind"><hidden value="Y"/></field>
+		<field name="epaketConfigId" title="${uiLabelMap.epaketConfigId}" >
+	      	<text-find hide-options="true" size="125"/>
+	  	</field>
+	  	<field name="ebayAccount" title="${uiLabelMap.ebayAccount}" >
+	      	<text-find hide-options="true" size="125"/>
+	  	</field> 
+		<field name="devId" title="${uiLabelMap.devId}" >
+	      	<text-find hide-options="true" size="125"/>
+	  	</field>
+	  	<field name="apiCode" title="${uiLabelMap.apiCode}" >
+	      	<text-find hide-options="true" size="125"/>
+	  	</field>     
+		<field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
+		    <submit button-type="button" image-location="/images/icons/magnifier.png"/>
+		</field>
+    </form>
+    <form name="ListEPaketConfig" type="list" list-name="listIt" paginate-target="FindEPaketConfig" default-entity-name="EPaketConfig" separate-columns="true"
+        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        <actions>
+            <service service-name="performFind" result-map="result" result-map-list="listIt">
+                <field-map field-name="inputFields" from-field="pCtx"/>
+                <field-map field-name="entityName" value="EPaketConfig"/>
+                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+                <field-map field-name="viewIndex" from-field="viewIndex"/>
+                <field-map field-name="viewSize" from-field="viewSize"/>
+            </service>
+        </actions>
+	  	
+		<field name="epaketConfigId" title="${uiLabelMap.epaketConfigId}" sort-field="true">
+	      	<display/>
+	  	</field>
+	  	<field name="ebayAccount" title="${uiLabelMap.ebayAccount}" sort-field="true">
+	      	<display/>
+	  	</field> 
+		<field name="devId" title="${uiLabelMap.devId}" sort-field="true">
+	      	<display/>
+	  	</field>
+	  	<field name="apiCode" title="${uiLabelMap.apiCode}" sort-field="true">
+	      	<display/>
+	  	</field> 
+	  	
+	  	<field name="edit" title="${uiLabelMap.CommonEdit}">
+            <hyperlink also-hidden="false" description="${uiLabelMap.CommonEdit}" target="EditEPaketConfig">
+                <parameter param-name="epaketConfigId"/>
+            </hyperlink>
+        </field>
+		<field name="delete" title="${uiLabelMap.CommonDelete}">
+            <hyperlink also-hidden="false" description="${uiLabelMap.CommonDelete}" target="deleteEPaketConfig">
+                <parameter param-name="epaketConfigId"/>
+            </hyperlink>
+        </field>
+    </form>
+    <form name="EditEPaketConfig" type="single" target="updateEPaketConfig" title="" default-map-name="entity" default-entity-name="EPaketConfig">
+        <alt-target use-when="entity==null" target="createEPaketConfig"/>
+        <field name="articleTypeId"><hidden/></field>
+	  	
+		<field use-when="entity==null" name="epaketConfigId" title="${uiLabelMap.epaketConfigId}" >
+	      	<text size="125"/>
+	  	</field>
+	  	<field use-when="entity!=null" name="epaketConfigId" >
+	      	<hidden value="${entity.epaketConfigId}"/>
+	  	</field>
+	  	
+	  	<field use-when="entity!=null" name="display_epaketConfigId" title="${uiLabelMap.epaketConfigId}" >
+	      	<display description="${entity.epaketConfigId}"/>
+	  	</field>
+	  	<field name="ebayAccount" title="${uiLabelMap.ebayAccount}" >
+	      	<text size="125"/>
+	  	</field> 
+		<field name="devId" title="${uiLabelMap.devId}" >
+	      	<text size="125"/>
+	  	</field>
+	  	<field name="apiCode" title="${uiLabelMap.apiCode}" >
+	      	<text size="125"/>
+	  	</field>   
+	  	
+		<field name="submitButton" use-when="entity==null" title="${uiLabelMap.CommonCreate}"><submit button-type="button"/></field>
+        <field name="submitButton" use-when="entity!=null" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
+    </form>
+    
+       <form name="FindEPaketConfigStatus" type="single" target="FindEPaketConfigStatus" default-entity-name="EPaketConfigStatus">
+        <field name="noConditionFind"><hidden value="Y"/></field>
+		<field name="epaketConfigId" title="${uiLabelMap.epaketConfigId}" >
+	      	<text-find hide-options="true" size="125"/>
+	  	</field>
+	  	<field name="ebayAccount" title="${uiLabelMap.ebayAccount}" >
+	      	<text-find hide-options="true" size="125"/>
+	  	</field> 
+		<field name="devId" title="${uiLabelMap.devId}" >
+	      	<text-find hide-options="true" size="125"/>
+	  	</field>
+	  	<field name="apiCode" title="${uiLabelMap.apiCode}" >
+	      	<text-find hide-options="true" size="125"/>
+	  	</field>         
+		<field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
+		    <submit button-type="button" image-location="/images/icons/magnifier.png"/>
+		</field>
+    </form>
+    <form name="ListEPaketConfigStatus" type="list" list-name="listIt" paginate-target="FindEPaketConfigStatus" default-entity-name="EPaketConfigStatus" separate-columns="true"
+        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        <actions>
+            <service service-name="performFind" result-map="result" result-map-list="listIt">
+                <field-map field-name="inputFields" from-field="pCtx"/>
+                <field-map field-name="entityName" value="EPaketConfigStatus"/>
+                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+                <field-map field-name="viewIndex" from-field="viewIndex"/>
+                <field-map field-name="viewSize" from-field="viewSize"/>
+            </service>
+        </actions>
+		<field name="epaketConfigId" title="${uiLabelMap.epaketConfigId}" sort-field="true">
+	      	<display/>
+	  	</field>
+	  	<field name="ebayAccount" title="${uiLabelMap.ebayAccount}" sort-field="true">
+	      	<display/>
+	  	</field> 
+		<field name="devId" title="${uiLabelMap.devId}" sort-field="true">
+	      	<display/>
+	  	</field>
+	  	<field name="apiCode" title="${uiLabelMap.apiCode}" sort-field="true">
+	      	<display/>
+	  	</field> 
+	  	
+		<field name="createdDate" title="${uiLabelMap.createdDate}" sort-field="true">
+	      	<display/>
+	  	</field>
+	  	<field name="createdByUserLogin" title="${uiLabelMap.createdByUserLogin}" sort-field="true">
+	      	<display/>
+	  	</field> 
+		<field name="action" title="${uiLabelMap.action}" sort-field="true">
+	      	<display/>
+	  	</field>
+
+    </form>
+    
 </forms>

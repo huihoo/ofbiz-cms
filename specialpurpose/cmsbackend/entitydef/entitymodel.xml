@@ -915,4 +915,30 @@
 			<key-map field-name="statusId" rel-field-name="statusId" />
 		</relation>
 	</entity>
+	
+	
+	<entity entity-name="EPaketConfig" package-name="org.ofbiz.shipment"
+		title="ePaket Entity">
+		<field name="epaketConfigId" type="id-vlong-ne"/>
+		<field name="ebayAccount" type="id-vlong-ne"/>
+		<field name="devId" type="id-vlong-ne"/>
+		<field name="apiCode" type="id-vlong-ne"/>
+        <field name="createdDate" type="date-time"><description>创建日期</description></field>
+        <field name="createdByUserLogin" type="id-vlong"><description>创建人</description></field>
+        <field name="lastModifiedDate" type="date-time"><description>最后修改日期</description></field>
+        <field name="lastModifiedByUserLogin" type="id-vlong"><description>最后修改人</description></field>
+		<prim-key field="epaketConfigId" />
+	</entity>
+    <entity entity-name="EPaketConfigStatus" package-name="org.ofbiz.shipment"
+		title="ePaket Status Entity">
+		<field name="epaketConfigStatusId" type="id-vlong-ne"/>
+		<field name="epaketConfigId" type="id-vlong-ne"/>
+		<field name="ebayAccount" type="id-vlong-ne"/>
+		<field name="devId" type="id-vlong-ne"/>
+		<field name="apiCode" type="id-vlong-ne"/>
+        <field name="createdDate" type="date-time"><description>创建日期</description></field>
+        <field name="createdByUserLogin" type="id-vlong"><description>创建人</description></field>
+        <field name="action" type="name"><description>操作</description></field>
+		<prim-key field="epaketConfigStatusId" />
+	</entity>
 </entitymodel>
