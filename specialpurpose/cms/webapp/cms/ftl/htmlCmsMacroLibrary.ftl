@@ -200,3 +200,35 @@ MsgList
 	</#if>
  
 </#macro>
+
+
+<#macro LeavewordLists statusId='default' viewIndex='0' viewSize='20' linkTarget='1'>
+
+<div class="c1-body">
+
+         <#assign pviewIndex  =  Static["java.lang.Integer"].valueOf("${viewIndex}").intValue()/> 
+        <#assign pviewSize  =  Static["java.lang.Integer"].valueOf("${viewSize}").intValue()/> 
+        <#assign inputFields  = Static["org.ofbiz.base.util.UtilMisc"].toMap("statusId","CLST_APPROVED")/>
+        <#assign service_context = Static["org.ofbiz.base.util.UtilMisc"].toMap("entityName", "CmsLeaveword", "inputFields", inputFields,"viewSize", pviewSize,"viewIndex", pviewIndex)/>
+        <#assign result =dispatcher.runSync("performFindList",service_context)/>
+        <#assign leavewordList  = result.get("list")/>
+        <#assign listSize  = result.get("listSize")/>
+     
+
+ 
+
+    <#list leavewordList as item>
+        <div class="c1-bline"><div class="fl"><img src="/cms/images/template/${solution}/app/img/textsuff.gif"  border="0"/> 
+        <a href="/cms/control/ViewLeaveword?id=${item.leavewordId}" title="${item.title}" <#if linkTarget=="1"> target="_blank"</#if>><span style="">${item.title}</span></a></div>
+        <div class="fr">${item.replayTime}</div><div class="clear"></div></div>
+    </#list>
+    <#if listSize  gt 20><#include "pagination.ftl"/></#if>
+
+    
+</div>
+</#macro>
+
+
+<#macro PositionLeaveword homepage='${uiLabelMap.FirstPage}' title='0' split='>' target='0' class='' style=''>
+        ${uiLabelMap.MainText}
+</#macro>

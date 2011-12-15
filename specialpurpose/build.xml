@@ -22,6 +22,8 @@
     <import file="../macros.xml"/>
     <filelist id="specialpurpose-builds" dir="."
         files="cmsbackend/build.xml"/>
+    <filelist id="specialpurpose-builds" dir="."
+        files="cms/build.xml"/>
     <!-- For the old OFBiz Workflow Engine add "workflow/build.xml" to the list above -->
     <!-- For Shark add "shark/build.xml" to the list above, in the specialpurpose-builds list (after workflow) -->
 

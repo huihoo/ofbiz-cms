@@ -246,4 +246,29 @@
         <value xml:lang="en">page</value>
         <value xml:lang="zh">页</value>
     </property> 
+    <property key="Leaveword">
+        <value xml:lang="en">"Leaveword"</value>
+        <value xml:lang="zh">留言</value>
+    </property>
+     <property key="createTime">
+        <value xml:lang="en">createTime</value>
+        <value xml:lang="zh">创建时间</value>
+    </property>
+    <property key="replayTime">
+        <value xml:lang="en">replayTime</value>
+        <value xml:lang="zh">回复时间</value>
+    </property>  
+     <property key="LeavewordList">
+        <value xml:lang="en">"LeavewordList"</value>
+        <value xml:lang="zh">留言列表</value>
+    </property>
+     <property key="LeavewordContentMember">
+        <value xml:lang="en">"contentMember"</value>
+        <value xml:lang="zh">留言内容</value>
+    </property>
+     <property key="LeavewordContentAdmin">
+        <value xml:lang="en">"ContentAdmin"</value>
+        <value xml:lang="zh">回复内容</value>
+    </property>
+    
 </resource>

@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>${leave.title} - ${(web.websiteName)!}</title>
+<meta content="${leave.title}" name="keywords" />
+<meta content="${leave.title}" name="description" />
+
+<link href="${root}/darkBlue/app/css/whole.css" rel="stylesheet" type="text/css"/>
+<link href="${root}/darkBlue/app/css/layout.css" rel="stylesheet" type="text/css"/>
+ 
+<script type="text/javascript" src="/cms/images/jquery.js"></script>
+<script type="text/javascript" src="/cms/images/jquery.validate.js"></script>
+</head>
+
+<body>
+<!--页头Begin-->
+<@cms.Include name='head.html' solution='darkBlue'/> 
+<!--页头End-->
+<!--搜索栏Begin-->
+<@cms.Include name='search.html' solution='darkBlue'/>
+<!--搜索栏End-->
+<!--主体下Begin-->
+<div class="page_row">
+    <div class="page_main_msg left">        
+        <div class="left_row">
+          <div class="list pic_news">
+            <div class="list_bar"><@cms.PositionLeaveword /></div>
+            <div class="ctitle ctitle1">${leave.title}</div>
+            <div class="ctitleinfo">
+                ${uiLabelMap.Author}:${leave.memberId}&nbsp;&nbsp;&nbsp;${uiLabelMap.createTime}: ${leave.createTime}&nbsp;&nbsp;&nbsp;${uiLabelMap.replayTime}:${leave.replayTime}
+            </div>
+            <div class="intr">
+                <span class="intr_front">${uiLabelMap.LeavewordContentMember}:</span>    <#if leave.contentMember?length lte 150 >${leave.contentMember}<#else>${leave.contentMember[0..149]}..</#if>
+            </div>
+            <div class="pbox">
+               <span class="intr_front">${uiLabelMap.LeavewordContentAdmin}:</span> ${(StringUtil.wrapString(leave.contentAdmin))!}
+            </div>
+
+            
+          </div>
+        </div>   
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#commentForm").validate($.extend($.validator.AlertError,{
+                    submitHandler:function(form) {
+                        $.post('/cms/control/createLeavewordAjax', {
+                            'content' : $('#commentContent').val(),
+                            'checkCode' : $('#commentCheckCode').val(),
+                            'title':$('#title').val(),
+                            'websiteId':'${web.websiteId}'
+                        }, function(dataStr) {
+                          var data = eval('(' + dataStr + ')');
+                            if (data.success) {
+                                alert(data.msg);
+                                location.reload();
+                            } else {
+                                alert(data.msg);
+                            }
+                        });
+                        return;
+                    }
+                }));
+               
+            });
+          
+        </script>
+        <form id="commentForm" method="post">
+          <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+            <tr>
+              <td width="17%" height="30" align="right" bgcolor="#F9F9F9">留言标题：</td>
+              <td width="83%" bgcolor="#FFFFFF">&nbsp;<input id="title" name="title" class="required" minlength="3" title="请填写标题（3到20个字符）"/></td>
+            </tr>
+            <tr>
+              <td width="17%" height="30" align="right" bgcolor="#F9F9F9">留言内容：</td>
+              <td width="83%" bgcolor="#FFFFFF">&nbsp;<textarea id="commentContent" name="commentContent" cols="70" rows="5" class="required" minlength="3" title="请填写评论（3到255个字符）"></textarea></td>
+            </tr>
+            <tr>
+              <td height="30" align="right" bgcolor="#F9F9F9">验 证 码：</td>
+              <td bgcolor="#FFFFFF">&nbsp;<input type="text" id="commentCheckCode" name="commentCheckCode" class="required" maxlength="10" title="请填写验证码"/>
+                &nbsp;<input type="submit" value="发表评论"/></td>
+            </tr>
+          </table>
+        </form> 
+    </div>
+    <div class="page_other_msg right">
+        <@cms.Include name='right.html' solution='darkBlue'/> 
+    </div>
+    <div style="clear:both;"></div>
+</div>
+<!--主体下End-->
+
+
+<!--友情链接Begin-->
+<@cms.Include name='hotlink.html' solution='darkBlue'/> 
+<!--友情链接End-->
+
+<!--页脚Begin-->
+<@cms.Include name='foot.html' solution='darkBlue'/> 
+<!--页脚End-->
+</body>
+</html>

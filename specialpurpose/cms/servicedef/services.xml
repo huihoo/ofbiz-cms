@@ -5,4 +5,17 @@
     <vendor></vendor>
     <version>1.0</version>
 
+     <!-- Leaveword & Related Services -->
+    <service name="createLeaveword" default-entity-name="CmsLeaveword" engine="entity-auto" invoke="create" auth="false">
+        <description>Create a Leaveword</description>
+        <auto-attributes include="pk" mode="OUT" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <override name="title" mode="IN"  optional="false"/>
+        <override name="contentMember" optional="false"/>
+    </service>
+     <service name="createLeavewordByJava" default-entity-name="CmsLeaveword" engine="java" location="org.ofbiz.cms.leaveword.LeavewordServices" invoke="createCmsLeaveword" auth="false">
+        <description>Create a Leaveword</description>
+        <auto-attributes include="pk" mode="OUT" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>        
+    </service>
 </services>

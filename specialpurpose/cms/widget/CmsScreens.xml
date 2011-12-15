@@ -311,6 +311,73 @@
             </widgets>
         </section>
     </screen>
+    <screen name="ViewLeavewords">
+         <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CmsUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="websiteId" default-value="default"/>
+                <entity-one value-field="web" entity-name="CmsWebSite">
+                    <field-map field-name="websiteId" from-field="websiteId"/>
+                </entity-one>
+                <entity-and list="cmsSolution" entity-name="CmsSolution"  >
+                    <field-map field-name="websiteId" from-field="web.websiteId"/>
+                </entity-and> 
+                <set field="solution" from-field="cmsSolution[0].solutionName" default-value="darkBlue"><!-- default darkBlue red blue green --></set>
+                <set field="module" value="app"/>
+                <set field="html" value="leavewords"/>
+               
+               <entity-and list="fellowshipLinkList" entity-name="CmsFellowshipLink"  >
+                    <field-map field-name="statusId" value="Y"/>
+                </entity-and> 
+                
+               <entity-one value-field="leaveword" entity-name="CmsLeaveword">
+                   
+               </entity-one>
+          
+               <set field="viewIndex" from-field="parameters.viewIndex" type="Integer" default-value="0"/>
+               <set field="viewSize" from-field="parameters.viewSize" type="Integer" default-value="20"/>
+               <set field="root" value="/cms/images/template"/>
     
-
+               
+               
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://cms/webapp/cms/ftl/operation.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="ViewLeaveword">
+         <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CmsUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="id" default-value="default"/>
+                <entity-one value-field="web" entity-name="CmsWebSite">
+                    <field-map field-name="websiteId" from-field="id"/>
+                </entity-one>
+                <entity-and list="cmsSolution" entity-name="CmsSolution"  >
+                    <field-map field-name="websiteId" from-field="web.websiteId"/>
+                </entity-and> 
+                <set field="solution" from-field="cmsSolution[0].solutionName" default-value="darkBlue"><!-- default darkBlue red blue green --></set>
+                <set field="module" value="app"/>
+                <set field="html" value="leaveword"/>
+                
+               <entity-and list="fellowshipLinkList" entity-name="CmsFellowshipLink"  >
+                    <field-map field-name="statusId" value="Y"/>
+                </entity-and>
+                <entity-one value-field="leave" entity-name="CmsLeaveword">
+                    <field-map field-name="leavewordId" from-field="parameters.id"/>
+               </entity-one>  
+                <set field="root" value="/cms/images/template"/>
+            </actions>
+            <widgets>
+            <platform-specific>
+                    <html><html-template location="component://cms/webapp/cms/ftl/operation.ftl"/></html>
+            </platform-specific>
+            </widgets>
+        </section>
+       </screen>
 </screens>

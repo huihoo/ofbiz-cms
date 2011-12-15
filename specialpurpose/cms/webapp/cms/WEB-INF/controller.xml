@@ -33,7 +33,18 @@
     <request-map uri="LoginFrame"><security https="false" auth="false"/><response name="success" type="view" value="LoginFrame"/></request-map>
     
     <request-map uri="ViewCalendar"><security https="false" auth="false"/><response name="success" type="view" value="ViewCalendar"/></request-map>
+    <!-- Surpass Li add by 2011-11-23 留言功能 开始-->
+    <request-map uri="ViewLeavewords"><security https="false" auth="false"/><response name="success" type="view" value="ViewLeavewords"/></request-map>
+    <request-map uri="ViewLeaveword"><security https="false" auth="false"/><response name="success" type="view" value="ViewLeaveword"/></request-map>
+    <request-map uri="createLeavewordAjax">
+        <security https="false" auth="false"/>
+        <!-- event type="service" invoke="createLeaveword"/ -->
+        <event type="java" path="org.ofbiz.cms.leaveword.LeavewordEvent" invoke="createLeaveword"/> 
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
     
+    <!-- Surpass Li add by 2011-11-23 留言功能 结束-->
     
     <!-- View Mappings -->
     <view-map name="main" type="screen" page="component://cms/widget/CmsScreens.xml#main"/>
@@ -49,5 +60,9 @@
     
     <view-map name="ViewCalendar" type="screen" page="component://cms/widget/CmsScreens.xml#ViewCalendar"/>
    
+    <!-- Surpass Li add by 2011-11-23 留言功能 开始-->
+    <view-map name="ViewLeavewords" type="screen" page="component://cms/widget/CmsScreens.xml#ViewLeavewords"/>
+    <view-map name="ViewLeaveword" type="screen" page="component://cms/widget/CmsScreens.xml#ViewLeaveword"/>
+    <!-- Surpass Li add by 2011-11-23 留言功能 结束-->
     
 </site-conf>
