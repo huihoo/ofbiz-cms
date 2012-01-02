@@ -1,27 +1,11 @@
 package org.ofbiz.cms.leaveword;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import javolution.util.FastMap;
-
-import org.apache.commons.lang.StringUtils;
-import org.ofbiz.base.util.Debug;
-import org.ofbiz.base.util.UtilMisc;
-import org.ofbiz.cms.untils.JsonUtil;
-import org.ofbiz.entity.Delegator;
-import org.ofbiz.entity.GenericValue;
-import org.ofbiz.service.LocalDispatcher;
-import org.ofbiz.service.ModelService;
-import org.ofbiz.webapp.event.EventHandlerException;
 
 public class LeavewordEvent {
 	public static final String module = LeavewordEvent.class.getName();
 
-	public static String createLeaveword(HttpServletRequest request,
+	/*public static String createLeaveword(HttpServletRequest request,
 			HttpServletResponse response) {
 		LocalDispatcher dispatcher = (LocalDispatcher) request
 				.getAttribute("dispatcher");
@@ -109,7 +93,7 @@ public class LeavewordEvent {
 			e1.printStackTrace();
 		}
 		return ModelService.RESPOND_ERROR;
-	}
+	}*/
 	
 	public static String getIpAddr(HttpServletRequest request) {  
 	    String ip = request.getHeader("x-forwarded-for");  
