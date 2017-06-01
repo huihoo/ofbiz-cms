@@ -1,0 +1,216 @@
+
+
+1定义 model，在/entitydef/entitymodel.xml中
+
+   <entity entity-name="CmsArticleProduct" package-name="org.ofbiz.cms.plugin"
+		title="Product Entity">
+		<field name="productId" type="id-ne"></field>
+		<field name="productName" type="name"></field>
+		<field name="url" type="url"></field>
+		<field name="description" type="value"></field>
+		<field name="fromDate" type="date-time"></field>
+		<field name="thruDate" type="date-time"></field>
+		<field name="statusId" type="id"></field>
+		<field name="productTypeId" type="id-ne"></field>
+		<prim-key field="productId" />
+		
+	</entity>
+	 
+
+2 如何定义service 
+ 2.1
+在/servicedef/services.xml中
+创建3个service服务定义 新建，修改，删除的服务
+ 
+  <service name="createCmsArticleProduct" default-entity-name="CmsArticleProduct" engine="simple" location="component://cmsbackend/script/org/ofbiz/cmsbackend/CmsBackendServices.xml" invoke="createCmsArticleProduct" auth="true">
+        <description>Create a CmsCalendarEvents</description>
+        <auto-attributes include="pk" mode="OUT" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+    </service>
+
+    <service name="deleteCmsArticleProduct" default-entity-name="CmsArticleProduct" engine="simple" location="component://cmsbackend/script/org/ofbiz/cmsbackend/CmsBackendServices.xml" invoke="deleteCmsArticleProduct" auth="true">
+        <description>Delete a CmsCalendarEvents</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+    </service> 
+    <service name="updateCmsArticleProduct" default-entity-name="CmsArticleProduct" engine="simple" location="component://cmsbackend/script/org/ofbiz/cmsbackend/CmsBackendServices.xml" invoke="updateCmsArticleProduct" auth="true">
+        <description>Update a CmsCalendarEvents</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+    </service>
+
+2.2
+在/script/org/ofbiz/cmsbackend/CmsBackendServices.xml，创建3个service服务操作 新建，修改，删除的方法
+<simple-method method-name="createCmsArticleProduct" short-description="" login-required="true">
+        <make-value entity-name="CmsArticleProduct" value-field="newEntity" />
+        <sequenced-id sequence-name="CmsArticleProduct" field="newEntity.productId"/>
+        <set-nonpk-fields map="parameters" value-field="newEntity"/>
+        <create-value value-field="newEntity"/>
+    </simple-method>
+ 	<simple-method method-name="updateCmsArticleProduct" short-description="" login-required="true">
+        <entity-one entity-name="CmsArticleProduct" value-field="newEntity"><field-map field-name="productId" from-field="parameters.productId"/></entity-one>
+        <set-nonpk-fields map="parameters" value-field="newEntity"/>
+        <store-value value-field="newEntity"/>
+    </simple-method>
+        
+	<simple-method method-name="deleteCmsArticleProduct" short-description="" login-required="true">
+        <entity-one entity-name="CmsArticleProduct" value-field="newEntity"><field-map field-name="productId" from-field="parameters.productId"/></entity-one>
+        <remove-value value-field="newEntity"/>
+    </simple-method>
+
+3 如何定义control 
+ 
+在/webap/模块名/WEB-INF/controller.xml中
+创建request-map请求，如下： 查询产品 、 编辑产品、新建产品、修改产品、删除产品。
+对应的view-map请求 如下：查询产品、编辑产品。
+ 
+ 
+    <request-map uri="FindCmsArticleProduct"><security https="true" auth="true"/><response name="success" type="view" value="FindCmsArticleProduct"/></request-map>
+    <request-map uri="EditCmsArticleProduct"><security https="true" auth="true"/><response name="success" type="view" value="EditCmsArticleProduct"/></request-map>
+    <request-map uri="createCmsArticleProduct">
+        <event type="service" invoke="createCmsArticleProduct"/>
+        <response name="success" type="request-redirect-noparam" value="FindCmsArticleProduct"></response>
+    </request-map>
+    <request-map uri="updateCmsArticleProduct">
+        <event type="service" invoke="updateCmsArticleProduct"/>
+        <response name="success" type="request-redirect" value="FindCmsArticleProduct">
+    </response>
+    </request-map>
+    <request-map uri="deleteCmsArticleProduct">
+        <event type="service" invoke="deleteCmsArticleProduct"/>
+        <response name="success" type="request-redirect-noparam" value="FindCmsArticleProduct"></response>
+    </request-map>
+ 
+    
+ 
+ 
+ 
+   <view-map name="FindCmsArticleProduct" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#FindCmsArticleProduct"/>
+   <view-map name="EditCmsArticleProduct" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#EditCmsArticleProduct"/> 
+   
+ 
+ 
+ 4 如何定义screen 
+ 
+/widget/CmsBackendScreens.xml中
+ 
+ <screen name="FindCmsArticleProduct">
+        <section>
+            <actions>
+                <set field="headerItem" value="CmsArticleProduct"/>
+                <set field="titleProperty" value="CmsArticleProduct"/>
+                <set field="pCtx" from-field="parameters"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                                <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
+                                    <decorator-section name="menu-bar">
+                                        <container style="button-bar">
+                                            <link target="EditCmsArticleProduct" link-type="anchor" text="${uiLabelMap.EditCmsArticleProduct}" style="buttontext create"/>
+                                        </container>
+                                    </decorator-section>
+                                    <decorator-section name="search-options">
+                                        <include-form name="FindCmsArticleProduct" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                                    </decorator-section>
+                                    <decorator-section name="search-results">
+                                        <include-form name="ListCmsArticleProduct" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                                    </decorator-section>
+                                </decorator-screen>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="EditCmsArticleProduct">
+        <section>
+            <actions>
+                <set field="titleProperty" value="CmsArticleProduct"/>
+                <set field="tabButtonItem" value="CmsArticleProduct"/>
+                <entity-one entity-name="CmsArticleProduct" value-field="entity"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CmsBackendCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <include-form name="EditCmsArticleProduct" location="component://cmsbackend/widget/CmsBackendForms.xml"/>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+5  form的写法和注意事项
+查询的form、列表的form、创建 编辑的form（新增，修改）
+ 
+
+    
+    <form name="FindCmsArticleProduct" type="single" target="FindCmsArticleProduct" default-entity-name="CmsArticleProduct">
+        <field name="noConditionFind"><hidden value="Y"/></field>
+		<field name="productName" title="${uiLabelMap.productName}" >
+	      	<text-find hide-options="true"/>
+	  	</field>
+	  	<field name="description" title="${uiLabelMap.description}" >
+	      	<text-find hide-options="true"/>
+	  	</field>       
+		<field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
+		    <submit button-type="button"/>
+		</field>
+    </form>
+    <form name="ListCmsArticleProduct" type="list" list-name="listIt" paginate-target="FindCmsArticleProduct" default-entity-name="CmsArticleProduct" separate-columns="true"
+        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        <actions>
+            <service service-name="performFind" result-map="result" result-map-list="listIt">
+                <field-map field-name="inputFields" from-field="pCtx"/>
+                <field-map field-name="entityName" value="CmsArticleProduct"/>
+                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+                <field-map field-name="viewIndex" from-field="viewIndex"/>
+                <field-map field-name="viewSize" from-field="viewSize"/>
+            </service>
+        </actions>
+        
+        <field name="productId" title="${uiLabelMap.productId}" sort-field="true">
+	      	<display/>
+	  	</field>
+	  	<field name="productName" title="${uiLabelMap.productName}" sort-field="true">
+	      	<display/>
+	  	</field> 
+	  	<field name="url" title="${uiLabelMap.url}" sort-field="true">
+	      	<display/>
+	  	</field> 
+	  	<field name="description" title="${uiLabelMap.description}" sort-field="true">
+	      	<display/>
+	  	</field> 
+	  	<field name="edit" title="${uiLabelMap.CommonEdit}">
+            <hyperlink also-hidden="false" description="${uiLabelMap.CommonEdit}" target="EditCmsArticleProduct">
+                <parameter param-name="productId"/>
+            </hyperlink>
+        </field>
+		<field name="delete" title="${uiLabelMap.CommonDelete}">
+            <hyperlink also-hidden="false" description="${uiLabelMap.CommonDelete}" target="deleteCmsArticleProduct">
+                <parameter param-name="productId"/>
+            </hyperlink>
+        </field>
+    </form>
+    <form name="EditCmsArticleProduct" type="single" target="updateCmsArticleProduct" title="" default-map-name="entity" default-entity-name="CmsArticleProduct">
+        <alt-target use-when="entity==null" target="createCmsArticleProduct"/>
+        <field name="productId"><hidden/></field>
+        <field name="productName" title="${uiLabelMap.productName}" required-field="true" widget-style="required">
+	      	<text/>
+	  	</field>
+	  	<field name="url" title="${uiLabelMap.url}" required-field="true" widget-style="required">
+	      	<text/>
+	  	</field> 
+	  	<field name="description" title="${uiLabelMap.description}" >
+	      	<text/>
+	  	</field>
+	  	<field name="fromDate" title="${uiLabelMap.fromDate}" >
+	      	<date-time />
+	  	</field>
+	  	<field name="thruDate" title="${uiLabelMap.thruDate}" >
+	      	<date-time />
+	  	</field>
+	  	
+		<field name="submitButton" use-when="entity==null" title="${uiLabelMap.CommonCreate}"><submit button-type="button"/></field>
+        <field name="submitButton" use-when="entity!=null" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
+    </form> 
+

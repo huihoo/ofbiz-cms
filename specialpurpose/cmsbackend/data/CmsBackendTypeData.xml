@@ -26,36 +26,18 @@
     <StatusValidChange condition="" statusId="CAST_DEFINED" statusIdTo="CAST_APPROVED" transitionName="Approve"/>
     <StatusValidChange condition="" statusId="CAST_DEFINED" statusIdTo="CAST_CANCELLED" transitionName="Cancel"/>
     <StatusValidChange condition="" statusId="CAST_APPROVED" statusIdTo="CAST_CANCELLED" transitionName="Cancel"/>
-   	<!-- 评论管理状态定义 -->
-   	<StatusType description="CmsCommentStatusItem" statusTypeId="CMS_COMMENT_STATUS" hasTable="N" parentTypeId=""/>
-    <StatusItem description="等待审核" sequenceId="05" statusCode="DEFINED" statusId="CCST_DEFINED" statusTypeId="CMS_COMMENT_STATUS"/>
-    <StatusItem description="审核通过" sequenceId="06" statusCode="APPROVED" statusId="CCST_APPROVED" statusTypeId="CMS_COMMENT_STATUS"/>
-    <StatusItem description="审核作废" sequenceId="07" statusCode="CANCELLED" statusId="CCST_CANCELLED" statusTypeId="CMS_COMMENT_STATUS"/>
-    
-    <StatusValidChange condition="" statusId="CCST_DEFINED" statusIdTo="CCST_APPROVED" transitionName="Approve"/>
-    <StatusValidChange condition="" statusId="CCST_DEFINED" statusIdTo="CCST_CANCELLED" transitionName="Cancel"/>
-    <StatusValidChange condition="" statusId="CCST_APPROVED" statusIdTo="CCST_CANCELLED" transitionName="Cancel"/>
- 	<!-- 留言管理状态定义 -->
-   	<StatusType description="CmsLeavewordStatusItem" statusTypeId="CMS_LEAVEWORD_STATUS" hasTable="N" parentTypeId=""/>
-     <StatusItem description="等待审核" sequenceId="08" statusCode="DEFINED" statusId="CLST_DEFINED" statusTypeId="CMS_LEAVEWORD_STATUS"/>
-    <StatusItem description="审核通过" sequenceId="09" statusCode="APPROVED" statusId="CLST_APPROVED" statusTypeId="CMS_LEAVEWORD_STATUS"/>
-    <StatusItem description="审核作废" sequenceId="10" statusCode="CANCELLED" statusId="CLST_CANCELLED" statusTypeId="CMS_LEAVEWORD_STATUS"/>
- 	
-    <StatusValidChange condition="" statusId="CLST_DEFINED" statusIdTo="CLST_APPROVED" transitionName="Approve"/>
-    <StatusValidChange condition="" statusId="CLST_DEFINED" statusIdTo="CLST_CANCELLED" transitionName="Cancel"/>
-    <StatusValidChange condition="" statusId="CLST_APPROVED" statusIdTo="CLST_CANCELLED" transitionName="Cancel"/>
-
+   	
 	<CmsFellowshipLinkType linkTypeId="1" displayName="友情连接" displayLevel="1"/>
 	<CmsFellowshipLinkType linkTypeId="2" displayName="站内连接" displayLevel="2"/>
 
- 	<CmsCommentType commentTypeId="1" displayName="文章评论" displayLevel="1"/>
+ 	<!-- <CmsCommentType commentTypeId="1" displayName="文章评论" displayLevel="1"/>
 	<CmsCommentType commentTypeId="2" displayName="网站留言" displayLevel="2"/>
- 
+  -->
 	    <!-- 广告类型 -->
-    <CmsAdvertiseType adTypeId="9101" description ="底部广告" sequenceId ="01"/>
+   <!--  <CmsAdvertiseType adTypeId="9101" description ="底部广告" sequenceId ="01"/>
     <CmsAdvertiseType adTypeId="9102" description ="中部广告" sequenceId ="02"/>
     <CmsAdvertiseType adTypeId="9103" description ="顶部广告" sequenceId ="03"/>
- 
+  -->
  
 
 

@@ -6,20 +6,7 @@
     <form name="FindCmsCalendarEvents" type="upload" target="FindCmsCalendarEvents" default-entity-name="CmsCalendarEvents">
         <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
        
-        <field name="title" title="${uiLabelMap.title}"><text-find/></field><!--
-        <field name="eventTypeId" title="${uiLabelMap.CommonType}">
-            <drop-down allow-empty="true" current-description="">
-                <entity-options description="${description}" key-field-name="eventTypeId" entity-name="CmsCalendarEventsType">
-                    <entity-order-by field-name="description"/>
-                </entity-options>
-            </drop-down>
-        </field>
-        <field name="statusId" title="${uiLabelMap.CommonStatus}">
-            <drop-down allow-empty="true" current-description="">
-                <entity-options description="${description}" key-field-name="statusId" entity-name="CmsCalendarEventsStatusItem"/>
-            </drop-down>
-        </field>
-        -->
+        <field name="title" title="${uiLabelMap.title}"><text-find/></field>
         
 
 		<field name="address" title="${uiLabelMap.address}" sort-field="true"><text-find/></field>
@@ -146,15 +133,13 @@
 	  	
 	  	<field name="title" title="${uiLabelMap.title}" ><text-find hide-options="true"/></field> 
 	   <field name="articleTypeId" title="${uiLabelMap.articleType}" position="2">
-	       <drop-down>
-	            <option key=""/>
+	       <drop-down allow-empty="true">
                 <entity-options description="${displayName}" entity-name="CmsArticleType"></entity-options>
             </drop-down>
 	   </field> 
 
         <field name="statusId" title="${uiLabelMap.statusId}" >
-            <drop-down>
-                <option key=""/>
+            <drop-down allow-empty="true">
                 <entity-options description="${description}" entity-name="CmsArticleStatusItem"></entity-options>
             </drop-down>
         </field> 
@@ -266,7 +251,7 @@
         <field name="shortTitle" title="${uiLabelMap.shortTitle}" ><text/></field> 
         <field name="titleColor" title="${uiLabelMap.titleColor}" ><text/></field> 
         <field name="titleImg" title="${uiLabelMap.titleImg}" ><text/></field> 
-        <field use-when="${entity.contentImg!=null}" name="contentImgDisplay" title="${uiLabelMap.contentImg}" ><image value="/cms/images/upload/article/${entity.contentImg}"></image></field>
+        <field use-when="!&quot;&quot;.equals(&quot;${entity.contentImg}&quot;)" name="contentImgDisplay" title="${uiLabelMap.contentImg}" ><image value="/cms/images/upload/article/${entity.contentImg}"></image></field>
         <field name="contentImg" title="${uiLabelMap.CommonUpload}" ><file/></field> 
  
         <field name="tags" title="${uiLabelMap.tags}" ><text/></field> 
@@ -280,7 +265,7 @@
 		<field name="submitButton" use-when="entity==null" title="${uiLabelMap.CommonCreate}"><submit button-type="button"/></field>
         <field name="submitButton" use-when="entity!=null" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
     </form>
-    <!-- 链接管理 by Surpass Li 开始-->
+    <!-- 链接管理 b 开始-->
     <form name="FindCmsFellowshipLinkType" type="single" target="FindCmsFellowshipLinkType" default-entity-name="CmsFellowshipLinkType">
         <field name="noConditionFind"><hidden value="Y"/></field>
 		<field name="displayName" title="${uiLabelMap.displayName}" >
@@ -334,7 +319,7 @@
         <field name="submitButton" use-when="entity!=null" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
     </form>
     
-    <form name="FindCmsFellowshipLink" type="upload" target="FindCmsFellowshipLink" default-entity-name="CmsFellowshipLink">
+    <form name="FindCmsFellowshipLink" type="single" target="FindCmsFellowshipLink" default-entity-name="CmsFellowshipLink">
         <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
        
         <field name="linkName" title="${uiLabelMap.linkName}"><text-find/></field>
@@ -346,14 +331,19 @@
             </drop-down>
         </field> 
 
-		<field name="fileName" title="${uiLabelMap.fileName}" sort-field="true"><text-find/></field>
-		<field name="url" title="${uiLabelMap.url}" sort-field="true"><text-find/></field>
+		<field name="fileName" title="${uiLabelMap.fileName}" ><text-find/></field>
 		
-		<field name="fromDate" title="${uiLabelMap.fromDate}" sort-field="true"><text-find/></field>
+		<field name="url" title="${uiLabelMap.url}" ><text-find/></field>
 		
-		<field name="thruDate" title="${uiLabelMap.thruDate}" sort-field="true"><text-find/></field>
+		<field name="fromDate" title="${uiLabelMap.fromDate}" ><text-find/></field>
 		
-		<field name="statusId" title="${uiLabelMap.statusId}" sort-field="true"><text-find/></field>
+		<field name="thruDate" title="${uiLabelMap.thruDate}"><text-find/></field>
+		
+		<field name="statusId" title="${uiLabelMap.statusId}" >
+            <drop-down allow-empty="true">
+                <entity-options description="${description}" entity-name="CmsArticleStatusItem"></entity-options>
+            </drop-down>
+        </field>
 		<field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
 		    <submit button-type="button" image-location="/images/icons/magnifier.png"/>
 		</field>
@@ -399,7 +389,11 @@
         <field name="fileName" title="${uiLabelMap.fileName}" ><text/></field> 
         <field name="fromDate" title="${uiLabelMap.fromDate}" ><date-time type="date" /></field> 
         <field name="thruDate" title="${uiLabelMap.thruDate}" ><date-time type="date" /></field>
-         <field name="statusId" title="${uiLabelMap.statusId}" ><text/></field> 
+        <field name="statusId" title="${uiLabelMap.statusId}" >
+            <drop-down allow-empty="true">
+                <entity-options description="${description}" entity-name="CmsArticleStatusItem"></entity-options>
+            </drop-down>
+        </field>
 	  	<field name="linkTypeId" title="${uiLabelMap.linkType}" >
 	  	   <drop-down allow-empty="true" current-description="">
                  <entity-options description="${displayName}" key-field-name="linkTypeId" entity-name="CmsFellowshipLinkType">
@@ -410,204 +404,7 @@
 	  	<field name="submitButton" use-when="entity==null" title="${uiLabelMap.CommonCreate}"><submit button-type="button"/></field>
         <field name="submitButton" use-when="entity!=null" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
     </form>
-    <!-- 链接管理 by Surpass Li  结束-->
     
-    <!-- 评论管理 by Surpass Li  开始-->
-    <form name="FindCmsCommentType" type="single" target="FindCmsCommentType" default-entity-name="CmsCommentType">
-        <field name="noConditionFind"><hidden value="Y"/></field>
-		<field name="displayName" title="${uiLabelMap.displayName}" >
-	      	<text-find hide-options="true"/>
-	  	</field>
-	  	<field name="displayLevel" title="${uiLabelMap.displayLevel}" >
-	      	<text-find hide-options="true"/>
-	  	</field>       
-		<field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
-		    <submit button-type="button" image-location="/images/icons/magnifier.png"/>
-		</field>
-    </form>
-    <form name="ListCmsCommentType" type="list" list-name="listIt" paginate-target="FindCommentType" default-entity-name="CmsCommentType" separate-columns="true"
-        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
-        <actions>
-            <service service-name="performFind" result-map="result" result-map-list="listIt">
-                <field-map field-name="inputFields" from-field="pCtx"/>
-                <field-map field-name="entityName" value="CmsCommentType"/>
-                <field-map field-name="orderBy" from-field="parameters.sortField"/>
-                <field-map field-name="viewIndex" from-field="viewIndex"/>
-                <field-map field-name="viewSize" from-field="viewSize"/>
-            </service>
-        </actions>
-        <field name="displayName" title="${uiLabelMap.displayName}" sort-field="true">
-	      	<display/>
-	  	</field>
-	  	<field name="displayLevel" title="${uiLabelMap.displayLevel}" sort-field="true">
-	      	<display/>
-	  	</field> 
-	  	<field name="edit" title="${uiLabelMap.CommonEdit}">
-            <hyperlink also-hidden="false" description="${uiLabelMap.CommonEdit}" target="EditCmsCommentType">
-                <parameter param-name="commentTypeId"/>
-            </hyperlink>
-        </field>
-		<field name="delete" title="${uiLabelMap.CommonDelete}">
-            <hyperlink also-hidden="false" description="${uiLabelMap.CommonDelete}" target="deleteCmsCommentType">
-                <parameter param-name="commentTypeId"/>
-            </hyperlink>
-        </field>
-    </form>
-    <form name="EditCmsCommentType" type="single" target="updateCmsCommentType" title="" default-map-name="entity" default-entity-name="CmsCommentType">
-        <alt-target use-when="entity==null" target="createCmsCommentType"/>
-        <field name="commentTypeId"><hidden/></field>
-        <field name="displayName" title="${uiLabelMap.displayName}" >
-	      	<text/>
-	  	</field>
-	  	<field name="displayLevel" title="${uiLabelMap.displayLevel}" >
-	      	<text/>
-	  	</field> 
-		<field name="submitButton" use-when="entity==null" title="${uiLabelMap.CommonCreate}"><submit button-type="button"/></field>
-        <field name="submitButton" use-when="entity!=null" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
-    </form>
-    
-    <form name="FindCmsComment" type="single" target="FindCmsComment" default-entity-name="CmsComment">
-        <field name="noConditionFind"><hidden value="Y"/></field>
-	  	
-	  	<field name="title" title="${uiLabelMap.title}" ><text-find hide-options="true"/></field> 
-	   <field name="commentTypeId" title="${uiLabelMap.commentType}" position="2">
-	       <drop-down>
-	            <option key=""/>
-                <entity-options description="${displayName}" entity-name="CmsCommentType"></entity-options>
-            </drop-down>
-	   </field> 
-
-        <field name="statusId" title="${uiLabelMap.statusId}" >
-            <drop-down>
-                <option key=""/>
-                <entity-options description="${description}" entity-name="CmsCommentStatusItem"></entity-options>
-            </drop-down>
-        </field> 
-        <field name="websiteId" title="${uiLabelMap.websiteId}" position="2">
-           <drop-down>
-           		<option key=""/>
-	        	<entity-options description="${name}" entity-name="CmsWebSite" key-field-name="websiteId"></entity-options>
-	        </drop-down>
-	  	</field> 
-        <field name="memberId" title="${uiLabelMap.memberId}" ><text-find hide-options="true"/></field> 
-         
-        <field name="createTime" title="${uiLabelMap.createTime}" position="2"><date-find type="timestamp" /></field> 
-             
-		<field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
-		    <submit button-type="button" image-location="/images/icons/magnifier.png"/>
-		</field>
-    </form>
-    <form name="ListCmsComment" type="list" list-name="listIt" paginate-target="FindCmsComment" default-entity-name="CmsComment" separate-columns="true"
-        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
-        <actions>
-            <service service-name="performFind" result-map="result" result-map-list="listIt">
-                <field-map field-name="inputFields" from-field="pCtx"/>
-                <field-map field-name="entityName" value="CmsComment"/>
-                <field-map field-name="orderBy" from-field="parameters.sortField"/>
-                <field-map field-name="viewIndex" from-field="viewIndex"/>
-                <field-map field-name="viewSize" from-field="viewSize"/>
-            </service>
-        </actions>
-       <field name="title" title="${uiLabelMap.title}" ><display/></field> 
-	   <field name="commentTypeId" title="${uiLabelMap.commentType}" >
-	       <display-entity  description="${displayName}" entity-name="CmsCommentType"/>
-	   </field> 
-	  	
-
-        <field name="statusId" title="${uiLabelMap.statusId}" ><display-entity entity-name="CmsCommentStatusItem"/></field> 
-        <field name="websiteId" title="${uiLabelMap.websiteId}" ><display-entity entity-name="CmsWebSite"/></field> 
-        
-        <field name="adminId" title="${uiLabelMap.adminId}" ><display/></field> 
-        
-        <field name="createTime" title="${uiLabelMap.createTime}" ><display type="date-time" /></field> 
-        <field name="replayTime" title="${uiLabelMap.replayTime}" ><display type="date-time" /></field>
-	  	<field name="edit" title="${uiLabelMap.CommonEdit}">
-            <hyperlink also-hidden="false" description="${uiLabelMap.CommonEdit}" target="EditCmsComment">
-                <parameter param-name="commentId"/>
-            </hyperlink>
-        </field>
-		<field name="delete" title="${uiLabelMap.CommonDelete}">
-            <hyperlink also-hidden="false" description="${uiLabelMap.CommonDelete}" target="deleteCmsComment">
-                <parameter param-name="commentId"/>
-            </hyperlink>
-        </field>
-    </form>
-    <form name="EditCmsComment" type="upload" target="updateCmsComment" title="" default-map-name="entity" default-entity-name="CmsComment">
-        <alt-target use-when="entity==null" target="createCmsComment"/>
-        <field name="commentId"><hidden/></field>
-       
-        <field name="title" title="${uiLabelMap.title}" >
-	      	<text/>
-	  	</field>
-	  	<field name="commentTypeId" title="${uiLabelMap.commentType}" >
-	  	   <drop-down>
-	  	       <entity-options description="${displayName}" entity-name="CmsCommentType"></entity-options>
-	  	   </drop-down>
-	  	</field> 
-	  	
-
-	    <field name="statusId"  use-when="entity==null" title="${uiLabelMap.statusId}">
-            <drop-down allow-empty="false">
-                <entity-options entity-name="CmsCommentStatusItem" description="${description}">
-                    <entity-constraint name="statusId" operator="not-equals" value="CAST_CANCELLED"/>
-                </entity-options>
-            </drop-down>
-        </field>
-	  	<field name="statusId" use-when="entity!=null"  title="${uiLabelMap.statusId}"  >
-           <drop-down allow-empty="false" current-description="${currentStatus.description}">
-                <entity-options entity-name="StatusValidChangeToDetail" key-field-name="statusIdTo" description="${description}">
-                    <entity-constraint name="statusId"  env-name="entity.statusId"/>
-                </entity-options>
-            </drop-down>
-	  	</field>
-        <field name="websiteId" title="${uiLabelMap.websiteId}" >
-           <drop-down>
-	        	<entity-options description="${name}" entity-name="CmsWebSite" key-field-name="websiteId"></entity-options>
-	        </drop-down>
-	  	</field>  
-        <field name="memberId" title="${uiLabelMap.memberId}" ><text/></field> 
-        <field name="refDocId" title="${uiLabelMap.refDocId}" ><text/></field> 
-        <field name="refDocTypeId" title="${uiLabelMap.refDocTypeId}" ><text/></field> 
-        
-        <field name="adminId" title="${uiLabelMap.adminId}" ><text/></field> 
-        <field name="contentMember" title="${uiLabelMap.contentMember}" ><text/></field> 
-        <field name="contentAdmin" title="${uiLabelMap.contentAdmin}" ><text/></field> 
-        <field name="ip" title="${uiLabelMap.ip}" ><text/></field> 
-  
- 
-        <field name="isRecommend"  title="${uiLabelMap.isRecommend}">
-            <drop-down  allow-empty="false" no-current-selected-key="Y">
-                <option key="Y" description="${uiLabelMap.CommonY}"/>
-                <option key="N" description="${uiLabelMap.CommonN}"/>
-            </drop-down>
-        </field> 
-	  	
-        <field name="createTime" title="${uiLabelMap.createTime}" ><date-time type="timestamp" /></field> 
-        <field name="replayTime" title="${uiLabelMap.replayTime}" ><date-time type="timestamp" /></field> 
-
-        <field name="commentNeedCheck"  title="${uiLabelMap.commentNeedCheck}">
-            <drop-down allow-empty="false" no-current-selected-key="N">
-                <option key="Y" description="${uiLabelMap.CommonY}"/>
-                <option key="N" description="${uiLabelMap.CommonN}"/>
-            </drop-down>
-        </field> 
-        <field name="commentNeedLogin"  title="${uiLabelMap.commentNeedLogin}">
-            <drop-down allow-empty="false" no-current-selected-key="N">
-                <option key="Y" description="${uiLabelMap.CommonY}"/>
-                <option key="N" description="${uiLabelMap.CommonN}"/>
-            </drop-down>
-        </field> 
-        <field name="commentNeedSort"   title="${uiLabelMap.commentNeedSort}">
-           <drop-down allow-empty="false" no-current-selected-key="ASC">
-                <option key="ASC" description="${uiLabelMap.SortASC}"/>
-                <option key="DESC" description="${uiLabelMap.SortDESC}"/>
-            </drop-down>
-        </field> 
-	  	<field name="commentMaxSize" title="${uiLabelMap.commentMaxSize}" ><text/></field>
-		<field name="submitButton" use-when="entity==null" title="${uiLabelMap.CommonCreate}"><submit button-type="button"/></field>
-        <field name="submitButton" use-when="entity!=null" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
-    </form>
-    <!-- 评论管理 by Surpass Li  结束-->
 
     <!-- 栏目管理 -->
     <form name="FindCmsCatalog" type="single" target="FindCmsCatalog" default-entity-name="CmsCatalog" >
@@ -715,674 +512,141 @@
 	  	<field name="submitButton" use-when="entity==null" title="${uiLabelMap.CommonCreate}"><submit button-type="button"/></field>
         <field name="submitButton" use-when="entity!=null" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
     </form>
-
-	<form name="FindCmsAccessoryType" type="single" target="FindCmsAccessoryType"
-		default-entity-name="CmsAccessoryType">
-		<field name="noConditionFind">
-			<hidden value="Y" />
-		</field>
-		<field name="displayName" title="${uiLabelMap.displayName}">
-			<text-find hide-options="true" />
-		</field>
-		<field name="displayLevel" title="${uiLabelMap.displayLevel}">
-			<text-find hide-options="true" />
-		</field>
-		<field name="searchButton" title="${uiLabelMap.CommonFind}"
-			widget-style="smallSubmit">
-			<submit button-type="button" image-location="/images/icons/magnifier.png" />
-		</field>
-	</form>
-	<form name="ListCmsAccessoryType" type="list" list-name="listIt"
-		paginate-target="FindCmsAccessoryType" default-entity-name="CmsAccessoryType"
-		separate-columns="true" odd-row-style="alternate-row"
-		header-row-style="header-row-2" default-table-style="basic-table hover-bar">
-		<actions>
-			<set field="pCtx.noConditionFind" value="Y"/>
-			<service service-name="performFind" result-map="result"
-				result-map-list="listIt">
-				<field-map field-name="inputFields" from-field="pCtx" />
-				<field-map field-name="entityName" value="CmsAccessoryType" />
-				<field-map field-name="orderBy" from-field="parameters.sortField" />
-				<field-map field-name="viewIndex" from-field="viewIndex" />
-				<field-map field-name="viewSize" from-field="viewSize" />
-			</service>
-		</actions>
-		<field name="displayName" title="${uiLabelMap.displayName}"
-			sort-field="true">
-			<display />
-		</field>
-		<field name="displayLevel" title="${uiLabelMap.displayLevel}"
-			sort-field="true">
-			<display />
-		</field>
-		<field name="edit" title="${uiLabelMap.CommonEdit}">
-			<hyperlink also-hidden="false" description="${uiLabelMap.CommonEdit}"
-				target="EditCmsAccessoryType">
-				<parameter param-name="accessoryTypeId" />
-			</hyperlink>
-		</field>
-		<field name="delete" title="${uiLabelMap.CommonDelete}">
-			<hyperlink also-hidden="false" description="${uiLabelMap.CommonDelete}"
-				target="deleteCmsAccessoryType">
-				<parameter param-name="accessoryTypeId" />
-			</hyperlink>
-		</field>
-	</form>
-	<form name="EditCmsAccessoryType" type="single" target="updateCmsAccessoryType"
-		title="" default-map-name="entity" default-entity-name="CmsAccessoryType">
-		<alt-target use-when="entity==null" target="createCmsAccessoryType" />
-		<field name="AccessoryTypeId">
-			<hidden />
-		</field>
-		<field name="displayName" title="${uiLabelMap.displayName}">
-			<text />
-		</field>
-		<field name="displayLevel" title="${uiLabelMap.displayLevel}">
-			<text />
-		</field>
-		<field name="submitButton" use-when="entity==null" title="${uiLabelMap.CommonCreate}">
-			<submit button-type="button" />
-		</field>
-		<field name="submitButton" use-when="entity!=null" title="${uiLabelMap.CommonUpdate}">
-			<submit button-type="button" />
-		</field>
-	</form>
-
-	<form name="FindCmsAccessory" type="single" target="FindCmsAccessory"
-		default-entity-name="CmsAccessory">
-		<field name="noConditionFind">
-			<hidden value="Y" />
-		</field>
-
-		<field name="title" title="${uiLabelMap.title}">
-			<text-find hide-options="true" />
-		</field>
-		<field name="accessoryTypeId" title="${uiLabelMap.accessoryType}"
-			position="2">
-			<drop-down>
-				<option key="" />
-				<entity-options description="${displayName}"
-					entity-name="CmsAccessoryType"></entity-options>
-			</drop-down>
-		</field>
-
-		<field name="statusId" title="${uiLabelMap.statusId}">
-			<drop-down>
-				<option key="" />
-				<entity-options description="${description}"
-					entity-name="CmsAccessoryStatusItem"></entity-options>
-			</drop-down>
-		</field>
-		<field name="catalogId" title="${uiLabelMap.catalogId}"
-			position="2">
-			<drop-down>
-				<option key="" />
-				<entity-options description="${catalogName}"
-					entity-name="CmsCatalog"></entity-options>
-			</drop-down>
-		</field>
-		<field name="author" title="${uiLabelMap.author}">
-			<text-find hide-options="true" />
-		</field>
-
-
-		<field name="shortTitle" title="${uiLabelMap.shortTitle}"
-			position="2">
-			<text-find hide-options="true" />
-		</field>
-
-		<field name="tags" title="${uiLabelMap.tags}">
-			<text-find hide-options="true" />
-		</field>
-		<field name="visitTotal" title="${uiLabelMap.visitTotal}">
-			<range-find />
-		</field>
-		<field name="downloadTotal" title="${uiLabelMap.downloadTotal}">
-			<range-find />
-		</field>
-		<field name="releaseDate" title="${uiLabelMap.releaseDate}">
-			<date-find type="date" />
-		</field>
-		<field name="checkTime" title="${uiLabelMap.checkTime}">
-			<date-find type="date" />
-		</field>
-		<field name="searchButton" title="${uiLabelMap.CommonFind}"
-			widget-style="smallSubmit">
-			<submit button-type="button" image-location="/images/icons/magnifier.png" />
-		</field>
-	</form>
-	<form name="ListCmsAccessory" type="list" list-name="listIt"
-		paginate-target="FindCmsAccessory" default-entity-name="CmsAccessory"
-		separate-columns="true" odd-row-style="alternate-row"
-		header-row-style="header-row-2" default-table-style="basic-table hover-bar">
-		<actions>
-			<set field="pCtx.noConditionFind" value="Y"/>
-			<service service-name="performFind" result-map="result"
-				result-map-list="listIt">
-				<field-map field-name="inputFields" from-field="pCtx" />
-				<field-map field-name="entityName" value="CmsAccessory" />
-				<field-map field-name="orderBy" from-field="parameters.sortField" />
-				<field-map field-name="viewIndex" from-field="viewIndex" />
-				<field-map field-name="viewSize" from-field="viewSize" />
-			</service>
-		</actions>
-		<field name="title" title="${uiLabelMap.title}">
-			<display />
-		</field>
-		<field name="accessoryTypeId" title="${uiLabelMap.accessoryType}">
-			<display-entity description="${displayName}"
-				entity-name="CmsAccessoryType" />
-		</field>
-
-
-		<field name="statusId" title="${uiLabelMap.statusId}">
-			<display-entity entity-name="CmsAccessoryStatusItem" />
-		</field>
-		<field name="catalogId" title="${uiLabelMap.catalogId}">
-			<display />
-		</field>
-
-		<field name="author" title="${uiLabelMap.author}">
-			<display />
-		</field>
-
-		<field name="visitTotal" title="${uiLabelMap.visitTotal}">
-			<display />
-		</field>		
-		<field name="downloadTotal" title="${uiLabelMap.downloadTotal}">
-			<display />
-		</field>
-		<field name="shortTitle" title="${uiLabelMap.shortTitle}">
-			<display />
-		</field>
-		<field name="titleColor" title="${uiLabelMap.titleColor}">
-			<display />
-		</field>
-		<field name="tags" title="${uiLabelMap.tags}">
-			<display />
-		</field>
-		<field name="releaseDate" title="${uiLabelMap.releaseDate}">
-			<display type="date" />
-		</field>
-		<field name="releaseSysDate" title="${uiLabelMap.releaseSysDate}">
-			<display type="date" />
-		</field>
-		<field name="checkTime" title="${uiLabelMap.checkTime}">
-			<display type="date-time" />
-		</field>
-		<field name="disableTime" title="${uiLabelMap.disableTime}">
-			<display type="date-time" />
-		</field>
-
-		<field name="edit" title="${uiLabelMap.CommonEdit}">
-			<hyperlink also-hidden="false" description="${uiLabelMap.CommonEdit}"
-				target="EditCmsAccessory">
-				<parameter param-name="accessoryId" />
-			</hyperlink>
-		</field>
-		<field name="delete" title="${uiLabelMap.CommonDelete}">
-			<hyperlink also-hidden="false" description="${uiLabelMap.CommonDelete}"
-				target="deleteCmsAccessory">
-				<parameter param-name="accessoryId" />
-			</hyperlink>
-		</field>
-	</form>
-
-	<form name="EditCmsAccessory" type="upload" target="updateCmsAccessory"
-		title="" default-map-name="entity" default-entity-name="CmsAccessory">
-		<alt-target use-when="entity==null" target="createCmsAccessory" />
-		<field name="accessoryId">
-			<hidden />
-		</field>
-		<field name="websiteId">
-			<hidden value="default" />
-		</field>
-		<field name="title" title="${uiLabelMap.title}">
-			<text />
-		</field>
-		<field name="accessoryTypeId" title="${uiLabelMap.accessoryType}">
-			<drop-down>
-				<entity-options description="${displayName}"
-					entity-name="CmsAccessoryType"></entity-options>
-			</drop-down>
-		</field>
-
-
-		<field name="statusId" use-when="entity==null" title="${uiLabelMap.statusId}">
-			<drop-down allow-empty="false">
-				<entity-options entity-name="CmsAccessoryStatusItem"
-					description="${description}">
-					<entity-constraint name="statusId" operator="not-equals"
-						value="CAST_CANCELLED" />
-				</entity-options>
-			</drop-down>
-		</field>
-		<field name="statusId" use-when="entity!=null" title="${uiLabelMap.statusId}">
-			<drop-down allow-empty="false" current-description="${currentStatus.description}">
-				<entity-options entity-name="StatusValidChangeToDetail"
-					key-field-name="statusIdTo" description="${description}">
-					<entity-constraint name="statusId" env-name="entity.statusId" />
-				</entity-options>
-			</drop-down>
-		</field>
-		<field name="catalogId" title="${uiLabelMap.catalogId}">
-			<drop-down>
-				<entity-options description="${catalogName}"
-					entity-name="CmsCatalog"></entity-options>
-			</drop-down>
-		</field>
-
-		<field name="author" title="${uiLabelMap.author}">
-			<text />
-		</field>
-		<field name="description" title="${uiLabelMap.description}">
-			<text />
-		</field>
-		<field name="content" title="${uiLabelMap.content}">
-			<textarea />
-		</field>
-
-		<field name="visitTotal" title="${uiLabelMap.visitTotal}">
-			<display />
-		</field>
-		<field name="shortTitle" title="${uiLabelMap.shortTitle}">
-			<text />
-		</field>
-		<field name="titleColor" title="${uiLabelMap.titleColor}">
-			<text />
-		</field>
-<!--		<field name="titleImg" title="${uiLabelMap.titleImg}">-->
-<!--			<text />-->
-<!--		</field>-->
-<!--		<field use-when="${entity.contentImg!=null}" name="contentImgDisplay"-->
-<!--			title="${uiLabelMap.contentImg}">-->
-<!--			<image value="/cms/images/upload/accessory/${entity.contentImg}"></image>-->
-<!--		</field>-->
-<!--		<field name="contentImg" title="${uiLabelMap.contentImg}">-->
-<!--			<file />-->
-<!--		</field>-->
-		<field name="file" title="${uiLabelMap.file}">
-			<file />
-		</field>
-
-		<field name="tags" title="${uiLabelMap.tags}">
-			<text />
-		</field>
-
-		<field name="releaseDate" title="${uiLabelMap.releaseDate}">
-			<date-time type="date" />
-		</field>
-		<field name="releaseSysDate" title="${uiLabelMap.releaseSysDate}">
-			<display />
-		</field>
-		<field name="checkTime" title="${uiLabelMap.checkTime}">
-			<display />
-		</field>
-		<field name="disableTime" title="${uiLabelMap.disableTime}">
-			<display />
-		</field>
-
-		<field name="submitButton" use-when="entity==null" title="${uiLabelMap.CommonCreate}">
-			<submit button-type="button" />
-		</field>
-		<field name="submitButton" use-when="entity!=null" title="${uiLabelMap.CommonUpdate}">
-			<submit button-type="button" />
-		</field>
-	</form>
-    <!--投票管理 jingchao.yan start-->
-    <form name="FindVote" type="single" target="VoteManage" default-entity-name="VoteManage">
-        <field name="voteTitle" title="${uiLabelMap.voteTitle}"><text-find/></field>
-		<field name="startTime" title="${uiLabelMap.voteStartTime}"><date-find type="date"/></field>
-		<field name="endTime" title="${uiLabelMap.voteEndTime}"><date-find type="date"/></field>
-		<field name="repeatHour" title="${uiLabelMap.repeatHour}"><text-find/></field>
-		<field name="multiSelc" title="${uiLabelMap.multiSelc}"><text/></field>
-		<field name="isRestrictMember" title="${uiLabelMap.isRestrictMember}">
-            <drop-down allow-empty="true">
-                <option key="0" description="${uiLabelMap.CommonYes}"/>
-                <option key="1" description="${uiLabelMap.CommonFalse}"/>
-		    </drop-down>
-        </field>
-		<field name="isRestrictIp" title="${uiLabelMap.isRestrictIp}">
-            <drop-down allow-empty="true">
-                <option key="0" description="${uiLabelMap.CommonYes}"/>
-                <option key="1" description="${uiLabelMap.CommonFalse}"/>
-		    </drop-down>
-        </field>
-		<field name="isRestrictCookie" title="${uiLabelMap.isRestrictCookie}">
-            <drop-down allow-empty="true">
-                <option key="0" description="${uiLabelMap.CommonYes}"/>
-                <option key="1" description="${uiLabelMap.CommonFalse}"/>
-		    </drop-down>
-        </field>
-		<field name="voteType" title="${uiLabelMap.voteType}">
-            <drop-down allow-empty="true">
-                <option key="0" description="${uiLabelMap.SingleSelect}"/>
-                <option key="1" description="${uiLabelMap.MulitiSelect}"/>
-		    </drop-down>
-        </field>
-		<field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
-		    <submit button-type="button" image-location="/images/icons/magnifier.png"/>
-		</field>
-    </form>
-
-    <form name="ListVotes" type="list" list-name="listIt" target="VoteManage" default-entity-name="VoteManage" separate-columns="true"
-        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
-		<field name="voteTitle" title="${uiLabelMap.voteTitle}" sort-field="true"><display/></field>
-		<field name="startTime" title="${uiLabelMap.voteStartTime}" sort-field="true"><display/></field>
-		<field name="endTime" title="${uiLabelMap.voteEndTime}" sort-field="true"><display/></field>
-		<field name="repeatHour" title="${uiLabelMap.repeatHour}" sort-field="true"><display/></field>
-		<field name="multiSelc" title="${uiLabelMap.multiSelc}" sort-field="true"><display/></field>
-		<field name="isRestrictMember" title="${uiLabelMap.isRestrictMember}" sort-field="true">
-            <display description="${isRestrictCookie =='0' ? uiLabelMap.CommonYes : uiLabelMap.CommonFalse}"/>
-        </field>
-		<field name="isRestrictIp" title="${uiLabelMap.isRestrictIp}" sort-field="true">
-            <display description="${isRestrictCookie =='0' ? uiLabelMap.CommonYes : uiLabelMap.CommonFalse}"/>
-        </field>
-		<field name="isRestrictCookie" title="${uiLabelMap.isRestrictCookie}" sort-field="true">
-            <display description="${isRestrictCookie =='0' ? uiLabelMap.CommonYes : uiLabelMap.CommonFalse}"/>
-        </field>
-		<field name="voteType" title="${uiLabelMap.voteType}" sort-field="true">
-            <display description="${voteType =='0' ? uiLabelMap.SingleSelect : uiLabelMap.MulitiSelect}"/>
-        </field>
-		<field name="updateCmsVote" title=" ">
-            <hyperlink also-hidden="false" description="${uiLabelMap.CommonEdit}" target="UpdateCmsVote">
-                <parameter param-name="voteId"/>
-            </hyperlink>
-        </field>
-    </form>
-
-    <form name="CreateNewVote" type="single" target="${target}"
-		title="" default-map-name="entity" default-entity-name="VoteManage">
-        <field name="voteId" use-when="${target == 'updateVote'}"><hidden value="${voteManage.voteId}"/></field>
-        <field name="voteTitle" title="${uiLabelMap.voteTitle}:"><text default-value="${voteManage.voteTitle}"/></field>
-        <field name="startTime" title="${uiLabelMap.voteStartTime}:"><date-time default-value="${voteManage.startTime}"/></field>
-        <field name="endTime" title="${uiLabelMap.voteEndTime}:"><date-time default-value="${voteManage.endTime}"/></field>
-        <field name="repeatHour" title="${uiLabelMap.repeatHour}:"><text default-value="${voteManage.repeatHour}"/></field>
-        <field name="multiSelc" title="${uiLabelMap.multiSelc}:"><text default-value="${voteManage.multiSelc}"/></field>
-        <field name="isRestrictMember" title="${uiLabelMap.isRestrictMember}:">
-            <drop-down no-current-selected-key="${voteManage.isRestrictMember}">
-                <option key="0" description="${uiLabelMap.CommonYes}"/>
-                <option key="1" description="${uiLabelMap.CommonFalse}"/>
-            </drop-down>
-        </field>
-        <field name="isRestrictIp" title="${uiLabelMap.isRestrictIp}:">
-            <drop-down no-current-selected-key="${voteManage.isRestrictIp}">
-                <option key="0" description="${uiLabelMap.CommonYes}"/>
-                <option key="1" description="${uiLabelMap.CommonFalse}"/>
-            </drop-down>
-        </field>
-        <field name="isRestrictCookie" title="${uiLabelMap.isRestrictCookie}:">
-            <drop-down no-current-selected-key="${voteManage.isRestrictCookie}">
-                <option key="0" description="${uiLabelMap.CommonYes}"/>
-                <option key="1" description="${uiLabelMap.CommonFalse}"/>
-            </drop-down>
-        </field>
-        <field name="voteType" title="${uiLabelMap.voteType}:">
-            <drop-down no-current-selected-key="${voteManage.voteType}">
-                <option key="0" description="${uiLabelMap.SingleSelect}"/>
-                <option key="1" description="${uiLabelMap.MulitiSelect}"/>
-            </drop-down>
-        </field>
-        <field name="description" title="${uiLabelMap.CommonDescription}:"><textarea default-value="${voteManage.description}"/></field>
-		<field name="submitButton" use-when="${target == 'createVote'}" title="${uiLabelMap.CommonCreate}">
-			<submit button-type="button" />
-		</field>
-        <field name="submitButton" use-when="${target == 'updateVote'}" title="${uiLabelMap.CommonUpdate}">
-			<submit button-type="button" />
-		</field>
-	</form>
-    <!--投票管理 jingchao.yan end-->
     
-    <!-- 留言管理 by Surpass Li 2011-09-15 开始-->
-    <form name="FindCmsLeaveword" type="single" target="FindCmsLeaveword" default-entity-name="CmsLeaveword">
+    
+    
+    
+    <form name="FindCmsArticleProduct" type="single" target="FindCmsArticleProduct" default-entity-name="CmsArticleProduct">
         <field name="noConditionFind"><hidden value="Y"/></field>
-	  	
-	  	<field name="title" title="${uiLabelMap.title}" position="1"><text-find hide-options="true"/></field> 
-	  	 <field name="memberId" title="${uiLabelMap.memberId}" position="2"><text-find hide-options="true"/></field> 
-         
-        <field name="statusId" title="${uiLabelMap.statusId}" >
-            <drop-down>
-                <option key=""/>
-                <entity-options description="${description}" entity-name="CmsLeavewordStatusItem"></entity-options>
-            </drop-down>
-        </field> 
-        <field name="websiteId" title="${uiLabelMap.websiteId}" position="2">
-           <drop-down>
-           		<option key=""/>
-	        	<entity-options description="${name}" entity-name="CmsWebSite" key-field-name="websiteId"></entity-options>
-	        </drop-down>
-	  	</field> 
-       
-        <field name="createTime" title="${uiLabelMap.createTime}"><date-find type="timestamp" /></field> 
-             
+		<field name="productName" title="${uiLabelMap.productName}" >
+	      	<text-find hide-options="true"/>
+	  	</field>
+	  	<field name="description" title="${uiLabelMap.description}" >
+	      	<text-find hide-options="true"/>
+	  	</field>       
 		<field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
-		    <submit button-type="button" image-location="/images/icons/magnifier.png"/>
+		    <submit button-type="button"/>
 		</field>
     </form>
-    <form name="ListCmsLeaveword" type="list" list-name="listIt" paginate-target="FindCmsLeaveword" default-entity-name="CmsLeaveword" separate-columns="true"
+    <form name="ListCmsArticleProduct" type="list" list-name="listIt" paginate-target="FindCmsArticleProduct" default-entity-name="CmsArticleProduct" separate-columns="true"
         odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
         <actions>
             <service service-name="performFind" result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="pCtx"/>
-                <field-map field-name="entityName" value="CmsLeaveword"/>
+                <field-map field-name="entityName" value="CmsArticleProduct"/>
                 <field-map field-name="orderBy" from-field="parameters.sortField"/>
                 <field-map field-name="viewIndex" from-field="viewIndex"/>
                 <field-map field-name="viewSize" from-field="viewSize"/>
             </service>
         </actions>
-        <field name="title" title="${uiLabelMap.title}" ><display/></field> 
-	    <field name="statusId" title="${uiLabelMap.statusId}" ><display-entity entity-name="CmsLeavewordStatusItem"/></field> 
-        <field name="websiteId" title="${uiLabelMap.websiteId}" ><display-entity entity-name="CmsWebSite"/></field> 
         
-        <field name="adminId" title="${uiLabelMap.adminId}" ><display/></field> 
-        <field name="memberId" title="${uiLabelMap.memberId}" ><display/></field> 
-        <field name="createTime" title="${uiLabelMap.createTime}" ><display type="date-time" /></field> 
-        <field name="replayTime" title="${uiLabelMap.replayTime}" ><display type="date-time" /></field>
-        <field name="ip" title="${uiLabelMap.ip}" ><display/></field>
+        <field name="productId" title="${uiLabelMap.productId}" sort-field="true">
+	      	<display/>
+	  	</field>
+	  	<field name="productName" title="${uiLabelMap.productName}" sort-field="true">
+	      	<display/>
+	  	</field> 
+	  	<field name="url" title="${uiLabelMap.url}" sort-field="true">
+	      	<display/>
+	  	</field> 
+	  	<field name="description" title="${uiLabelMap.description}" sort-field="true">
+	      	<display/>
+	  	</field> 
 	  	<field name="edit" title="${uiLabelMap.CommonEdit}">
-            <hyperlink also-hidden="false" description="${uiLabelMap.CommonEdit}" target="EditCmsLeaveword">
-                <parameter param-name="leavewordId"/>
+            <hyperlink also-hidden="false" description="${uiLabelMap.CommonEdit}" target="EditCmsArticleProduct">
+                <parameter param-name="productId"/>
             </hyperlink>
         </field>
 		<field name="delete" title="${uiLabelMap.CommonDelete}">
-            <hyperlink also-hidden="false" description="${uiLabelMap.CommonDelete}" target="deleteCmsLeaveword">
-                <parameter param-name="leavewordId"/>
+            <hyperlink also-hidden="false" description="${uiLabelMap.CommonDelete}" target="deleteCmsArticleProduct">
+                <parameter param-name="productId"/>
             </hyperlink>
         </field>
     </form>
-    <form name="EditCmsLeaveword" type="single" target="updateCmsLeaveword" title="" default-map-name="entity" default-entity-name="CmsLeaveword">
-        <alt-target use-when="entity==null" target="createCmsLeaveword"/>
-        <field name="leavewordId"><hidden/></field>
-       
-        <field name="title" title="${uiLabelMap.title}" >
+    <form name="EditCmsArticleProduct" type="single" target="updateCmsArticleProduct" title="" default-map-name="entity" default-entity-name="CmsArticleProduct">
+        <alt-target use-when="entity==null" target="createCmsArticleProduct"/>
+        <field name="productId"><hidden/></field>
+        <field name="productName" title="${uiLabelMap.productName}" required-field="true" widget-style="required">
 	      	<text/>
 	  	</field>
-
-	    <field name="statusId"  use-when="entity==null" title="${uiLabelMap.statusId}">
-            <drop-down allow-empty="false">
-                <entity-options entity-name="CmsLeavewordStatusItem" description="${description}">
-                    <entity-constraint name="statusId" operator="not-equals" value="CAST_CANCELLED"/>
-                </entity-options>
-            </drop-down>
-        </field>
-	  	<field name="statusId" use-when="entity!=null"  title="${uiLabelMap.statusId}"  >
-           <drop-down allow-empty="false" current-description="${currentStatus.description}">
-                <entity-options entity-name="StatusValidChangeToDetail" key-field-name="statusIdTo" description="${description}">
-                    <entity-constraint name="statusId"  env-name="entity.statusId"/>
-                </entity-options>
-            </drop-down>
+	  	<field name="url" title="${uiLabelMap.url}" required-field="true" widget-style="required number" position="2">
+	      	<text/>
+	  	</field> 
+	  	<field name="description" title="${uiLabelMap.description}" >
+	      	<text/>
 	  	</field>
-        <field name="websiteId" title="${uiLabelMap.websiteId}" >
-           <drop-down>
-	        	<entity-options description="${name}" entity-name="CmsWebSite" key-field-name="websiteId"></entity-options>
-	        </drop-down>
-	  	</field>  
-        <field name="memberId" title="${uiLabelMap.memberId}" ><text/></field> 
-        <field name="contentMember" title="${uiLabelMap.contentMember}" ><textarea/></field> 
-        <field name="adminId" title="${uiLabelMap.adminId}" ><text/></field>        
-        <field name="contentAdmin" title="${uiLabelMap.contentAdmin}" ><textarea/></field> 
-        <field name="ip" title="${uiLabelMap.ip}" ><text/></field>
-        <field name="isRecommend"  title="${uiLabelMap.isRecommend}">
-            <drop-down  allow-empty="false" no-current-selected-key="Y">
-                <option key="Y" description="${uiLabelMap.CommonY}"/>
-                <option key="N" description="${uiLabelMap.CommonN}"/>
-            </drop-down>
-        </field> 
+	  	<field name="fromDate" title="${uiLabelMap.fromDate}" >
+	      	<date-time />
+	  	</field>
+	  	<field name="thruDate" title="${uiLabelMap.thruDate}" >
+	      	<date-time />
+	  	</field>
 	  	
-        <field name="createTime" title="${uiLabelMap.createTime}" ><date-time type="timestamp" /></field> 
-        <field name="replayTime" title="${uiLabelMap.replayTime}" ><date-time type="timestamp" /></field> 
-
-        <field name="commentNeedCheck"  title="${uiLabelMap.commentNeedCheck}">
-            <drop-down allow-empty="false" no-current-selected-key="N">
-                <option key="Y" description="${uiLabelMap.CommonY}"/>
-                <option key="N" description="${uiLabelMap.CommonN}"/>
-            </drop-down>
-        </field> 
-        <field name="commentNeedLogin"  title="${uiLabelMap.commentNeedLogin}">
-            <drop-down allow-empty="false" no-current-selected-key="N">
-                <option key="Y" description="${uiLabelMap.CommonY}"/>
-                <option key="N" description="${uiLabelMap.CommonN}"/>
-            </drop-down>
-        </field> 
 		<field name="submitButton" use-when="entity==null" title="${uiLabelMap.CommonCreate}"><submit button-type="button"/></field>
         <field name="submitButton" use-when="entity!=null" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
     </form>
-    <!-- 留言管理 by Surpass Li 2011-09-15 结束-->
     
-    <form name="FindEPaketConfig" type="single" target="FindEPaketConfig" default-entity-name="EPaketConfig">
+    
+    
+    
+    
+    
+    
+    <form name="FindCmsUserDetail" type="single" target="FindCmsUserDetail" default-entity-name="CmsUserDetail">
         <field name="noConditionFind"><hidden value="Y"/></field>
-		<field name="epaketConfigId" title="${uiLabelMap.epaketConfigId}" >
-	      	<text-find hide-options="true" size="125"/>
+		<field name="userId" title="${uiLabelMap.userId}" >
+	      	<text-find  hide-options="true"/>
 	  	</field>
-	  	<field name="ebayAccount" title="${uiLabelMap.ebayAccount}" >
-	      	<text-find hide-options="true" size="125"/>
-	  	</field> 
-		<field name="devId" title="${uiLabelMap.devId}" >
-	      	<text-find hide-options="true" size="125"/>
-	  	</field>
-	  	<field name="apiCode" title="${uiLabelMap.apiCode}" >
-	      	<text-find hide-options="true" size="125"/>
-	  	</field>     
+	  	<field name="userName" title="${uiLabelMap.userName}" >
+	      	<text-find hide-options="true"/>
+	  	</field>       
 		<field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
-		    <submit button-type="button" image-location="/images/icons/magnifier.png"/>
+		    <submit button-type="button"/>
 		</field>
     </form>
-    <form name="ListEPaketConfig" type="list" list-name="listIt" paginate-target="FindEPaketConfig" default-entity-name="EPaketConfig" separate-columns="true"
+    <form name="ListCmsUserDetail" type="list" list-name="listIt" paginate-target="FindCmsUserDetail" default-entity-name="CmsUserDetail" separate-columns="true"
         odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
         <actions>
             <service service-name="performFind" result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="pCtx"/>
-                <field-map field-name="entityName" value="EPaketConfig"/>
+                <field-map field-name="entityName" value="CmsUserDetail"/>
                 <field-map field-name="orderBy" from-field="parameters.sortField"/>
                 <field-map field-name="viewIndex" from-field="viewIndex"/>
                 <field-map field-name="viewSize" from-field="viewSize"/>
             </service>
         </actions>
-	  	
-		<field name="epaketConfigId" title="${uiLabelMap.epaketConfigId}" sort-field="true">
+        
+        <field name="userId" title="${uiLabelMap.userId}" sort-field="true">
 	      	<display/>
 	  	</field>
-	  	<field name="ebayAccount" title="${uiLabelMap.ebayAccount}" sort-field="true">
+	  	<field name="userName" title="${uiLabelMap.userName}" sort-field="true">
 	      	<display/>
 	  	</field> 
-		<field name="devId" title="${uiLabelMap.devId}" sort-field="true">
-	      	<display/>
-	  	</field>
-	  	<field name="apiCode" title="${uiLabelMap.apiCode}" sort-field="true">
+	  	<field name="register" title="${uiLabelMap.register}" sort-field="true">
 	      	<display/>
 	  	</field> 
-	  	
 	  	<field name="edit" title="${uiLabelMap.CommonEdit}">
-            <hyperlink also-hidden="false" description="${uiLabelMap.CommonEdit}" target="EditEPaketConfig">
-                <parameter param-name="epaketConfigId"/>
+            <hyperlink also-hidden="false" description="${uiLabelMap.CommonEdit}" target="EditCmsUserDetail">
+                <parameter param-name="userId"/>
             </hyperlink>
         </field>
 		<field name="delete" title="${uiLabelMap.CommonDelete}">
-            <hyperlink also-hidden="false" description="${uiLabelMap.CommonDelete}" target="deleteEPaketConfig">
-                <parameter param-name="epaketConfigId"/>
+            <hyperlink also-hidden="false" description="${uiLabelMap.CommonDelete}" target="deleteCmsUserDetail">
+                <parameter param-name="userId"/>
             </hyperlink>
         </field>
     </form>
-    <form name="EditEPaketConfig" type="single" target="updateEPaketConfig" title="" default-map-name="entity" default-entity-name="EPaketConfig">
-        <alt-target use-when="entity==null" target="createEPaketConfig"/>
-        <field name="articleTypeId"><hidden/></field>
-	  	
-		<field use-when="entity==null" name="epaketConfigId" title="${uiLabelMap.epaketConfigId}" >
-	      	<text size="125"/>
+    <form name="EditCmsUserDetail" type="single" target="updateCmsUserDetail" title="" default-map-name="entity" default-entity-name="CmsUserDetail">
+        <alt-target use-when="entity==null" target="createCmsUserDetail"/>
+        <field name="user_id"><hidden/></field>
+        <field name="userName" title="${uiLabelMap.userName}" required-field="true" widget-style="required">
+	      	<text/>
 	  	</field>
-	  	<field use-when="entity!=null" name="epaketConfigId" >
-	      	<hidden value="${entity.epaketConfigId}"/>
-	  	</field>
-	  	
-	  	<field use-when="entity!=null" name="display_epaketConfigId" title="${uiLabelMap.epaketConfigId}" >
-	      	<display description="${entity.epaketConfigId}"/>
-	  	</field>
-	  	<field name="ebayAccount" title="${uiLabelMap.ebayAccount}" >
-	      	<text size="125"/>
+	  	<field name="register" title="${uiLabelMap.register}" required-field="true" widget-style="required">
+	      	<date-time/>
 	  	</field> 
-		<field name="devId" title="${uiLabelMap.devId}" >
-	      	<text size="125"/>
-	  	</field>
-	  	<field name="apiCode" title="${uiLabelMap.apiCode}" >
-	      	<text size="125"/>
-	  	</field>   
 	  	
 		<field name="submitButton" use-when="entity==null" title="${uiLabelMap.CommonCreate}"><submit button-type="button"/></field>
         <field name="submitButton" use-when="entity!=null" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
     </form>
-    
-       <form name="FindEPaketConfigStatus" type="single" target="FindEPaketConfigStatus" default-entity-name="EPaketConfigStatus">
-        <field name="noConditionFind"><hidden value="Y"/></field>
-		<field name="epaketConfigId" title="${uiLabelMap.epaketConfigId}" >
-	      	<text-find hide-options="true" size="125"/>
-	  	</field>
-	  	<field name="ebayAccount" title="${uiLabelMap.ebayAccount}" >
-	      	<text-find hide-options="true" size="125"/>
-	  	</field> 
-		<field name="devId" title="${uiLabelMap.devId}" >
-	      	<text-find hide-options="true" size="125"/>
-	  	</field>
-	  	<field name="apiCode" title="${uiLabelMap.apiCode}" >
-	      	<text-find hide-options="true" size="125"/>
-	  	</field>         
-		<field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
-		    <submit button-type="button" image-location="/images/icons/magnifier.png"/>
-		</field>
-    </form>
-    <form name="ListEPaketConfigStatus" type="list" list-name="listIt" paginate-target="FindEPaketConfigStatus" default-entity-name="EPaketConfigStatus" separate-columns="true"
-        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
-        <actions>
-            <service service-name="performFind" result-map="result" result-map-list="listIt">
-                <field-map field-name="inputFields" from-field="pCtx"/>
-                <field-map field-name="entityName" value="EPaketConfigStatus"/>
-                <field-map field-name="orderBy" from-field="parameters.sortField"/>
-                <field-map field-name="viewIndex" from-field="viewIndex"/>
-                <field-map field-name="viewSize" from-field="viewSize"/>
-            </service>
-        </actions>
-		<field name="epaketConfigId" title="${uiLabelMap.epaketConfigId}" sort-field="true">
-	      	<display/>
-	  	</field>
-	  	<field name="ebayAccount" title="${uiLabelMap.ebayAccount}" sort-field="true">
-	      	<display/>
-	  	</field> 
-		<field name="devId" title="${uiLabelMap.devId}" sort-field="true">
-	      	<display/>
-	  	</field>
-	  	<field name="apiCode" title="${uiLabelMap.apiCode}" sort-field="true">
-	      	<display/>
-	  	</field> 
-	  	
-		<field name="createdDate" title="${uiLabelMap.createdDate}" sort-field="true">
-	      	<display/>
-	  	</field>
-	  	<field name="createdByUserLogin" title="${uiLabelMap.createdByUserLogin}" sort-field="true">
-	      	<display/>
-	  	</field> 
-		<field name="action" title="${uiLabelMap.action}" sort-field="true">
-	      	<display/>
-	  	</field>
-
-    </form>
-    
 </forms>

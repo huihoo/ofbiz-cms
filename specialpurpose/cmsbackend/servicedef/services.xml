@@ -7,7 +7,7 @@
 
 
 
-    <service name="createCmsArticle" default-entity-name="CmsArticle" engine="java" location="org.ofbiz.cmsbackend.article.ArticleServices" invoke="createCmsArticle" auth="true">
+    <!-- <service name="createCmsArticle" default-entity-name="CmsArticle" engine="java" location="org.ofbiz.cmsbackend.article.ArticleServices" invoke="createCmsArticle" auth="true">
         <description>Create a CmsArticle</description>
         <auto-attributes include="pk" mode="OUT" optional="false"/>
         <auto-attributes include="nonpk" mode="IN" optional="true"/>
@@ -21,6 +21,23 @@
         <override name="content" allow-html="safe"></override>
     </service>
     <service name="deleteCmsArticle" default-entity-name="CmsArticle" engine="java" location="org.ofbiz.cmsbackend.article.ArticleServices" invoke="deleteCmsArticle" auth="true">
+        <description>Delete a CmsArticle</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+    </service> -->
+   <service name="createCmsArticle" default-entity-name="CmsArticle" engine="simple" location="component://cmsbackend/script/org/ofbiz/cmsbackend/CmsBackendServices.xml" invoke="createCmsArticle" auth="true">
+        <description>Create a CmsArticle</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <override name="content" allow-html="safe"></override>
+        
+    </service>
+    <service name="updateCmsArticle" default-entity-name="CmsArticle" engine="simple" location="component://cmsbackend/script/org/ofbiz/cmsbackend/CmsBackendServices.xml" invoke="updateCmsArticle" auth="true">
+        <description>Update a CmsArticleType</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <override name="content" allow-html="safe"></override>
+    </service>
+    <service name="deleteCmsArticle" default-entity-name="CmsArticle" engine="simple" location="component://cmsbackend/script/org/ofbiz/cmsbackend/CmsBackendServices.xml" invoke="deleteCmsArticle" auth="true">
         <description>Delete a CmsArticle</description>
         <auto-attributes include="pk" mode="IN" optional="false"/>
     </service>
@@ -39,6 +56,13 @@
         <description>Delete a CmsArticleType</description>
         <auto-attributes include="pk" mode="IN" optional="false"/>
     </service>
+
+
+
+    
+
+
+
 
     <service name="newsFromSite" engine="groovy" location="component://cmsbackend/script/org/ofbiz/cmsbackend/article/newsFromSite.groovy" invoke="">
         <description>Get a group News from the Web site</description>
@@ -76,7 +100,7 @@
         <attribute name="startTime" mode="IN" type="String" optional="false"/>
     </service>
     
-    <!-- 链接管理 by Surpass Li 开始-->
+    <!-- 链接管理 开始-->
     <service name="createCmsFellowshipLinkType" default-entity-name="CmsFellowshipLinkType" engine="entity-auto" invoke="create" auth="true">
         <description>Create a CmsFellowshipLinkType</description>
         <auto-attributes include="pk" mode="OUT" optional="false"/>
@@ -107,41 +131,9 @@
         <auto-attributes include="pk" mode="IN" optional="false"/>
         <auto-attributes include="nonpk" mode="IN" optional="true"/>
     </service>
-    <!-- 链接管理 by Surpass Li 结束-->
+    <!-- 链接管理 结束-->
  
-    <!-- 评论管理 by Surpass Li 开始-->
-    <service name="createCmsComment" default-entity-name="CmsComment" engine="entity-auto" invoke="create" auth="true">
-        <description>Create a CmsComment</description>
-        <auto-attributes include="pk" mode="OUT" optional="false"/>
-        <auto-attributes include="nonpk" mode="IN" optional="true"/>
-        
-    </service>
-    <service name="updateCmsComment" default-entity-name="CmsComment" engine="entity-auto" invoke="update" auth="true">
-        <description>Update a CmsCommentType</description>
-        <auto-attributes include="pk" mode="IN" optional="false"/>
-        <auto-attributes include="nonpk" mode="IN" optional="true"/>
-        
-    </service>
-    <service name="deleteCmsComment" default-entity-name="CmsComment" engine="entity-auto" invoke="delete" auth="true">
-        <description>Delete a CmsComment</description>
-        <auto-attributes include="pk" mode="IN" optional="false"/>
-    </service>
-
-    <service name="createCmsCommentType" default-entity-name="CmsCommentType" engine="entity-auto" invoke="create" auth="true">
-        <description>Create a CmsCommentType</description>
-        <auto-attributes include="pk" mode="OUT" optional="false"/>
-        <auto-attributes include="nonpk" mode="IN" optional="true"/>
-    </service>
-    <service name="updateCmsCommentType" default-entity-name="CmsCommentType" engine="entity-auto" invoke="update" auth="true">
-        <description>Update a CmsCommentType</description>
-        <auto-attributes include="pk" mode="IN" optional="false"/>
-        <auto-attributes include="nonpk" mode="IN" optional="true"/>
-    </service>
-    <service name="deleteCmsCommentType" default-entity-name="CmsCommentType" engine="entity-auto" invoke="delete" auth="true">
-        <description>Delete a CmsCommentType</description>
-        <auto-attributes include="pk" mode="IN" optional="false"/>
-    </service>
-    <!-- 评论管理 by Surpass Li 结束-->
+    
  
     <service name="createCmsCatalog" default-entity-name="CmsCatalog" engine="java" location="org.ofbiz.cmsbackend.catalog.CatalogServices" invoke="createCmsCatalog" auth="true">
         <description>Create a CmsCatalog</description>
@@ -161,124 +153,39 @@
         <override name="content" allow-html="safe"></override>
     </service>
     
-
-	
-	<!-- 创建附件 -->
-	<service name="createCmsAccessory" default-entity-name="CmsAccessory"
-		engine="java" location="org.ofbiz.cmsbackend.accessory.AccessoryServices" invoke="createCmsAccessory"
-		auth="true">
-		<description>Create a CmsAccessory</description>
-		<auto-attributes include="pk" mode="OUT" optional="false" />
-		<auto-attributes include="nonpk" mode="IN" optional="true" />
-
-		<override name="content" allow-html="safe"></override>
-	</service>
-
-	<!-- 更新附件 -->
-	<service name="updateCmsAccessory" default-entity-name="CmsAccessory"
-		engine="java" location="org.ofbiz.cmsbackend.accessory.AccessoryServices" invoke="updateCmsAccessory"
-		auth="true">
-		<description>Update a CmsAccessory</description>
-		<auto-attributes include="pk" mode="IN" optional="false" />
-		<auto-attributes include="nonpk" mode="IN" optional="true" />
-		<override name="content" allow-html="safe"></override>
-	</service>
-
-	<!-- 删除附件 -->
-	<service name="deleteCmsAccessory" default-entity-name="CmsAccessory"
-		engine="java" location="org.ofbiz.cmsbackend.accessory.AccessoryServices" invoke="deleteCmsAccessory"
-		auth="true">
-		<description>Delete a CmsAccessory</description>
-		<auto-attributes include="pk" mode="IN" optional="false" />
-	</service>
-
-	
-
-	<service name="createCmsAccessoryType" default-entity-name="CmsAccessoryType"
-		engine="entity-auto" invoke="create" auth="true">
-		<description>Create a CmsAccessoryType</description>
-		<auto-attributes include="pk" mode="OUT" optional="false" />
-		<auto-attributes include="nonpk" mode="IN" optional="true" />
-	</service>
-
-	<service name="updateCmsAccessoryType" default-entity-name="CmsAccessoryType"
-		engine="entity-auto" invoke="update" auth="true">
-		<description>Update a CmsAccessoryType</description>
-		<auto-attributes include="pk" mode="IN" optional="false" />
-		<auto-attributes include="nonpk" mode="IN" optional="true" />
-	</service>
-	<service name="deleteCmsAccessoryType" default-entity-name="CmsAccessoryType"
-		engine="entity-auto" invoke="delete" auth="true">
-		<description>Delete a CmsAccessoryType</description>
-		<auto-attributes include="pk" mode="IN" optional="false" />
-	</service>
-
-    <!--投票服务 jingchao.yan start-->
-    <service name="createVoteService" engine="java" location="org.ofbiz.cmsbackend.CmsVote" invoke="createVoteService" auth="true">
-        <description>create a new vote</description>
-        <attribute name="voteTitle" type="String" mode="IN" optional="false"/>
-        <attribute name="description" type="String" mode="IN" optional="true"/>
-        <attribute name="startTime" type="java.sql.Timestamp" mode="IN" optional="false"/>
-        <attribute name="endTime" type="java.sql.Timestamp" mode="IN" optional="false"/>
-        <attribute name="repeatHour" type="Long" mode="IN" optional="true"/>
-        <attribute name="multiSelc" type="Long" mode="IN" optional="false"/>
-        <attribute name="isRestrictMember" type="String" mode="IN" optional="false"/>
-        <attribute name="isRestrictIp" type="String" mode="IN" optional="false"/>
-        <attribute name="isRestrictCookie" type="String" mode="IN" optional="false"/>
-        <attribute name="voteType" type="String" mode="IN" optional="false"/>
-    </service>
-    <service name="updateVoteService" engine="java" location="org.ofbiz.cmsbackend.CmsVote" invoke="updateVoteService" auth="true">
-            <description>create a new vote</description>
-            <attribute name="voteId" type="String" mode="IN" optional="false"/>
-            <attribute name="voteTitle" type="String" mode="IN" optional="false"/>
-            <attribute name="description" type="String" mode="IN" optional="true"/>
-            <attribute name="startTime" type="java.sql.Timestamp" mode="IN" optional="false"/>
-            <attribute name="endTime" type="java.sql.Timestamp" mode="IN" optional="false"/>
-            <attribute name="repeatHour" type="Long" mode="IN" optional="true"/>
-            <attribute name="multiSelc" type="Long" mode="IN" optional="false"/>
-            <attribute name="isRestrictMember" type="String" mode="IN" optional="false"/>
-            <attribute name="isRestrictIp" type="String" mode="IN" optional="false"/>
-            <attribute name="isRestrictCookie" type="String" mode="IN" optional="false"/>
-            <attribute name="voteType" type="String" mode="IN" optional="false"/>
-    </service>
-    <!--投票服务 jingchao.yan end-->
-    
-    <!-- 留言管理服务 by Surpass Li 2011-09-15 开始-->
-    <service name="createCmsLeaveword" default-entity-name="CmsLeaveword" engine="entity-auto" invoke="create" auth="true">
-        <description>Create a CmsLeaveword</description>
-        <auto-attributes include="pk" mode="OUT" optional="false"/>
-        <auto-attributes include="nonpk" mode="IN" optional="true"/>
-    </service>
-    <service name="updateCmsLeaveword" default-entity-name="CmsLeaveword" engine="entity-auto" invoke="update" auth="true">
-        <description>Update a CmsLeaveword</description>
-        <auto-attributes include="pk" mode="IN" optional="false"/>
-        <auto-attributes include="nonpk" mode="IN" optional="true"/>
-    </service>
-    <service name="deleteCmsLeaveword" default-entity-name="CmsLeaveword" engine="entity-auto" invoke="delete" auth="true">
-        <description>Delete a CmsLeaveword</description>
-        <auto-attributes include="pk" mode="IN" optional="false"/>
-    </service>
-    <!-- 留言管理服务 by Surpass Li 2011-09-15 结束-->
     
     
-    <service name="createEPaketConfig" default-entity-name="EPaketConfig" engine="java" location="org.ofbiz.shipment.EPaketConfigServices" invoke="createEPaketConfig" auth="true">
-        <description>Create a EPaketConfig</description>
+    
+    <service name="createCmsArticleProduct" default-entity-name="CmsArticleProduct" engine="simple" location="component://cmsbackend/script/org/ofbiz/cmsbackend/CmsBackendServices.xml" invoke="createCmsArticleProduct" auth="true">
+        <description>Create a CmsCalendarEvents</description>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+    </service>
+
+    <service name="deleteCmsArticleProduct" default-entity-name="CmsArticleProduct" engine="simple" location="component://cmsbackend/script/org/ofbiz/cmsbackend/CmsBackendServices.xml" invoke="deleteCmsArticleProduct" auth="true">
+        <description>Delete a CmsCalendarEvents</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+    </service> 
+    <service name="updateCmsArticleProduct" default-entity-name="CmsArticleProduct" engine="simple" location="component://cmsbackend/script/org/ofbiz/cmsbackend/CmsBackendServices.xml" invoke="updateCmsArticleProduct" auth="true">
+        <description>Update a CmsCalendarEvents</description>
         <auto-attributes include="pk" mode="IN" optional="false"/>
         <auto-attributes include="nonpk" mode="IN" optional="true"/>
-        <override name="ebayAccount" optional="false"></override>
-        <override name="devId" optional="false"></override>
-        <override name="apiCode" optional="false"></override>   
     </service>
-    <service name="updateEPaketConfig" default-entity-name="EPaketConfig" engine="java" location="org.ofbiz.shipment.EPaketConfigServices" invoke="updateEPaketConfig" auth="true">
-        <description>Update a EPaketConfigType</description>
+    
+    
+    <service name="createCmsUserDetail" default-entity-name="CmsUserDetail" engine="simple"  location="component://cmsbackend/script/org/ofbiz/cmsbackend/CmsBackendServices.xml" invoke="createCmsUserDetail" auth="true">
+        <description>Create a CmsUserDetailEvents</description>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+    </service>
+
+    <service name="updateCmsUserDetail" default-entity-name="CmsUserDetail" engine="simple" location="component://cmsbackend/script/org/ofbiz/cmsbackend/CmsBackendServices.xml" invoke="deleteCmsUserDetail" auth="true">
+        <description>Delete a CmsUserDetailEvents</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+    </service> 
+    <service name="deleteCmsUserDetail" default-entity-name="CmsUserDetail" engine="simple" location="component://cmsbackend/script/org/ofbiz/cmsbackend/CmsBackendServices.xml" invoke="updateCmsUserDetail" auth="true">
+        <description>Update a CmsUserDetailEvents</description>
         <auto-attributes include="pk" mode="IN" optional="false"/>
         <auto-attributes include="nonpk" mode="IN" optional="true"/>
-        <override name="ebayAccount" optional="false"></override>
-        <override name="devId" optional="false"></override>
-        <override name="apiCode" optional="false"></override> 
     </service>
-    <service name="deleteEPaketConfig" default-entity-name="EPaketConfig" engine="java" location="org.ofbiz.shipment.EPaketConfigServices" invoke="deleteEPaketConfig" auth="true">
-        <description>Delete a EPaketConfig</description>
-        <auto-attributes include="pk" mode="IN" optional="false"/>
-    </service>
+        
+
 </services>

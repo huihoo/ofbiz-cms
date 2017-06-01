@@ -1,6 +1,6 @@
-<script src="/images/jquery/plugins/elrteEditor/elrte.min.js" type="text/javascript"></script>
-<script src="/images/jquery/plugins/elrteEditor/i18n/elrte.zh_CN.js" type="text/javascript"></script>
-<link rel="stylesheet" href="/images/jquery/plugins/elrteEditor/css/elrte.full.css" type="text/css">
+<script src="/images/jquery/plugins/elrte-1.3/js/elrte.min.js" type="text/javascript"></script>
+<script src="/images/jquery/plugins/elrte-1.3/js/i18n/elrte.zh_CN.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/images/jquery/plugins/elrte-1.3/css/elrte.full.css" type="text/css">
 <script type="text/javascript">
  
         $().ready(function() {

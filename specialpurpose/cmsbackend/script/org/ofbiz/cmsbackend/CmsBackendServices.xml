@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<simple-methods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/simple-methods-v2.xsd">
+    
+
+   <simple-method method-name="createCmsArticle" short-description="" login-required="true">
+		<log level="info" message="parameters:${parameters}"></log>
+        <now-timestamp field="nowTimestamp" />
+        <log message="createCmsArticle.parameters== ${parameters}==" level="info" ></log>
+        
+        <make-value entity-name="CmsArticle" value-field="newEntity"/>
+        <sequenced-id sequence-name="CmsArticle" field="newEntity.articleId"/>
+        <log message="createCmsArticle.newEntity== ${newEntity}==" level="info" ></log>
+        <!-- 
+        <set-pk-fields map="parameters" value-field="newEntity"/> -->
+        <set-nonpk-fields map="parameters" value-field="newEntity"/>
+        <create-value value-field="newEntity"/>
+        <log message="createCmsArticle.newEntity== ${newEntity}==" level="info" ></log>
+    </simple-method>
+ 	<simple-method method-name="updateCmsArticle" short-description="" login-required="true">
+        <log level="info" message="parameters:${parameters}"></log>
+        <now-timestamp field="nowTimestamp" />
+        <log message="updateCmsArticle.parameters== ${parameters}==" level="info" ></log>
+        <entity-one entity-name="CmsArticle" value-field="newEntity">
+            <field-map field-name="articleId" from-field="parameters.articleId"/>
+        </entity-one>
+        <set-nonpk-fields map="parameters" value-field="newEntity"/>
+        <store-value value-field="newEntity"/>
+        <log message="updateCmsArticle.newEntity== ${newEntity}==" level="info" ></log>
+    </simple-method>
+        
+	<simple-method method-name="deleteCmsArticle" short-description="" login-required="true">
+        <log level="info" message="parameters:${parameters}"></log>
+        <now-timestamp field="nowTimestamp" />
+        <log message="deleteCmsArticle.parameters== ${parameters}==" level="info" ></log>
+        <entity-one entity-name="CmsArticle" value-field="newEntity">
+                    <field-map field-name="articleId" from-field="parameters.articleId"/>
+        </entity-one>
+        <remove-value value-field="newEntity"/>
+        <log message="deleteCmsArticle.newEntity== ${newEntity}==" level="info" ></log>
+    </simple-method>
+    
+    
+    
+    
+    <simple-method method-name="createCmsArticleProduct" short-description="" login-required="true">
+        <make-value entity-name="CmsArticleProduct" value-field="newEntity" />
+        <sequenced-id sequence-name="CmsArticleProduct" field="newEntity.productId"/>
+        <set-nonpk-fields map="parameters" value-field="newEntity"/>
+        
+        <set field="newEntity.url" value="${userLogin.userLoginId}" />
+        <log level="info" message="parameters:${parameters}"></log>
+        <log level="info" message="newEntity.url:${newEntity.url}"></log>
+        <create-value value-field="newEntity"/>
+    </simple-method>
+ 	<simple-method method-name="updateCmsArticleProduct" short-description="" login-required="true">
+        <entity-one entity-name="CmsArticleProduct" value-field="newEntity"><field-map field-name="productId" from-field="parameters.productId"/></entity-one>
+        <set-nonpk-fields map="parameters" value-field="newEntity"/>
+        <store-value value-field="newEntity"/>
+    </simple-method>
+        
+	<simple-method method-name="deleteCmsArticleProduct" short-description="" login-required="true">
+        <entity-one entity-name="CmsArticleProduct" value-field="newEntity"><field-map field-name="productId" from-field="parameters.productId"/></entity-one>
+        <remove-value value-field="newEntity"/>
+    </simple-method>
+    
+    
+    <simple-method method-name="createCmsUserDetail" short-description="" login-required="true">
+    
+        <make-value entity-name="CmsUserDetail" value-field="newEntity" />
+        <sequenced-id sequence-name="CmsUserDetail" field="newEntity.userId"/>
+        
+        <set-nonpk-fields map="parameters" value-field="newEntity"/>
+        <create-value value-field="newEntity"/>
+    </simple-method>
+ 	<simple-method method-name="updateCmsUserDetail" short-description="" login-required="true">
+        <entity-one entity-name="CmsUserDetail" value-field="newEntity"><field-map field-name="userId" from-field="parameters.userId"/></entity-one>
+        <set-nonpk-fields map="parameters" value-field="newEntity"/>
+        <store-value value-field="newEntity"/>
+        
+    </simple-method>
+        
+	<simple-method method-name="deleteCmsUserDetail" short-description="" login-required="true">
+        <entity-one entity-name="CmsUserDetail" value-field="newEntity"><field-map field-name="userId" from-field="parameters.userId"/></entity-one>
+        <remove-value value-field="newEntity"/>
+    </simple-method>    
+    
+</simple-methods>       

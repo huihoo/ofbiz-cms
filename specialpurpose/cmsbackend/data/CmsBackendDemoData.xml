@@ -71,7 +71,22 @@
         titleImg ="name" contentImg ="" tags ="标记，类似关键字" origin ="来源" commentCount="0"
         releaseSysDate ="2011-12-12" checkTime ="2011-12-12 12:12:00" disableTime ="2011-12-13 12:12:00" 
         catalogId ="9304" websiteId="default" allowComment="Y"/>
+  
+  <CmsArticle articleId="9501" statusId ="CAST_APPROVED" />
+  <CmsArticle articleId="9502" statusId ="CAST_APPROVED" />
+  <CmsArticle articleId="9503" statusId ="CAST_APPROVED" />
+  <CmsArticle articleId="9504" statusId ="CAST_APPROVED" />
+  <CmsArticle articleId="9505" statusId ="CAST_APPROVED" />
+  
+  <CmsArticle articleId="9506" statusId ="CAST_APPROVED" />
+  <CmsArticle articleId="9507" statusId ="CAST_APPROVED" />
+  <CmsArticle articleId="9508" statusId ="CAST_APPROVED" />
+  <CmsArticle articleId="9509" statusId ="CAST_APPROVED" />
+  <CmsArticle articleId="9510" statusId ="CAST_APPROVED" />
    
+  <CmsArticle articleId="9511" statusId ="CAST_APPROVED" />
+  <CmsArticle articleId="9512" statusId ="CAST_APPROVED" />
+  
     
     <CmsCalendarEvents eventId="9501" title="标题" address="行政大楼一楼梯教"
 		eventTypeId="CAL_01" shortTitle="香港今日亚洲交易有限公司上海" content="香港今日亚洲交易有限公司上海代表处"

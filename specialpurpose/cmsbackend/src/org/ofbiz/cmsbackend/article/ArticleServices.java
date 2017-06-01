@@ -30,7 +30,7 @@ public class ArticleServices {
         GenericValue gv = delegator.makeValue("CmsArticle", UtilMisc.toMap("articleId", articleId));
         gv.setNonPKFields(context);
         gv.create();
-        result.put("articleId", articleId);
+        //result.put("articleId", articleId);
         return result;
 
     }

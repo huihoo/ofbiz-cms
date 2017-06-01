@@ -7,7 +7,6 @@
 -->
     <include location="component://common/webcommon/WEB-INF/common-controller.xml"/>
 	<include location="component://common/webcommon/WEB-INF/security-controller.xml"/>
-    <include location="component://cmsbackend/webapp/cmsbackend/WEB-INF/controller_survey.xml"/>
     <description>CmsBackend Component Site Configuration File</description>
 
     <!-- Events to run on every request before security (chains exempt) -->
@@ -104,8 +103,7 @@
     </request-map>
     <request-map uri="updateCmsFellowshipLink">
         <event type="service" invoke="updateCmsFellowshipLink"/>
-        <response name="success" type="request-redirect" value="EditCmsFellowshipLink">
-            <redirect-parameter name="linkId"/>
+        <response name="success" type="request-redirect" value="FindCmsFellowshipLink">
         </response>
         <response name="error" type="view" value="EditCmsFellowshipLink"/>
     </request-map>
@@ -113,9 +111,7 @@
         <event type="service" invoke="deleteCmsFellowshipLink"/>
         <response name="success" type="request-redirect-noparam" value="FindCmsFellowshipLink"></response>
     </request-map>
-    <!-- 链接管理 Request Mappings by Surpass Li 结束-->
 
-     <!-- 评论管理 Request Mappings by Surpass Li 开始-->
     <request-map uri="FindCmsCommentType"><security https="true" auth="true"/><response name="success" type="view" value="FindCmsCommentType"/></request-map>
     <request-map uri="EditCmsCommentType"><security https="true" auth="true"/><response name="success" type="view" value="EditCmsCommentType"/></request-map>
     <request-map uri="createCmsCommentType">
@@ -148,23 +144,8 @@
         <response name="success" type="request-redirect-noparam" value="FindCmsComment"></response>
     </request-map>
     <!-- 评论管理 Request Mappings by Surpass Li 结束-->
-    <!-- 留言管理 Request Mappings  Surpass Li by 2011-09-15 开始-->
-    <request-map uri="FindCmsLeaveword"><security https="true" auth="true"/><response name="success" type="view" value="FindCmsLeaveword"/></request-map>
-    <request-map uri="EditCmsLeaveword"><security https="true" auth="true"/><response name="success" type="view" value="EditCmsLeaveword"/></request-map>
-    <request-map uri="createCmsLeaveword">
-        <event type="service" invoke="createCmsLeaveword"/>
-        <response name="success" type="request-redirect-noparam" value="FindCmsLeaveword"></response>
-    </request-map>
-    <request-map uri="updateCmsLeaveword">
-       <event type="service" invoke="updateCmsLeaveword"/>
-       <response name="success" type="request-redirect-noparam" value="FindCmsLeaveword"></response>
-    </request-map>
-    <request-map uri="deleteCmsLeaveword">
-        <event type="service" invoke="deleteCmsLeaveword"/>
-        <response name="success" type="request-redirect-noparam" value="FindCmsLeaveword"></response>
-    </request-map>
-    <!-- 留言管理 Request Mappings  Surpass Li by 2011-09-15 结束-->
-
+    
+   
 
     <!-- 栏目管理 -->
     <request-map uri="FindCmsCatalog"><security https="true" auth="true"/><response name="success" type="view" value="FindCmsCatalog"/></request-map>
@@ -183,67 +164,8 @@
         <response name="success" type="request-redirect-noparam" value="FindCmsCatalog"></response>
     </request-map>
     
-    <!-- 下载管理 -->
-     <request-map uri="FindCmsAccessoryType"><security https="true" auth="true"/><response name="success" type="view" value="FindCmsAccessoryType"/></request-map>
-    <request-map uri="EditCmsAccessoryType"><security https="true" auth="true"/><response name="success" type="view" value="EditCmsAccessoryType"/></request-map>
-    <request-map uri="createCmsAccessoryType">
-        <event type="service" invoke="createCmsAccessoryType"/>
-        <response name="success" type="request-redirect-noparam" value="FindCmsAccessoryType"></response>
-    </request-map>
-    <request-map uri="updateCmsAccessoryType">
-        <event type="service" invoke="updateCmsAccessoryType"/>
-        <response name="success" type="request-redirect" value="EditCmsAccessoryType">
-            <redirect-parameter name="articleTypeId"/>
-        </response>
-    </request-map>
-    <request-map uri="deleteCmsAccessoryType">
-        <event type="service" invoke="deleteCmsAccessoryType"/>
-        <response name="success" type="request-redirect-noparam" value="FindCmsAccessoryType"></response>
-    </request-map>
-    
-    <request-map uri="FindCmsAccessory"><security https="true" auth="true"/><response name="success" type="view" value="FindCmsAccessory"/></request-map>
-     <request-map uri="EditCmsAccessory"><security https="true" auth="true"/><response name="success" type="view" value="EditCmsAccessory"/></request-map>
-	<request-map uri="createCmsAccessory">
-        <event type="java" path="org.ofbiz.cmsbackend.accessory.AccessoryEvents" invoke="createCmsAccessory"/>
-        <response name="success" type="request-redirect-noparam" value="FindCmsAccessory"></response>
-    </request-map>
-    <request-map uri="updateCmsAccessory">
-       <event type="java" path="org.ofbiz.cmsbackend.accessory.AccessoryEvents" invoke="updateCmsAccessory"/>
-       <response name="success" type="request-redirect-noparam" value="FindCmsAccessory"></response>
-    </request-map>
-    <request-map uri="deleteCmsAccessory">
-        <event type="service" invoke="deleteCmsAccessory"/>
-        <response name="success" type="request-redirect-noparam" value="FindCmsAccessory"></response>
-    </request-map>
-
-    <!--投票管理  add by jingchao.yan start-->
-    <request-map uri="VoteManage">
-        <security https="true" auth="true"/>
-        <response name="success" type="view" value="VoteManage"/>
-    </request-map>
-    <request-map uri="CreateNewVote">
-        <security https="true" auth="true"/>
-        <response name="success" type="view" value="CreateNewVote"/>
-    </request-map>
-    <request-map uri="createVote">
-        <security https="true" auth="true"/>
-        <event type="service" invoke="createVoteService"/>
-        <response name="success" type="view" value="VoteManage"/>
-        <response name="error" type="view" value="CreateNewVote"/>
-    </request-map>
-    <request-map uri="UpdateCmsVote">
-        <security https="true" auth="true"/>
-        <response name="success" type="view" value="UpdateCmsVote"/>
-    </request-map>
-    <request-map uri="updateVote">
-        <security https="true" auth="true"/>
-        <event type="service" invoke="updateVoteService"/>
-        <response name="success" type="view" value="VoteManage"/>
-        <response name="fail" type="view" value="UpdateCmsVote"/>
-        <response name="error" type="view" value="UpdateCmsVote"/>
-    </request-map>
-    <!--投票管理  add by jingchao.yan end-->
-    <!-- 会员及权限管理 Request Mappings by Surpass Li  2011-09-15 结束-->
+   
+    <!-- 会员及权限管理 -->
     <request-map uri="FindCmsSecurityGroup">
         <security https="true" auth="true"/>
         <response name="success" type="view" value="FindCmsSecurityGroup"/>
@@ -280,26 +202,45 @@
         <security https="false" auth="false"/>
         <response name="success" type="view" value="pagetest"/>
     </request-map>
-    <!-- 会员及权限管理 Request Mappings by Surpass Li  2011-09-15 结束-->
+    <!-- 会员及权限管理-->
     
-    
-    <request-map uri="FindEPaketConfigStatus"><security https="true" auth="true"/><response name="success" type="view" value="FindEPaketConfigStatus"/></request-map>
-    
-    <request-map uri="FindEPaketConfig"><security https="true" auth="true"/><response name="success" type="view" value="FindEPaketConfig"/></request-map>
-    <request-map uri="EditEPaketConfig"><security https="true" auth="true"/><response name="success" type="view" value="EditEPaketConfig"/></request-map>
-    <request-map uri="createEPaketConfig">
-        <event type="service" invoke="createEPaketConfig"/>
-        <response name="success" type="request-redirect-noparam" value="FindEPaketConfig"></response>
+    <request-map uri="FindCmsArticleProduct"><security https="true" auth="true"/><response name="success" type="view" value="FindCmsArticleProduct"/></request-map>
+    <request-map uri="EditCmsArticleProduct"><security https="true" auth="true"/><response name="success" type="view" value="EditCmsArticleProduct"/></request-map>
+    <request-map uri="createCmsArticleProduct">
+        <event type="service" invoke="createCmsArticleProduct"/>
+        <response name="success" type="request-redirect-noparam" value="FindCmsArticleProduct"></response>
     </request-map>
-    <request-map uri="updateEPaketConfig">
-       <event type="service" invoke="updateEPaketConfig"/>
-       <response name="success" type="request-redirect-noparam" value="FindEPaketConfig"></response>
+    <request-map uri="updateCmsArticleProduct">
+        <event type="service" invoke="updateCmsArticleProduct"/>
+        <response name="success" type="request-redirect" value="FindCmsArticleProduct">
+    </response>
     </request-map>
-    <request-map uri="deleteEPaketConfig">
-        <event type="service" invoke="deleteEPaketConfig"/>
-        <response name="success" type="request-redirect-noparam" value="FindEPaketConfig"></response>
+    <request-map uri="deleteCmsArticleProduct">
+        <event type="service" invoke="deleteCmsArticleProduct"/>
+        <response name="success" type="request-redirect-noparam" value="FindCmsArticleProduct"></response>
+    </request-map>
+ 
+ 
+ 
+  <!-- test demo-->
+    <request-map uri="FindCmsUserDetail"><security https="true" auth="true"/><response name="success" type="view" value="FindCmsUserDetail"/></request-map>
+    <request-map uri="EditCmsUserDetail"><security https="true" auth="true"/><response name="success" type="view" value="EditCmsUserDetail"/></request-map>
+    <request-map uri="createCmsUserDetail">
+        <event type="service" invoke="createCmsUserDetail"/>
+        <response name="success" type="request-redirect-noparam" value="FindCmsUserDetail"></response>
+    </request-map>
+    <request-map uri="updateCmsUserDetail">
+        <event type="service" invoke="updateCmsUserDetail"/>
+        <response name="success" type="request-redirect" value="FindCmsUserDetail">
+    </response>
+    </request-map>
+    <request-map uri="deleteCmsUserDetail">
+        <event type="service" invoke="deleteCmsUserDetail"/>
+        <response name="success" type="request-redirect-noparam" value="FindCmsUserDetail"></response>
     </request-map>
     
+    
+        
     
     <!-- View Mappings -->
     <view-map name="main" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#main"/>
@@ -314,43 +255,22 @@
 
     <view-map name="FindCmsArticle" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#FindCmsArticle"/>
     <view-map name="EditCmsArticle" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#EditCmsArticle"/>
-    <!-- 链接管理 view Map by Surpass Li 开始-->
+    <!-- 链接管理-->
     <view-map name="FindCmsFellowshipLinkType" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#FindCmsFellowshipLinkType"/>
     <view-map name="EditCmsFellowshipLinkType" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#EditCmsFellowshipLinkType"/> 
     
     <view-map name="FindCmsFellowshipLink" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#FindCmsFellowshipLink"/>
     <view-map name="ViewCmsFellowshipLink" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#ViewCmsFellowshipLink"/>
     <view-map name="EditCmsFellowshipLink" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#EditCmsFellowshipLink"/> 
-    <!-- 链接管理 view Map by Surpass Li 结束-->
+    <!-- 链接管理 -->
 
-    <!-- 评论管理 view Map by Surpass Li 开始-->
-    <view-map name="FindCmsCommentType" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#FindCmsCommentType"/>
-    <view-map name="EditCmsCommentType" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#EditCmsCommentType"/> 
-	<view-map name="FindCmsComment" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#FindCmsComment"/>
-    <view-map name="EditCmsComment" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#EditCmsComment"/>
-   	
-   	<!-- 评论管理 view Map by Surpass Li 结束-->
-	<!-- 留言管理 view Map by Surpass Li  2011-09-15 开始-->
-	<view-map name="FindCmsLeaveword" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#FindCmsLeaveword"/>
-    <view-map name="EditCmsLeaveword" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#EditCmsLeaveword"/>   	
-	<!-- 留言管理 view Map by Surpass Li  2011-09-15 结束-->
-    <!-- 栏目管理 -->
+    
+	<!-- 栏目管理 -->
     <view-map name="FindCmsCatalog" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#FindCmsCatalog"/>
     <view-map name="ViewCmsCatalog" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#ViewCmsCatalog"/>
     <view-map name="EditCmsCatalog" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#EditCmsCatalog"/> 
 
-	<!-- 下载管理 -->
-	<view-map name="FindCmsAccessoryType" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#FindCmsAccessoryType"/>
-    <view-map name="EditCmsAccessoryType" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#EditCmsAccessoryType"/> 
-	<view-map name="FindCmsAccessory" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#FindCmsAccessory"/>
-	<view-map name="EditCmsAccessory" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#EditCmsAccessory"/>
-
-    <!--投票管理  add by jingchao.yan start-->
-	<view-map name="VoteManage" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#VoteManage"/>
-	<view-map name="CreateNewVote" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#CreateNewVote"/>
-	<view-map name="UpdateCmsVote" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#UpdateCmsVote"/>
-    <!--投票管理  add by jingchao.yan end-->
-    <!-- 会员及权限管理 view Map by Surpass Li  2011-09-15 开始-->
+	<!-- 会员及权限管理 view Map by Surpass Li  2011-09-15 开始-->
 	<view-map name="FindCmsSecurityGroup" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#FindCmsSecurityGroup"/>
     <view-map name="FindCmsUserLogin" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#FindCmsUserLogin"/>
     
@@ -364,14 +284,12 @@
     <view-map name="EditCmsUserLoginSecurityGroups" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#EditCmsUserLoginSecurityGroups"/>
 	<view-map name="LookupCmsUserLogin" type="screen" page="component://common/widget/LookupScreens.xml#LookupUserLogin"/>
     
-       	
-	<!-- 会员及权限 view Map by Surpass Li  2011-09-15 结束-->
-    <view-map name="pagetest" type="ftl" page="component://cmsbackend/webapp/cmsbackend/survey/pagetest.ftl"/>
     
     
-    <view-map name="FindEPaketConfig" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#FindEPaketConfig"/>
-    <view-map name="EditEPaketConfig" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#EditEPaketConfig"/>
-    <view-map name="FindEPaketConfigStatus" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#FindEPaketConfigStatus"/>
+   <view-map name="FindCmsArticleProduct" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#FindCmsArticleProduct"/>
+   <view-map name="EditCmsArticleProduct" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#EditCmsArticleProduct"/> 
     
+   <view-map name="FindCmsUserDetail" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#FindCmsUserDetail"/>
+   <view-map name="EditCmsUserDetail" type="screen" page="component://cmsbackend/widget/CmsBackendScreens.xml#EditCmsUserDetail"/> 
     
 </site-conf>
