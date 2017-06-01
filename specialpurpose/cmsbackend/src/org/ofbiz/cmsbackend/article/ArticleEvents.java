@@ -20,12 +20,13 @@ import org.ofbiz.service.ModelService;
 public class ArticleEvents {
     public static final String  module         = ArticleEvents.class.getName();
     private static final String IMAGE_FOLDER   = UtilProperties.getPropertyValue("cmsupload.properties",  "cms.uploadfile.article");
+    private static final String OFBIZ_HOME = System.getProperty("ofbiz.home");
     
     public static String createCmsArticle(HttpServletRequest request, HttpServletResponse response) {
         LocalDispatcher dispatcher = (LocalDispatcher) request.getAttribute("dispatcher");
         GenericValue userLogin = (GenericValue) request.getSession().getAttribute("userLogin");
         try {
-            Map<String, Object> context = UtilFileUpload.uploadFile(IMAGE_FOLDER, request);
+            Map<String, Object> context = UtilFileUpload.uploadFile(OFBIZ_HOME+IMAGE_FOLDER, request);
             context.put("contentImg", context.get("filePath"));
             context.put("userLogin", userLogin);
             ModelService pService = dispatcher.getDispatchContext().getModelService("createCmsArticle");
@@ -43,7 +44,7 @@ public class ArticleEvents {
         LocalDispatcher dispatcher = (LocalDispatcher) request.getAttribute("dispatcher");
         GenericValue userLogin = (GenericValue) request.getSession().getAttribute("userLogin");
         try {
-            Map<String, Object> context = UtilFileUpload.uploadFile(IMAGE_FOLDER, request);
+        	Map<String, Object> context = UtilFileUpload.uploadFile(OFBIZ_HOME+IMAGE_FOLDER, request);
             context.put("contentImg", context.get("filePath"));
             context.put("userLogin", userLogin);
             ModelService pService = dispatcher.getDispatchContext().getModelService("updateCmsArticle");

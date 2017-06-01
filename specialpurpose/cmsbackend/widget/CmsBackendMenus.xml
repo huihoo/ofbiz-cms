@@ -11,51 +11,33 @@
 		<menu-item name="FindCmsArticle" title="${uiLabelMap.FindCmsArticle}">
 			<link target="FindCmsArticle" />
 		</menu-item>
-		<!-- 下载管理 开始 -->
-		<menu-item name="FindCmsAccessory" title="${uiLabelMap.FindCmsAccessory}">
-			<link target="FindCmsAccessory" />
-		</menu-item>
-		<!-- 下载管理 结束 -->
-		<!-- 链接管理 by Surpass Li 开始-->
+		
+		<!-- 链接管理-->
 		<menu-item name="FindCmsFellowshipLink" title="${uiLabelMap.FindCmsFellowshipLink}">
 			<link target="FindCmsFellowshipLink" />
 		</menu-item>
-		<!-- 链接管理 by Surpass Li 结束-->
+		<!-- 链接管理-->
 
-		<!-- 评论管理 by Surpass Li 开始-->
-		<menu-item name="FindCmsComment" title="${uiLabelMap.FindCmsComment}">
-			<link target="FindCmsComment" />
-		</menu-item>
+		
 
-		<!-- 评论管理 by Surpass Li 结束-->
-
-		<!-- 栏目管理 by Suozhu Wang 开始-->
+		<!-- 栏目管理-->
 		<menu-item name="FindCmsCatalog" title="${uiLabelMap.FindCmsCatalog}">
 			<link target="FindCmsCatalog" />
 		</menu-item>
 
-		<!-- 栏目管理 by Suozhu Wang 结束-->
-        <menu-item name="survey" title="${uiLabelMap.ContentSurvey}">
-			<link target="EditSurveyQuestions"/>
-		</menu-item>
-
+		<!-- 栏目管理-->
+        
 		<menu-item name="FindCmsCalendarEvents" title="${uiLabelMap.FindCmsCalendarEvents}">
 			<link target="FindCmsCalendarEvents" />
 		</menu-item>
-        <!--投票管理 by jingchao.yan start-->
-        <menu-item name="VoteManage" title="${uiLabelMap.VoteManage}">
-            <link target="VoteManage"/>
-        </menu-item>
-        <menu-item name="CreateNewVote" title="${uiLabelMap.CreateNewVote}">
-            <link target="CreateNewVote"/>
-        </menu-item>
-        <!--投票管理 by jingchao.yan end-->
         
-        <!-- 留言管理 by Surpass Li 2011-09-15  开始--> 
-		<menu-item name="FindCmsLeaveword" title="${uiLabelMap.FindCmsLeaveword}">
-			<link target="FindCmsLeaveword" />
-		</menu-item> 
-
-		<!-- 留言管理 by Surpass Li 2011-09-15 结束-->
+        <menu-item name="FindCmsArticleProduct" title="${uiLabelMap.CmsArticleProduct}">
+			<link target="FindCmsArticleProduct" />
+		</menu-item>
+        
+        
+         <menu-item name="FindCmsUserDetail" title="${uiLabelMap.CmsUserDetail}">
+			<link target="FindCmsUserDetail" />
+		</menu-item>       
 	</menu>
 </menus>
